@@ -18,9 +18,10 @@ namespace TP_POO_24200_24204
         protected string Localidade { get; set; }
         protected string ContactoTelefone { get; set; }
         protected string DocIdentificacao { get; set; }
+        protected string TipoDocIdentificacao { get; set; }
         protected string IBAN { get; set; }
         protected string TipoUtilizador { get; set; }
-        protected bool Estado { get; set; }
+        protected bool Ativo { get; set; }
         protected DateTime DataRegisto { get; set; }    
     }
 }

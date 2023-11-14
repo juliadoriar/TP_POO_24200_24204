@@ -14,7 +14,7 @@ namespace TP_POO_24200_24204
         protected DateTime DataEntrada { get; set; }
         protected DateTime DataSaida { get; set; }
         protected float PrecoCaucao { get; set; }
-        protected bool Estado { get; set; }
+        protected bool Ativo { get; set; }
         protected DateTime DataReserva { get; set; }
     }
 }

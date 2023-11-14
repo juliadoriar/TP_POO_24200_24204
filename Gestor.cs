@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_POO_24200_24204
 {
-    public class Gestor : Funcionario
+    public class Gestor : Utilizador
     {
 
     }
