@@ -1,10 +1,21 @@
-﻿namespace TP_POO_24200_24204
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TP_POO_24200_24204
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            List<Quarto> listaDeQuartos = Quarto.CriarListaDeQuartos();
+
+            Quarto.ImprimirListaDeQuartos(listaDeQuartos);
+
         }
+
     } 
 }

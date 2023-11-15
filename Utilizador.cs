@@ -24,4 +24,6 @@ namespace TP_POO_24200_24204
         protected bool Ativo { get; set; }
         protected DateTime DataRegisto { get; set; }    
     }
+
+
 }
