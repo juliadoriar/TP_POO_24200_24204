@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP_POO_24200_24204
+/*namespace TP_POO_24200_24204
 {
     public class Funcionario : Utilizador
     {  
@@ -12,4 +12,4 @@ namespace TP_POO_24200_24204
         protected DateOnly DataContrato { get; set; }
         protected float Salario { get; set; }
     }
-}
+}*/
