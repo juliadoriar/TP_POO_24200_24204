@@ -15,6 +15,9 @@ namespace TP_POO_24200_24204
 
             Quarto.ImprimirListaDeQuartos(listaDeQuartos);
 
+            List<Morador> listaDeMoradores = Morador.CriarListaDeMoradores();
+            Morador.AdicionarMorador(listaDeMoradores);
+            Morador.ImprimirListaDeMoradores(listaDeMoradores);
         }
 
     } 

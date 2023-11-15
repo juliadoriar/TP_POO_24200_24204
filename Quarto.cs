@@ -41,51 +41,51 @@ namespace TP_POO_24200_24204
         #endregion
    
         #region Getters e Setters
-        public int getQuartoId()
+        public int GetQuartoId()
         {
             return QuartoId;
         }   
-        private void setQuartoId(int quartoId)
+        private void SetQuartoId(int quartoId)
         {
             QuartoId = quartoId;
         }
-        public string getTipoQuarto()
+        public string GetTipoQuarto()
         {
             return TipoQuarto;
         }           
-        public void setTipoQuarto(string tipoQuarto)
+        public void SetTipoQuarto(string tipoQuarto)
         {
             TipoQuarto = tipoQuarto;
         }
-        public int getAndar()
+        public int GetAndar()
         {
             return Andar;
         }
-        public void setAndar(int andar)
+        public void SetAndar(int andar)
         {
             Andar = andar;
         }
-        public int getCapacidade()
+        public int GetCapacidade()
         {
             return Capacidade;
         }
-        public void setCapacidade(int capacidade)
+        public void SetCapacidade(int capacidade)
         {
             Capacidade = capacidade;
         }
-        public float getPrecoRenda()
+        public float GetPrecoRenda()
         {
             return PrecoRenda;
         }
-        public void setPrecoRenda(float precoRenda)
+        public void SetPrecoRenda(float precoRenda)
         {
             PrecoRenda = precoRenda;
         }
-        public bool getDisponibilidade()
+        public bool GetDisponibilidade()
         {
             return Disponibilidade;
         }
-        public void setDisponibilidade(bool disponibilidade)
+        public void SetDisponibilidade(bool disponibilidade)
         {
             Disponibilidade = disponibilidade;
         }
@@ -127,7 +127,7 @@ namespace TP_POO_24200_24204
             {
                     foreach (Quarto quarto in listaDeQuartos)
                     {
-                        Console.WriteLine($"ID: {quarto.getQuartoId().ToString("D3")}, Tipo: {quarto.getTipoQuarto()}, Andar: {quarto.getAndar()}, Capacidade: {quarto.getCapacidade()}, Preço Renda: {quarto.getPrecoRenda().ToString("F2")}, Disponibilidade: {quarto.getDisponibilidade()}");
+                        Console.WriteLine($"ID: {quarto.GetQuartoId().ToString("D3")}, Tipo: {quarto.GetTipoQuarto()}, Andar: {quarto.GetAndar()}, Capacidade: {quarto.GetCapacidade()}, Preço Renda: {quarto.GetPrecoRenda().ToString("F2")}, Disponibilidade: {quarto.GetDisponibilidade()}");
                     }
             }
                 #region Métodos auxiliares de Lista de Quartos
