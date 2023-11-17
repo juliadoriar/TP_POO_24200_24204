@@ -9,7 +9,7 @@ namespace TP_POO_24200_24204
 {
     public class Morador : Utilizador
     {
-        static List<Morador> listaDeMoradores = new List<Morador>();
+        private static List<Morador> listaDeMoradores = new List<Morador>();
 
         protected bool IsAdimplente;
 
@@ -72,27 +72,20 @@ namespace TP_POO_24200_24204
 
         }
 
-            /*public static List<Morador> CriarListaDeMoradores()
-            {
-                List<Morador> listaDeMoradores = new List<Morador>();
-
-                return listaDeMoradores;
-            }*/
-
             // Add morador à lista de moradores
             public static void AdicionarMorador(Morador novoMorador)
             {
-            // Verificar se o morador já existe na lista
-            if (listaDeMoradores.Exists(morador =>
-                novoMorador.GetDocIdentificacao() == morador.GetDocIdentificacao() &&
-                novoMorador.GetTipoDocIdentificacao() == morador.GetTipoDocIdentificacao()))
-            {
-                Console.WriteLine("O morador já existe na lista.");
-            }
-            else
-            {
-                listaDeMoradores.Add(novoMorador);
-            }
+                // Verificar se o morador já existe na lista
+                if (listaDeMoradores.Exists(morador =>
+                    novoMorador.GetDocIdentificacao() == morador.GetDocIdentificacao() &&
+                    novoMorador.GetTipoDocIdentificacao() == morador.GetTipoDocIdentificacao()))
+                {
+                    Console.WriteLine("O morador já existe na lista.");
+                }
+                else
+                {
+                    listaDeMoradores.Add(novoMorador);
+                }
 
             }
 
