@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.IO;
+using System.Text.Json.Serialization;
+
 
 namespace TP_POO_24200_24204
 {
@@ -15,9 +19,9 @@ namespace TP_POO_24200_24204
 
             Quarto.ImprimirListaDeQuartos(listaDeQuartos);
 
-            List<Utilizador> listaDeUtilizadores = Utilizador.CriarListaDeUtilizadores();
-           Utilizador.CriarUtilizador(listaDeUtilizadores);
-            Utilizador.ImprimirListaDeUtilizadores(listaDeUtilizadores);
+            Utilizador.SalvarListaEmArquivo("utilizador.json");
+            Utilizador.CriarUtilizador();
+            Utilizador.ImprimirListaDeUtilizadores();
 
             /*if (novoUtilizador.GetTipoUtilizador() == "Morador")
             {
@@ -30,10 +34,8 @@ namespace TP_POO_24200_24204
             else if (novoUtilizador.GetTipoUtilizador() == "Administrador")
             {
                 Gestor.AdicionarGestor(novoUtilizador);
-            }
+            }*/
 
-            List<Morador> listaDeMoradores = Morador.CriarListaDeMoradores();
-            Morador.AdicionarMorador(listaDeMoradores);*/
             Morador.ImprimirListaDeMoradores();
 
 

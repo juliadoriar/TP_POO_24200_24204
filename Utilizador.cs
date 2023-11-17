@@ -4,11 +4,17 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Text.Json;
+using System.IO;
+using System.Text.Json.Serialization;
 
 namespace TP_POO_24200_24204
 {
     public class Utilizador
     {
+        protected static List<Utilizador> listaDeUtilizadores = new List<Utilizador>();
+
         protected int UtiId;
         protected string NomeUti;
         protected string Email;
@@ -61,6 +67,26 @@ namespace TP_POO_24200_24204
             IsAtivo = isAtivo;
             DataRegisto = (dataRegisto == default(DateTime)) ? DateTime.Now : dataRegisto;
         }
+
+        /*[JsonConstructor]
+        private Utilizador(int utiId, string nomeUti, string email, string password, DateTime dataNascimento, string morada, string codigoPostal, string localidade, string contactoTelefone, string docIdentificacao, string tipoDocIdentificacao, string iban, string tipoUtilizador, bool isAtivo, DateTime dataRegisto)
+        {
+            UtiId = utiId;
+            NomeUti = nomeUti;
+            Email = email;
+            Password = password;
+            DataNascimento = dataNascimento;
+            Morada = morada;
+            CodigoPostal = codigoPostal;
+            Localidade = localidade;
+            ContactoTelefone = contactoTelefone;
+            DocIdentificacao = docIdentificacao;
+            TipoDocIdentificacao = tipoDocIdentificacao;
+            IBAN = iban;
+            TipoUtilizador = tipoUtilizador;
+            IsAtivo = isAtivo;
+            DataRegisto = dataRegisto;
+        }*/
         #endregion
 
         #region Getters e Setters
@@ -69,7 +95,7 @@ namespace TP_POO_24200_24204
             return UtiId;
         }
 
-        private void SetUtiId(int utiId)
+        public void SetUtiId(int utiId)
         {
             UtiId = utiId;
         }
@@ -216,7 +242,25 @@ namespace TP_POO_24200_24204
         #endregion
 
         #region Lista de Utilizadores
-        public static Utilizador CriarUtilizador(List<Utilizador> listaDeUtilizadores)
+
+        public static void SalvarListaEmArquivo(string caminhoArquivo)
+        {
+            string json = JsonSerializer.Serialize(listaDeUtilizadores, new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.Preserve, WriteIndented = true });
+            //string json = JsonSerializer.Serialize(listaDeUtilizadores);
+
+            File.WriteAllText(caminhoArquivo, json);
+        }
+        // Carregar lista de utilizadores
+        public static void CarregarListaDeUtilizadores(string caminhoArquivo)
+        {
+            if (File.Exists(caminhoArquivo))
+            {
+                string json = File.ReadAllText(caminhoArquivo);
+                listaDeUtilizadores = JsonSerializer.Deserialize<List<Utilizador>>(json);
+            }
+        }
+
+        public static Utilizador CriarUtilizador()
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
@@ -266,26 +310,17 @@ namespace TP_POO_24200_24204
             Console.Write("Tipo de Utilizador: ");
             string tipoUtilizador = Console.ReadLine();
 
-            //DateTime dataRegisto = DateTime.Now;
-
             // Cria um novo objeto Utilizador
             Utilizador utilizador = new Utilizador(
                 utiId, nomeUti, email, password, dataNascimento, morada, codigoPostal, localidade, contactoTelefone, docIdentificacao, tipoDocIdentificacao, iban, tipoUtilizador);
 
-            AdicionarUtilizador(utilizador, listaDeUtilizadores);
-
+            AdicionarUtilizador(utilizador);
+            SalvarListaEmArquivo("utilizador.json");
             return utilizador;
 
         }
 
-        public static List<Utilizador> CriarListaDeUtilizadores()
-        {
-            List<Utilizador> listaDeUtilizadores = new List<Utilizador>();
-
-            return listaDeUtilizadores;
-        }
-
-        public static void AdicionarUtilizador(Utilizador novoUtilizador, List<Utilizador> listaDeUtilizadores)
+        public static void AdicionarUtilizador(Utilizador novoUtilizador)
         {
             // Verificar se o utilizador já existe na lista
             if (listaDeUtilizadores.Exists(Utilizador =>    //Função lambda
@@ -297,6 +332,7 @@ namespace TP_POO_24200_24204
             else
             {
                 listaDeUtilizadores.Add(novoUtilizador);
+                //SalvarListaEmArquivo("utilizador.json");
                 Console.WriteLine("Utilizador adicionado com sucesso.");
                 if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
                 {
@@ -315,13 +351,19 @@ namespace TP_POO_24200_24204
         }
 
         // Imprimir lista de utilizadores
-        public static void ImprimirListaDeUtilizadores(List<Utilizador> listaDeUtilizadores)
+        public static void ImprimirListaDeUtilizadores()
         {
+
+            CarregarListaDeUtilizadores("utilizador.json");
             foreach (Utilizador utilizador in listaDeUtilizadores)
             {
                 Console.WriteLine($"ID: {utilizador.GetUtiId()}, Nome: {utilizador.GetNomeUti()}, Email: {utilizador.GetEmail()}, Data de Nascimento: {utilizador.GetDataNascimento():dd-MM-yyyy}, Morada: {utilizador.GetMorada()}, Código Postal: {utilizador.GetCodigoPostal()}, Localidade: {utilizador.GetLocalidade()}, Contacto Telefone: {utilizador.GetContactoTelefone()}, Documento de Identificação: {utilizador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {utilizador.GetTipoDocIdentificacao()}, IBAN: {utilizador.GetIBAN()}, Tipo de Utilizador: {utilizador.GetTipoUtilizador()}, Ativo: {utilizador.GetIsAtivo()} Data de Registo: {utilizador.GetDataRegisto():dd-MM-yyyy}");
             }
         }
+        #region Json
+
+        #endregion
+
         #endregion
     }
 
