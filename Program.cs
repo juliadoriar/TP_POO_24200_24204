@@ -15,9 +15,28 @@ namespace TP_POO_24200_24204
 
             Quarto.ImprimirListaDeQuartos(listaDeQuartos);
 
+            List<Utilizador> listaDeUtilizadores = Utilizador.CriarListaDeUtilizadores();
+           Utilizador.CriarUtilizador(listaDeUtilizadores);
+            Utilizador.ImprimirListaDeUtilizadores(listaDeUtilizadores);
+
+            /*if (novoUtilizador.GetTipoUtilizador() == "Morador")
+            {
+                Morador.CriarMorador(novoUtilizador);
+            }
+            else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
+            {
+                Funcionario.AdicionarFuncionario(novoUtilizador);
+            }
+            else if (novoUtilizador.GetTipoUtilizador() == "Administrador")
+            {
+                Gestor.AdicionarGestor(novoUtilizador);
+            }
+
             List<Morador> listaDeMoradores = Morador.CriarListaDeMoradores();
-            Morador.AdicionarMorador(listaDeMoradores);
-            Morador.ImprimirListaDeMoradores(listaDeMoradores);
+            Morador.AdicionarMorador(listaDeMoradores);*/
+            Morador.ImprimirListaDeMoradores();
+
+
         }
 
     } 

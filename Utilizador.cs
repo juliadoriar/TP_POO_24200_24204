@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TP_POO_24200_24204
 {
-    public abstract class Utilizador
+    public class Utilizador
     {
         protected int UtiId;
         protected string NomeUti;
@@ -24,8 +25,25 @@ namespace TP_POO_24200_24204
         protected bool IsAtivo;
         protected DateTime DataRegisto;
 
+        private static int ultimoId = 0;
+
         #region Construtor
-        public Utilizador(int utiId, string nomeUti, string email, string password, DateTime dataNascimento, string morada, string codigoPostal, string localidade, string contactoTelefone, string docIdentificacao, string tipoDocIdentificacao, string iban, string tipoUtilizador, bool isAtivo, DateTime dataRegisto)
+        public Utilizador(int utiId,
+                          string nomeUti,
+                          string email,
+                          string password,
+                          DateTime dataNascimento,
+                          string morada,
+                          string codigoPostal,
+                          string localidade,
+                          string contactoTelefone,
+                          string docIdentificacao,
+                          string tipoDocIdentificacao,
+                          string iban,
+                          string tipoUtilizador,
+                          bool isAtivo = false,
+                          DateTime dataRegisto = default(DateTime))
+
         {
             UtiId = utiId;
             NomeUti = nomeUti;
@@ -41,7 +59,7 @@ namespace TP_POO_24200_24204
             IBAN = iban;
             TipoUtilizador = tipoUtilizador;
             IsAtivo = isAtivo;
-            DataRegisto = dataRegisto;
+            DataRegisto = (dataRegisto == default(DateTime)) ? DateTime.Now : dataRegisto;
         }
         #endregion
 
@@ -194,6 +212,115 @@ namespace TP_POO_24200_24204
         public void SetDataRegisto(DateTime dataRegisto)
         {
             DataRegisto = dataRegisto;
+        }
+        #endregion
+
+        #region Lista de Utilizadores
+        public static Utilizador CriarUtilizador(List<Utilizador> listaDeUtilizadores)
+        {
+            Console.WriteLine("Por favor, forneça as informações do utilizador:");
+
+            int utiId = ++Utilizador.ultimoId;
+
+            Console.Write("Nome: ");
+            string nomeUti = Console.ReadLine();
+
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+
+            Console.Write("Data de Nascimento (DD-MM-YYYY): ");
+            DateTime dataNascimento;
+            if (DateTime.TryParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
+            {
+                Console.WriteLine($"Data de Nascimento: {dataNascimento:dd-MM-yyyy}");
+            }
+            else
+            {
+                Console.WriteLine("Formato de data inválido.");
+            }
+
+            Console.Write("Morada: ");
+            string morada = Console.ReadLine();
+
+            Console.Write("Código Postal: ");
+            string codigoPostal = Console.ReadLine();
+
+            Console.Write("Localidade: ");
+            string localidade = Console.ReadLine();
+
+            Console.Write("Contacto Telefone: ");
+            string contactoTelefone = Console.ReadLine();
+
+            Console.Write("Documento de Identificação: ");
+            string docIdentificacao = Console.ReadLine();
+
+            Console.Write("Tipo de Documento de Identificação: ");
+            string tipoDocIdentificacao = Console.ReadLine();
+
+            Console.Write("IBAN: ");
+            string iban = Console.ReadLine();
+
+            Console.Write("Tipo de Utilizador: ");
+            string tipoUtilizador = Console.ReadLine();
+
+            //DateTime dataRegisto = DateTime.Now;
+
+            // Cria um novo objeto Utilizador
+            Utilizador utilizador = new Utilizador(
+                utiId, nomeUti, email, password, dataNascimento, morada, codigoPostal, localidade, contactoTelefone, docIdentificacao, tipoDocIdentificacao, iban, tipoUtilizador);
+
+            AdicionarUtilizador(utilizador, listaDeUtilizadores);
+
+            return utilizador;
+
+        }
+
+        public static List<Utilizador> CriarListaDeUtilizadores()
+        {
+            List<Utilizador> listaDeUtilizadores = new List<Utilizador>();
+
+            return listaDeUtilizadores;
+        }
+
+        public static void AdicionarUtilizador(Utilizador novoUtilizador, List<Utilizador> listaDeUtilizadores)
+        {
+            // Verificar se o utilizador já existe na lista
+            if (listaDeUtilizadores.Exists(Utilizador =>    //Função lambda
+                novoUtilizador.GetDocIdentificacao() == Utilizador.GetDocIdentificacao() &&
+                novoUtilizador.GetTipoDocIdentificacao() == Utilizador.GetTipoDocIdentificacao()))
+            {
+                Console.WriteLine("O utilizador já existe na lista.");
+            }
+            else
+            {
+                listaDeUtilizadores.Add(novoUtilizador);
+                Console.WriteLine("Utilizador adicionado com sucesso.");
+                if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
+                {
+                    Morador.CriarMorador(novoUtilizador);
+                }
+                /*else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
+                {
+                    Funcionario.CriarFuncionario(novoUtilizador);
+                }
+                else if (novoUtilizador.GetTipoUtilizador() == "Gestor")
+                {
+                    Gestor.CriarGestor(novoUtilizador);
+                }*/
+            }
+
+        }
+
+        // Imprimir lista de utilizadores
+        public static void ImprimirListaDeUtilizadores(List<Utilizador> listaDeUtilizadores)
+        {
+            foreach (Utilizador utilizador in listaDeUtilizadores)
+            {
+                Console.WriteLine($"ID: {utilizador.GetUtiId()}, Nome: {utilizador.GetNomeUti()}, Email: {utilizador.GetEmail()}, Data de Nascimento: {utilizador.GetDataNascimento():dd-MM-yyyy}, Morada: {utilizador.GetMorada()}, Código Postal: {utilizador.GetCodigoPostal()}, Localidade: {utilizador.GetLocalidade()}, Contacto Telefone: {utilizador.GetContactoTelefone()}, Documento de Identificação: {utilizador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {utilizador.GetTipoDocIdentificacao()}, IBAN: {utilizador.GetIBAN()}, Tipo de Utilizador: {utilizador.GetTipoUtilizador()}, Ativo: {utilizador.GetIsAtivo()} Data de Registo: {utilizador.GetDataRegisto():dd-MM-yyyy}");
+            }
         }
         #endregion
     }
