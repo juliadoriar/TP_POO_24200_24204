@@ -19,7 +19,7 @@ namespace TP_POO_24200_24204
 
             Quarto.ImprimirListaDeQuartos(listaDeQuartos);
 
-            Utilizador.SalvarListaEmArquivo("utilizador.json");
+            //Utilizador.SalvarListaEmArquivo("utilizador.json");
             Utilizador.CriarUtilizador();
             Utilizador.ImprimirListaDeUtilizadores();
 

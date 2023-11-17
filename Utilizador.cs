@@ -8,6 +8,7 @@ using System.Xml;
 using System.Text.Json;
 using System.IO;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace TP_POO_24200_24204
 {
@@ -245,18 +246,32 @@ namespace TP_POO_24200_24204
 
         public static void SalvarListaEmArquivo(string caminhoArquivo)
         {
-            string json = JsonSerializer.Serialize(listaDeUtilizadores, new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.Preserve, WriteIndented = true });
-            //string json = JsonSerializer.Serialize(listaDeUtilizadores);
-
+            /*string json = JsonSerializer.Serialize(listaDeUtilizadores, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(caminhoArquivo, json);*/
+            string json = JsonConvert.SerializeObject(listaDeUtilizadores, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(caminhoArquivo, json);
+            
+            /*Console.WriteLine("..>"+ listaDeUtilizadores[0].Morada);
+            Utilizador user1 = new Utilizador(11, "123", "123", "123", DateTime.Parse("12-12-2023"), "123", "123", "123", "123", "123", "123", "123", "123", false, DateTime.Parse("12-12-2023"));
+            string json = System.Text.Json.JsonSerializer.Serialize(user1); //Converter utf-8
+
+            List<Utilizador> listau = new List<Utilizador>();
+            listau.Add(user1);
+            File.WriteAllText("data.json", json);*/
+
         }
         // Carregar lista de utilizadores
         public static void CarregarListaDeUtilizadores(string caminhoArquivo)
         {
+            /* if (File.Exists(caminhoArquivo))
+             {
+                 string json = File.ReadAllText(caminhoArquivo);
+                 listaDeUtilizadores = JsonSerializer.Deserialize<List<Utilizador>>(json);
+             }*/
             if (File.Exists(caminhoArquivo))
             {
                 string json = File.ReadAllText(caminhoArquivo);
-                listaDeUtilizadores = JsonSerializer.Deserialize<List<Utilizador>>(json);
+                listaDeUtilizadores = JsonConvert.DeserializeObject<List<Utilizador>>(json);
             }
         }
 
