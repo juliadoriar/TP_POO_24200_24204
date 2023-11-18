@@ -11,6 +11,8 @@ namespace TP_POO_24200_24204
     /// </summary>
     public class Quarto
     {
+        public static List<Quarto> listaDeQuartos = new List<Quarto>();
+
         protected int QuartoId;
         protected string TipoQuarto;
         protected int Andar;
@@ -96,7 +98,7 @@ namespace TP_POO_24200_24204
             #region Lista de Quartos
             public static List<Quarto> CriarListaDeQuartos()
             {
-                List<Quarto> listaDeQuartos = new List<Quarto>();
+                
 
                 for (int i = 0; i <= 2; i++)
                 {
@@ -125,10 +127,12 @@ namespace TP_POO_24200_24204
             }
             public static void ImprimirListaDeQuartos(List<Quarto> listaDeQuartos)
             {
-                    foreach (Quarto quarto in listaDeQuartos)
-                    {
-                        Console.WriteLine($"ID: {quarto.GetQuartoId().ToString("D3")}, Tipo: {quarto.GetTipoQuarto()}, Andar: {quarto.GetAndar()}, Capacidade: {quarto.GetCapacidade()}, Preço Renda: {quarto.GetPrecoRenda().ToString("F2")}, Disponibilidade: {quarto.GetDisponibilidade()}");
-                    }
+                Console.WriteLine("Lista de Quartos");
+                Console.WriteLine("--------------------------------------------");
+                foreach (Quarto quarto in listaDeQuartos)
+                {
+                    Console.WriteLine($"ID: {quarto.GetQuartoId().ToString("D3")}, Tipo: {quarto.GetTipoQuarto()}, Andar: {quarto.GetAndar()}, Capacidade: {quarto.GetCapacidade()}, Preço Renda: {quarto.GetPrecoRenda().ToString("F2")}, Disponibilidade: {quarto.GetDisponibilidade()}");
+                }
             }
                 #region Métodos auxiliares de Lista de Quartos
                 private static string ObterTipoQuartoAleatorio()
