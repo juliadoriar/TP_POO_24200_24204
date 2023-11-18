@@ -102,7 +102,8 @@ namespace TP_POO_24200_24204
                 {
                     ControladorMorador.CriarMorador(novoUtilizador);
                 }
-                /*else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
+                /* A SER IMPLEMENTADO
+                else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
                 {
                     Funcionario.CriarFuncionario(novoUtilizador);
                 }
