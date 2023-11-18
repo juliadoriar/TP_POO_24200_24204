@@ -31,8 +31,8 @@ namespace TP_POO_24200_24204
                 switch (opcao)
                 {
                     case "1":
-                        Utilizador.CriarUtilizador();
                         Console.WriteLine("Opção 1 - Registar Utilizador");
+                        ControladorUtilizador.CriarUtilizador();
                         break;
 
                     case "2":
@@ -41,12 +41,12 @@ namespace TP_POO_24200_24204
 
                     case "3":
                         Console.WriteLine("Opção 3 - Listar Utilizadores");
-                        Utilizador.ImprimirListaDeUtilizadores();
+                        ControladorUtilizador.ImprimirListaDeUtilizadores();
                         break;
 
                     case "4":
                         Console.WriteLine("Opção 4 - Listar Moradores");
-                        Morador.ImprimirListaDeMoradores();
+                        ControladorMorador.ImprimirListaDeMoradores();
                         break;
 
                     case "5":
@@ -76,10 +76,14 @@ namespace TP_POO_24200_24204
                         break;
                 }
 
-                // Aguardar o usuário pressionar Enter para limpar a tela e continuar
-                Console.WriteLine("Pressione Enter para continuar...");
-                Console.ReadLine();
-                Console.Clear();
+                // Aguardar o usuário pressionar Enter para limpar o ecrã e continuar
+                if (continuar != false)
+                {
+                    Console.WriteLine("\nPressione Enter para voltar ao menu...");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+
             }
         }
     }
