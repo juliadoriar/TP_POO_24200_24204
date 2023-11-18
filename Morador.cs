@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using Newtonsoft.Json;
 
 namespace TP_POO_24200_24204
 {
     public class Morador : Utilizador
     {
         private static List<Morador> listaDeMoradores = new List<Morador>();
-
+        
+        [JsonProperty("isAdimplente")]
         protected bool IsAdimplente;
 
         #region Construtor
@@ -71,33 +73,68 @@ namespace TP_POO_24200_24204
             return morador;
 
         }
-
-            // Add morador à lista de moradores
-            public static void AdicionarMorador(Morador novoMorador)
-            {
-                // Verificar se o morador já existe na lista
-                if (listaDeMoradores.Exists(morador =>
+        // Add morador à lista de moradores
+        public static void AdicionarMorador(Morador novoMorador)
+        {
+            // Verificar se o morador já existe na lista
+            if (listaDeMoradores.Exists(morador =>
                     novoMorador.GetDocIdentificacao() == morador.GetDocIdentificacao() &&
                     novoMorador.GetTipoDocIdentificacao() == morador.GetTipoDocIdentificacao()))
                 {
                     Console.WriteLine("O morador já existe na lista.");
+            }
+            else
+            {
+                listaDeMoradores.Add(novoMorador);
+                SalvarListaFicheiro("morador.json");
+            }
+
+        }
+
+        // Imprimir lista de moradores
+        public static void ImprimirListaDeMoradores()
+            {
+                List<Morador> listaDeMoradoresAtual = CarregarListaDeMoradores("morador.json");
+
+                if (listaDeMoradoresAtual == null)
+                {
+                    Console.WriteLine("Não há moradores registados");
                 }
                 else
                 {
-                    listaDeMoradores.Add(novoMorador);
+                    Console.WriteLine("Lista de Moradores");
+                    Console.WriteLine("--------------------------------------------");
+                    foreach (Morador morador in listaDeMoradoresAtual)
+                    {
+                        Console.WriteLine($"ID: {morador.GetUtiId()}, Nome: {morador.GetNomeUti()}, Email: {morador.GetEmail()}, Data de Nascimento: {morador.GetDataNascimento():dd-MM-yyyy}, Morada: {morador.GetMorada()}, Código Postal: {morador.GetCodigoPostal()}, Localidade: {morador.GetLocalidade()}, Contacto Telefone: {morador.GetContactoTelefone()}, Documento de Identificação: {morador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {morador.GetTipoDocIdentificacao()}, IBAN: {morador.GetIBAN()}, Tipo de Utilizador: {morador.GetTipoUtilizador()}, Ativo: {morador.GetIsAtivo()} Data de Registo: {morador.GetDataRegisto():dd-MM-yyyy}, Adimplente: {morador.GetIsAdimplente()}");
+                    }
                 }
 
             }
+        #region Json
+        // Salvar lista de moradores
+        public static void SalvarListaFicheiro(string caminhoArquivo)
+        {
+            string json = JsonConvert.SerializeObject(listaDeMoradores, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(caminhoArquivo, json);
+        }
+        // Carregar lista de utilizadores
+        public static List<Morador> CarregarListaDeMoradores(string caminhoArquivo)
+        {
+            List<Morador> listaDeMoradoresAtual = new List<Morador>();
 
-            // Imprimir lista de moradores
-            public static void ImprimirListaDeMoradores()
+            if (File.Exists(caminhoArquivo))
             {
-                    foreach (Morador morador in listaDeMoradores)
-                {
-                        Console.WriteLine($"ID: {morador.GetUtiId()}, Nome: {morador.GetNomeUti()}, Email: {morador.GetEmail()}, Data de Nascimento: {morador.GetDataNascimento():dd-MM-yyyy}, Morada: {morador.GetMorada()}, Código Postal: {morador.GetCodigoPostal()}, Localidade: {morador.GetLocalidade()}, Contacto Telefone: {morador.GetContactoTelefone()}, Documento de Identificação: {morador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {morador.GetTipoDocIdentificacao()}, IBAN: {morador.GetIBAN()}, Tipo de Utilizador: {morador.GetTipoUtilizador()}, Ativo: {morador.GetIsAtivo()} Data de Registo: {morador.GetDataRegisto():dd-MM-yyyy}, Adimplente: {morador.GetIsAdimplente()}");
-                    }
+                string json = File.ReadAllText(caminhoArquivo);
+                listaDeMoradoresAtual = JsonConvert.DeserializeObject<List<Morador>>(json);
+                return listaDeMoradoresAtual;
             }
-            #endregion
+
+            // Se o ficheiro não existir, retorna uma lista vazia
+            return new List<Morador>();
+        }
+        #endregion
+        #endregion
 
         #endregion
     }
