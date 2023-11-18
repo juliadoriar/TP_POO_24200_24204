@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace TP_POO_24200_24204
 {
+    /// <summary>
+    /// // Classe que representa o menu de interação com operações relacionadas a uma residência
+    /// </summary>
     public class MenuResidencia
     {
+        /// <summary>
+        /// // Método estático para exibir o menu
+        /// </summary>
         public static void ExibirMenu()
         {
-            bool continuar = true;
+            bool continuar = true; // Variável para controlar a continuidade do loop
 
-            while (continuar)
+            while (continuar)// Loop para exibir o menu
             {
                 Console.WriteLine("Menu Residência:");
                 Console.WriteLine("1. Registar Utilizador");
@@ -63,7 +69,7 @@ namespace TP_POO_24200_24204
 
                     case "8":
                         Console.WriteLine("Opção 8 - Listar Quartos");
-                        Quarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
+                        ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
                         break;
 
                     case "9":
@@ -76,8 +82,7 @@ namespace TP_POO_24200_24204
                         break;
                 }
 
-                // Aguardar o usuário pressionar Enter para limpar o ecrã e continuar
-                if (continuar != false)
+                if (continuar != false) // Aguardar o usuário pressionar Enter para limpar o ecrã e continuar
                 {
                     Console.WriteLine("\nPressione Enter para voltar ao menu...");
                     Console.ReadLine();

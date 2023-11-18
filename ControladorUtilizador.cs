@@ -8,16 +8,23 @@ using System.Threading.Tasks;
 
 namespace TP_POO_24200_24204
 {
+    /// <summary>
+    /// Classe que atua como controlador para operações relacionadas aos utilizadores
+    /// </summary>
     public class ControladorUtilizador
     {
         #region Lista de Utilizadores
+        /// <summary>
+        /// Método estático para criar um objeto Utilizador
+        /// </summary>
+        /// <returns></returns>
         public static Utilizador CriarUtilizador()
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
-            int ultimoId = Utilizador.GetUltimoId();
-            int utiId = ++ultimoId;
-            Utilizador.SetUltimoId(utiId);
+            int ultimoId = Utilizador.GetUltimoId(); // Obter o último id de utilizador
+            int utiId = ++ultimoId; // Incrementar a variável de classe com o último id do utilizador e atribuí-lo para o objeto 
+            Utilizador.SetUltimoId(utiId); // Guardar o último id de utilizador
 
             Console.Write("Nome: ");
             string nomeUti = Console.ReadLine();
@@ -30,7 +37,7 @@ namespace TP_POO_24200_24204
 
             Console.Write("Data de Nascimento (DD-MM-YYYY): ");
             DateTime dataNascimento;
-            if (DateTime.TryParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
+            if (DateTime.TryParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento)) // Verificar se a data de nascimento está no formato correto
             {
                 Console.WriteLine();
             }
@@ -67,11 +74,14 @@ namespace TP_POO_24200_24204
             Utilizador utilizador = new Utilizador(
                 utiId, nomeUti, email, password, dataNascimento, morada, codigoPostal, localidade, contactoTelefone, docIdentificacao, tipoDocIdentificacao, iban, tipoUtilizador);
 
-            AdicionarUtilizador(utilizador);
+            AdicionarUtilizador(utilizador); // Adicionar utilizador à lista de utilizadores
             return utilizador;
-
         }
 
+        /// <summary>
+        /// Método para adicionar utilizador à lista de utilizadores
+        /// </summary>
+        /// <param name="novoUtilizador"></param>
         public static void AdicionarUtilizador(Utilizador novoUtilizador)
         {
             // Verificar se o utilizador já existe na lista
@@ -84,8 +94,10 @@ namespace TP_POO_24200_24204
             else
             {
                 Utilizador.listaDeUtilizadores.Add(novoUtilizador);
-                SalvarListaFicheiro("utilizador.json");
+                SalvarListaFicheiro("utilizador.json"); // Salvar lista de utilizadores no ficheiro
                 Console.WriteLine("Utilizador adicionado com sucesso.");
+                
+                // Verificar o tipo de utilizador e criar o objeto correspondente
                 if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
                 {
                     ControladorMorador.CriarMorador(novoUtilizador);
@@ -102,7 +114,9 @@ namespace TP_POO_24200_24204
 
         }
 
-        // Imprimir lista de utilizadores
+        /// <summary>
+        /// Método para imprimir a lista de utilizadores
+        /// </summary>
         public static void ImprimirListaDeUtilizadores()
         {
 
@@ -124,7 +138,10 @@ namespace TP_POO_24200_24204
 
         }
         #region Json
-        //Criar ficheiro Json
+        /// <summary>
+        /// Método para criar um ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
         public static void CriarFicheiroJson(string caminhoArquivo)
         {
             if (File.Exists(caminhoArquivo))
@@ -139,26 +156,32 @@ namespace TP_POO_24200_24204
             }
         }
 
-        // Salvar lista de utilizadores
+        /// <summary>
+        /// Método para salvar a lista de utilizadores no ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
         public static void SalvarListaFicheiro(string caminhoArquivo)
         {
-            string json = JsonConvert.SerializeObject(Utilizador.listaDeUtilizadores, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(caminhoArquivo, json);
+            string json = JsonConvert.SerializeObject(Utilizador.listaDeUtilizadores, Newtonsoft.Json.Formatting.Indented); // Serializar lista de utilizadores
+            File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
         }
-        // Carregar lista de utilizadores
+
+        /// <summary>
+        /// Método para carregar a lista de utilizadores do ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <returns></returns>
         public static List<Utilizador> CarregarListaDeUtilizadores(string caminhoArquivo)
         {
             List<Utilizador> listaDeUtilizadoresAtual = new List<Utilizador>();
-            if (File.Exists(caminhoArquivo))
+            if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
             {
-                string json = File.ReadAllText(caminhoArquivo);
-                listaDeUtilizadoresAtual = JsonConvert.DeserializeObject<List<Utilizador>>(json);
-                return listaDeUtilizadoresAtual;
+                string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
+                listaDeUtilizadoresAtual = JsonConvert.DeserializeObject<List<Utilizador>>(json); // Desserializar o ficheiro
+                return listaDeUtilizadoresAtual; // Retornar a lista de utilizadores
             }
-
-            // Se o ficheiro não existir, retorna uma lista vazia
-            return new List<Utilizador>();
-
+                        
+            return new List<Utilizador>(); // Se o ficheiro não existir, retorna uma lista vazia
         }
         #endregion
 

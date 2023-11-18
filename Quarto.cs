@@ -3,27 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace TP_POO_24200_24204
 {
     /// <summary>
-    /// 
+    /// Classe que representa um quarto da residência
     /// </summary>
     public class Quarto
     {
-        public static List<Quarto> listaDeQuartos = new List<Quarto>();
-
-        protected int QuartoId;
-        protected string TipoQuarto;
-        protected int Andar;
-        protected int Capacidade;
-        protected float PrecoRenda;
-        protected bool Disponibilidade;
+        public static List<Quarto> listaDeQuartos = new List<Quarto>(); // Variável que guarda a lista de quartos da residência
+        
+        [JsonProperty("quartoId")]
+        protected int QuartoId; // Propriedade que indica o id do quarto
+        [JsonProperty("tipoQuarto")]
+        protected string TipoQuarto; // Propriedade que indica o tipo de quarto (individual, duplo, triplo, etc.)
+        [JsonProperty("andar")]
+        protected int Andar; // Propriedade que indica o andar onde se localiza o quarto
+        [JsonProperty("capacidade")]
+        protected int Capacidade; // Propriedade que indica a capacidade de pessoas do quarto
+        [JsonProperty("precoRenda")]
+        protected float PrecoRenda; // Propriedade que indica o preço da renda do quarto
+        [JsonProperty("disponibilidade")]
+        protected bool Disponibilidade; // Propriedade que indica se o quarto está disponível ou não
 
 
         #region Construtor
         /// <summary>
-        /// 
+        /// Construtor da classe Quarto
         /// </summary>
         /// <param name="quartoId"></param>
         /// <param name="tipoQuarto"></param>
@@ -42,6 +49,10 @@ namespace TP_POO_24200_24204
         }
         #endregion
    
+        /// <summary>
+        /// Métodos de acesso aos atributos da classe Quarto
+        /// </summary>
+        /// <returns></returns>
         #region Getters e Setters
         public int GetQuartoId()
         {
@@ -91,97 +102,6 @@ namespace TP_POO_24200_24204
         {
             Disponibilidade = disponibilidade;
         }
-        #endregion
-
-        #region Métodos
-
-            #region Lista de Quartos
-            public static List<Quarto> CriarListaDeQuartos()
-            {
-                
-
-                for (int i = 0; i <= 2; i++)
-                {
-                    for (int j = 1; j < 20; j++)
-                    {
-                        string tipoQuarto = ObterTipoQuartoAleatorio();
-                        int capacidade = ObterCapacidadePorTipoQuarto(tipoQuarto);
-                        float precoBase = ObterPrecoBasePorTipoQuarto(tipoQuarto);
-                        float precoRenda = CalcularPrecoRenda(i, precoBase);
-                        bool disponibilidadeAleatoria = ObterDisponibilidadeAleatoria();
-
-                        Quarto quarto = new Quarto(
-                            j + i * 100,
-                            tipoQuarto,
-                            i,
-                            capacidade,
-                            precoRenda,
-                            disponibilidadeAleatoria
-                        );
-
-                        listaDeQuartos.Add(quarto);
-                    }
-                }
-
-                return listaDeQuartos;
-            }
-            public static void ImprimirListaDeQuartos(List<Quarto> listaDeQuartos)
-            {
-                Console.WriteLine("Lista de Quartos");
-                Console.WriteLine("--------------------------------------------");
-                foreach (Quarto quarto in listaDeQuartos)
-                {
-                    Console.WriteLine($"ID: {quarto.GetQuartoId().ToString("D3")}, Tipo: {quarto.GetTipoQuarto()}, Andar: {quarto.GetAndar()}, Capacidade: {quarto.GetCapacidade()}, Preço Renda: {quarto.GetPrecoRenda().ToString("F2")}, Disponibilidade: {quarto.GetDisponibilidade()}");
-                }
-            }
-                #region Métodos auxiliares de Lista de Quartos
-                private static string ObterTipoQuartoAleatorio()
-                {
-                    string[] tiposQuarto = { "Individual", "Duplo", "Studio" };
-                    Random random = new Random();
-                    int indiceAleatorio = random.Next(tiposQuarto.Length);
-                    return tiposQuarto[indiceAleatorio];
-                }
-                private static int ObterCapacidadePorTipoQuarto(string tipoQuarto)
-                {
-                    switch (tipoQuarto)
-                    {
-                        case "Individual":
-                        case "Studio":
-                            return 1;
-                        case "Duplo":
-                            return 2;
-                        default:
-                            return 0; // Caso de fallback, caso seja um tipo de quarto desconhecido
-                    }
-                }
-                private static float ObterPrecoBasePorTipoQuarto(string tipoQuarto)
-                {
-                    switch (tipoQuarto)
-                    {
-                        case "Individual":
-                            return 220;
-                        case "Duplo":
-                            return 400;
-                        case "Studio":
-                            return 350;
-                        default:
-                            return 0; // Caso de fallback, caso seja um tipo de quarto desconhecido
-                    }
-                }
-
-                private static float CalcularPrecoRenda(int andar, float precoBase)
-                {
-                    return precoBase * (1.0f + 0.05f * andar);
-                }
-
-                private static bool ObterDisponibilidadeAleatoria()
-                {
-                    Random random = new Random();
-                    return random.NextDouble() < 0.5;
-                }
-                #endregion
-            #endregion
         #endregion
 
     }

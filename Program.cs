@@ -14,7 +14,7 @@ namespace TP_POO_24200_24204
         {
             ControladorUtilizador.CriarFicheiroJson("utilizador.json");
             ControladorUtilizador.CriarFicheiroJson("morador.json");
-            Quarto.CriarListaDeQuartos();
+            ControladorQuarto.CriarListaDeQuartos();
             MenuResidencia.ExibirMenu();
 
 
