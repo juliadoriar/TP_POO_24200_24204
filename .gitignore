@@ -365,3 +365,4 @@ FodyWeavers.xsd
 # Visual Paradigm backup and lock files
 *.bak
 *.lck
+/Exercício 1.csproj
