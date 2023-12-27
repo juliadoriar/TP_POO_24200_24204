@@ -22,7 +22,7 @@ namespace TP_POO_24200_24204
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
-            int ultimoId = Utilizador.GetUltimoId(); // Obter o último id de utilizador
+            int ultimoId = LerUltimoIdDoJson("utilizador.json");//Utilizador.GetUltimoId(); // Obter o último id de utilizador
             int utiId = ++ultimoId; // Incrementar a variável de classe com o último id do utilizador e atribuí-lo para o objeto 
             Utilizador.SetUltimoId(utiId); // Guardar o último id de utilizador
 
@@ -75,44 +75,56 @@ namespace TP_POO_24200_24204
                 utiId, nomeUti, email, password, dataNascimento, morada, codigoPostal, localidade, contactoTelefone, docIdentificacao, tipoDocIdentificacao, iban, tipoUtilizador);
 
             AdicionarUtilizador(utilizador); // Adicionar utilizador à lista de utilizadores
+            AtualizarUltimoIdNoJson(utiId);
             return utilizador;
         }
 
+      
         /// <summary>
-        /// Método para adicionar utilizador à lista de utilizadores
+        ///     
         /// </summary>
         /// <param name="novoUtilizador"></param>
         public static void AdicionarUtilizador(Utilizador novoUtilizador)
         {
+            // Carregar a lista existente do arquivo
+            List<Utilizador> listaExistente = CarregarListaDeUtilizadores("utilizador.json");
+
             // Verificar se o utilizador já existe na lista
-            if (Utilizador.listaDeUtilizadores.Exists(Utilizador =>    //Função lambda
-                novoUtilizador.GetDocIdentificacao() == Utilizador.GetDocIdentificacao() &&
-                novoUtilizador.GetTipoDocIdentificacao() == Utilizador.GetTipoDocIdentificacao()))
+            if (listaExistente.Exists(u =>
+                novoUtilizador.GetDocIdentificacao() == u.GetDocIdentificacao() &&
+                novoUtilizador.GetTipoDocIdentificacao() == u.GetTipoDocIdentificacao()))
             {
                 Console.WriteLine("O utilizador já existe na lista.");
             }
             else
             {
-                Utilizador.listaDeUtilizadores.Add(novoUtilizador);
-                SalvarListaFicheiro("utilizador.json"); // Salvar lista de utilizadores no ficheiro
+                listaExistente.Add(novoUtilizador);
+
+                // Salvar a lista atualizada no arquivo
+                SalvarListaFicheiro("utilizador.json", listaExistente);
+
+                Utilizador.listaDeUtilizadores = listaExistente; // Atualizar a lista estática
+
                 Console.WriteLine("Utilizador adicionado com sucesso.");
-                
+
                 // Verificar o tipo de utilizador e criar o objeto correspondente
                 if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
                 {
                     ControladorMorador.CriarMorador(novoUtilizador);
                 }
-                /* A SER IMPLEMENTADO
-                else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
-                {
-                    Funcionario.CriarFuncionario(novoUtilizador);
-                }
-                else if (novoUtilizador.GetTipoUtilizador() == "Gestor")
-                {
-                    Gestor.CriarGestor(novoUtilizador);
-                }*/
-            }
 
+                /* A SER IMPLEMENTADO
+               else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
+               {
+                   Funcionario.CriarFuncionario(novoUtilizador);
+               }
+               else if (novoUtilizador.GetTipoUtilizador() == "Gestor")
+               {
+                   Gestor.CriarGestor(novoUtilizador);
+               }*/
+
+
+            }
         }
 
         /// <summary>
@@ -145,14 +157,8 @@ namespace TP_POO_24200_24204
         /// <param name="caminhoArquivo"></param>
         public static void CriarFicheiroJson(string caminhoArquivo)
         {
-            if (File.Exists(caminhoArquivo))
+            if (!File.Exists(caminhoArquivo))
             {
-                // Se o ficheiro existir, limpa o conteúdo
-                File.WriteAllText(caminhoArquivo, string.Empty);
-            }
-            else
-            {
-                // Se o ficheiro não existir, cria o arquivo vazio
                 File.Create(caminhoArquivo).Close();
             }
         }
@@ -161,10 +167,10 @@ namespace TP_POO_24200_24204
         /// Método para salvar a lista de utilizadores no ficheiro JSON
         /// </summary>
         /// <param name="caminhoArquivo"></param>
-        public static void SalvarListaFicheiro(string caminhoArquivo)
+        public static void SalvarListaFicheiro(string caminhoArquivo, List<Utilizador> listaUtilizadores)
         {
-            string json = JsonConvert.SerializeObject(Utilizador.listaDeUtilizadores, Newtonsoft.Json.Formatting.Indented); // Serializar lista de utilizadores
-            File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
+            string json = JsonConvert.SerializeObject(new { UltimoId = LerUltimoIdDoJson(caminhoArquivo), Utilizadores = listaUtilizadores }, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(caminhoArquivo, json);
         }
 
         /// <summary>
@@ -172,18 +178,54 @@ namespace TP_POO_24200_24204
         /// </summary>
         /// <param name="caminhoArquivo"></param>
         /// <returns></returns>
+        /// 
         public static List<Utilizador> CarregarListaDeUtilizadores(string caminhoArquivo)
         {
-            List<Utilizador> listaDeUtilizadoresAtual = new List<Utilizador>();
             if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
             {
                 string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
-                listaDeUtilizadoresAtual = JsonConvert.DeserializeObject<List<Utilizador>>(json); // Desserializar o ficheiro
-                return listaDeUtilizadoresAtual; // Retornar a lista de utilizadores
+
+                if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
+                {
+                    // Desserializar o JSON em um objeto anônimo que contém a propriedade "Utilizadores"
+                    var jsonData = JsonConvert.DeserializeAnonymousType(json, new { Utilizadores = new List<Utilizador>() });
+
+                    // Retornar a lista de utilizadores da propriedade anônima
+                    return jsonData.Utilizadores;
+                }
             }
-                        
-            return new List<Utilizador>(); // Se o ficheiro não existir, retorna uma lista vazia
+
+            return new List<Utilizador>(); // Se o ficheiro não existir ou estiver vazio, retorna uma lista vazia
         }
+
+        /// <summary>
+        /// Método que lê o último id de utilizador do ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <returns></returns>
+        public static int LerUltimoIdDoJson(string caminhoArquivo)
+        {
+            dynamic jsonData = JsonConvert.DeserializeObject(File.ReadAllText(caminhoArquivo));
+
+            if (jsonData != null && jsonData.UltimoId != null)
+            {
+                return (int)jsonData.UltimoId;
+            }
+
+            return 0; // Valor padrão se o arquivo ou conteúdo não existir
+        }
+
+        /// <summary>
+        /// Método que atualiza o último id de utilizador no ficheiro JSON
+        /// </summary>
+        /// <param name="novoUltimoId"></param>
+        public static void AtualizarUltimoIdNoJson(int novoUltimoId)
+        {
+            string caminhoArquivo = "utilizador.json";
+            string json = JsonConvert.SerializeObject(new { UltimoId = novoUltimoId, Utilizadores = Utilizador.listaDeUtilizadores }, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(caminhoArquivo, json);
+        }
+
         #endregion
 
         #endregion

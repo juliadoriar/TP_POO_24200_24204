@@ -30,7 +30,7 @@ namespace TP_POO_24200_24204
             float precoCaucao = float.Parse(Console.ReadLine());
 
 
-            ControladorReserva.CriarReserva(quartoId, utiId, dataEntrada, dataSaida, precoCaucao);
+            //ControladorReserva.CriarReserva(quartoId, utiId, dataEntrada, dataSaida, precoCaucao);
         }
 
         /*public static void ListarReservas()
