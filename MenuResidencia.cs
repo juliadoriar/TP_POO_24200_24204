@@ -11,10 +11,18 @@ namespace TP_POO_24200_24204
     /// </summary>
     public class MenuResidencia
     {
+
+        private ControladorUtilizador controladorUtilizador;
+
+        public MenuResidencia()
+        {
+            controladorUtilizador = new ControladorUtilizador();
+        }
+
         /// <summary>
         /// // Método estático para exibir o menu
         /// </summary>
-        public static void ExibirMenu()
+        public void ExibirMenu()
         {
             bool continuar = true; // Variável para controlar a continuidade do loop
 
@@ -38,7 +46,8 @@ namespace TP_POO_24200_24204
                 {
                     case "1":
                         Console.WriteLine("Opção 1 - Registar Utilizador");
-                        ControladorUtilizador.CriarUtilizador();
+                        //chamar método criar utilizador
+                        controladorUtilizador.CriarUtilizador();
                         break;
 
                     case "2":
@@ -47,7 +56,7 @@ namespace TP_POO_24200_24204
 
                     case "3":
                         Console.WriteLine("Opção 3 - Listar Utilizadores");
-                        ControladorUtilizador.ImprimirListaDeUtilizadores();
+                        controladorUtilizador.ImprimirListaDeUtilizadores();
                         break;
 
                     case "4":

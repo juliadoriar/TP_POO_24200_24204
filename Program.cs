@@ -12,11 +12,15 @@ namespace TP_POO_24200_24204
     {
         static void Main(string[] args)
         {
+            ControladorUtilizador controlador = new ControladorUtilizador();
+            MenuInicial menuInicial = new MenuInicial(controlador);
+
             ControladorUtilizador.CriarFicheiroJson("utilizador.json");
             ControladorUtilizador.CriarFicheiroJson("morador.json");
             //Reserva.CriarFicheiroJson("reserva.json");
             ControladorQuarto.CriarListaDeQuartos();
-            MenuResidencia.ExibirMenu();
+            //MenuResidencia.ExibirMenu();
+            menuInicial.ExibirMenuInicial();
         }
     } 
 }

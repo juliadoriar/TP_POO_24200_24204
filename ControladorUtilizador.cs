@@ -14,11 +14,20 @@ namespace TP_POO_24200_24204
     public class ControladorUtilizador
     {
         #region Lista de Utilizadores
+
+        private List<Utilizador> listaDeUtilizadores;
+
+        public ControladorUtilizador()
+        {
+            listaDeUtilizadores = new List<Utilizador>();
+        }
+
+        public event Action<Utilizador> UtilizadorCriado;
         /// <summary>
         /// Método estático para criar um objeto Utilizador
         /// </summary>
         /// <returns></returns>
-        public static Utilizador CriarUtilizador()
+        public Utilizador CriarUtilizador()
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
@@ -35,15 +44,20 @@ namespace TP_POO_24200_24204
             Console.Write("Password: ");
             string password = Console.ReadLine();
 
-            Console.Write("Data de Nascimento (DD-MM-YYYY): ");
             DateTime dataNascimento;
-            if (DateTime.TryParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento)) // Verificar se a data de nascimento está no formato correto
+            while (true)
             {
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("Formato de data inválido.");
+                Console.Write("Data de Nascimento (DD-MM-YYYY): ");
+                string inputDataNascimento = Console.ReadLine();
+
+                if (DateTime.TryParseExact(inputDataNascimento, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
+                {
+                    break; // Sai do loop se a data for válida
+                }
+                else
+                {
+                    Console.WriteLine("Formato de data inválido. Tente novamente no formato DD-MM-YYYY.");
+                }
             }
 
             Console.Write("Morada: ");
@@ -67,8 +81,23 @@ namespace TP_POO_24200_24204
             Console.Write("IBAN: ");
             string iban = Console.ReadLine();
 
-            Console.Write("Tipo de Utilizador: ");
-            string tipoUtilizador = Console.ReadLine();
+            Console.Write("Tipo de Utilizador (Morador, Funcionario, Gestor): ");
+            string tipoUtilizador;
+            do
+            {
+                Console.Write("Tipo de Utilizador (Morador, Funcionario, Gestor): ");
+                tipoUtilizador = Console.ReadLine().ToLower(); // Converta para minúsculas para facilitar a comparação
+
+                if (!tipoUtilizador.Equals("morador", StringComparison.OrdinalIgnoreCase) &&
+                    !tipoUtilizador.Equals("funcionario", StringComparison.OrdinalIgnoreCase) &&
+                    !tipoUtilizador.Equals("gestor", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("Tipo de utilizador inválido. Por favor, escolha entre Morador, Funcionario, ou Gestor.");
+                }
+            } while (!tipoUtilizador.Equals("morador", StringComparison.OrdinalIgnoreCase) &&
+         !tipoUtilizador.Equals("funcionario", StringComparison.OrdinalIgnoreCase) &&
+         !tipoUtilizador.Equals("gestor", StringComparison.OrdinalIgnoreCase));
+
 
             // Cria um novo objeto Utilizador
             Utilizador utilizador = new Utilizador(
@@ -76,6 +105,12 @@ namespace TP_POO_24200_24204
 
             AdicionarUtilizador(utilizador); // Adicionar utilizador à lista de utilizadores
             AtualizarUltimoIdNoJson(utiId);
+
+            Console.WriteLine("Utilizador criado com sucesso!");
+           
+            MenuInicial menuInicial = new MenuInicial(this);
+            menuInicial.ExibirMenuInicial();
+
             return utilizador;
         }
 
@@ -84,7 +119,7 @@ namespace TP_POO_24200_24204
         ///     
         /// </summary>
         /// <param name="novoUtilizador"></param>
-        public static void AdicionarUtilizador(Utilizador novoUtilizador)
+        public void AdicionarUtilizador(Utilizador novoUtilizador)
         {
             // Carregar a lista existente do arquivo
             List<Utilizador> listaExistente = CarregarListaDeUtilizadores("utilizador.json");
@@ -130,7 +165,7 @@ namespace TP_POO_24200_24204
         /// <summary>
         /// Método para imprimir a lista de utilizadores
         /// </summary>
-        public static void ImprimirListaDeUtilizadores()
+        public void ImprimirListaDeUtilizadores()
         {
 
             List<Utilizador> listaDeUtilizadoresAtual = CarregarListaDeUtilizadores("utilizador.json");
@@ -150,6 +185,42 @@ namespace TP_POO_24200_24204
             }
 
         }
+
+        public static Utilizador AutenticarUtilizador(string email, string senha)
+        {
+            // Carregar a lista de utilizadores do arquivo JSON
+            List<Utilizador> listaDeUtilizadores = CarregarListaDeUtilizadores("utilizador.json");
+
+            // Verificar se as credenciais correspondem a algum usuário na lista
+            return listaDeUtilizadores.FirstOrDefault(u => u.GetEmail() == email && u.GetPassword() == senha);
+        }
+
+
+        public static Utilizador Login()
+        {
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+
+            Console.Write("Senha: ");
+            string senha = Console.ReadLine();
+
+            Utilizador utilizador = AutenticarUtilizador(email, senha);
+
+            if (utilizador != null)
+            {
+                Console.WriteLine($"Bem-vindo, {utilizador.GetNomeUti()}!");
+                return utilizador;
+            }
+            else
+            {
+                Console.WriteLine("Credenciais inválidas. Tente novamente.");
+                return null;
+            }
+        }
+
+
+
+
         #region Json
         /// <summary>
         /// Método para criar um ficheiro JSON
