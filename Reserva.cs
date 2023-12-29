@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -29,8 +30,6 @@ namespace TP_POO_24200_24204
         [JsonProperty("dataReserva")]
         public DateTime DataReserva { get; set; } // Propriedade que indica a data da reserva
 
-        private static int ultimoIdReserva = 0; // Variável que guarda o último id de reserva
-
         #region Construtor
         public Reserva(
             int reservaId,
@@ -53,15 +52,6 @@ namespace TP_POO_24200_24204
         }
         #endregion
 
-        public static int GetUltimoId()
-        {
-            return ultimoIdReserva;
-        }
-        public static void SetUltimoId(int ultimoId)
-        {
-            Reserva.ultimoIdReserva = ultimoId;
-        }
-
         #region Métodos de acesso aos atributos da classe Reserva
         /// <summary>
         /// Método para criar a lista de reservas
@@ -76,23 +66,18 @@ namespace TP_POO_24200_24204
         /// Método para criar um ficheiro JSON
         /// </summary>
         /// <param name="caminhoArquivo"></param>
-        public void CriarFicheiroJson(string caminhoArquivo)
+        public static void CriarFicheiroJson(string caminhoArquivo)
         {
-            if (File.Exists(caminhoArquivo))
+            if (!File.Exists(caminhoArquivo))
             {
-                // Se o ficheiro existir, limpa o conteúdo
-                File.WriteAllText(caminhoArquivo, string.Empty);
-            }
-            else
-            {
-                // Se o ficheiro não existir, cria o arquivo vazio
                 File.Create(caminhoArquivo).Close();
             }
         }
 
-        public void SalvarListaFicheiro(string caminhoArquivo, List<Reserva> listaDeReservas)
+        public static void SalvarListaFicheiro(string caminhoArquivo, List<Reserva> listaDeReservas)
         {
-            string json = JsonConvert.SerializeObject(listaDeReservas, Newtonsoft.Json.Formatting.Indented); // Serializar lista de utilizadores
+            string json = JsonConvert.SerializeObject(new { UltimoIdReserva = LerUltimoIdReserva(caminhoArquivo), Reservas = listaDeReservas }, Newtonsoft.Json.Formatting.Indented); // Serializar lista de utilizadores
+
             File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
         }
 
@@ -101,17 +86,52 @@ namespace TP_POO_24200_24204
         /// </summary>
         /// <param name="caminhoArquivo"></param>
         /// <returns></returns>
-        public List<Reserva> CarregarListaDeReservas(string caminhoArquivo)
+        public static List<Reserva> CarregarListaDeReservas(string caminhoArquivo)
         {
-            List<Reserva> listaDeReservasAtual = new List<Reserva>();
             if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
             {
                 string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
-                listaDeReservasAtual = JsonConvert.DeserializeObject<List<Reserva>>(json); // Desserializar o ficheiro
-                return listaDeReservasAtual; // Retornar a lista de reservas
+
+                if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
+                {
+                    // Desserializar o JSON em um objeto anônimo que contém a propriedade "Reservas"
+                    var jsonData = JsonConvert.DeserializeAnonymousType(json, new { Reservas = new List<Reserva>() });
+
+                    // Retornar a lista de reservas da propriedade anônima
+                    return jsonData.Reservas;
+                }
             }
 
             return new List<Reserva>(); // Se o ficheiro não existir, retorna uma lista vazia
+        }
+
+        /// <summary>
+        /// Método que lê o último id de utilizador do ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <returns></returns>
+        public static int LerUltimoIdReserva(string caminhoArquivo)
+        {
+            dynamic jsonData = JsonConvert.DeserializeObject(File.ReadAllText(caminhoArquivo));
+
+            if (jsonData != null && jsonData.UltimoIdReserva != null)
+            {
+                return (int)jsonData.UltimoIdReserva;
+            }
+
+            return 0; // Valor padrão se o arquivo ou conteúdo não existir
+        }
+
+        /// <summary>
+        /// Método que atualiza o último id de utilizador no ficheiro JSON
+        /// </summary>
+        /// <param name="novoUltimoId"></param>
+        public static void AtualizarUltimoIdNoJson(int novoUltimoId, string caminhoArquivo)
+        {
+            List<Reserva> listaExistente = CarregarListaDeReservas(caminhoArquivo);
+
+            string json = JsonConvert.SerializeObject(new { UltimoIdReserva = novoUltimoId, Reservas = listaExistente }, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(caminhoArquivo, json);
         }
 
         #endregion

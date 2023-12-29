@@ -26,9 +26,21 @@ namespace TP_POO_24200_24204
             switch (opcao)
             {
                 case "1":
-                    ControladorUtilizador.Login();
                     Utilizador utilizadorLogado = ControladorUtilizador.Login();
-                    ExibirMenuAposLogin(utilizadorLogado); // Exibe o menu apropriado com base no tipo de utilizador reconhecido no login
+
+                    if (utilizadorLogado != null)
+                    {
+                        ExibirMenuAposLogin(utilizadorLogado); // Exibe o menu com base no tipo de utilizador reconhecido no login
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Credenciais inválidas. Tente novamente.");
+                        Console.WriteLine("\nPressione Enter para voltar ao menu inicial...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        ExibirMenuInicial();
+                    }
                     break;
                 case "2":
                     controladorUtilizador.CriarUtilizador();
