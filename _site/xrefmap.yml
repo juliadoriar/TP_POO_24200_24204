@@ -113,44 +113,12 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorQuarto.ImprimirListaDeQuartos
   nameWithType: ControladorQuarto.ImprimirListaDeQuartos
-- uid: TP_POO_24200_24204.ControladorReserva
-  name: ControladorReserva
-  href: api/TP_POO_24200_24204.ControladorReserva.html
-  commentId: T:TP_POO_24200_24204.ControladorReserva
-  fullName: TP_POO_24200_24204.ControladorReserva
-  nameWithType: ControladorReserva
-- uid: TP_POO_24200_24204.ControladorReserva.CriarReserva(System.Int32,System.Int32,System.DateTime,System.DateTime,System.Single)
-  name: CriarReserva(Int32, Int32, DateTime, DateTime, Single)
-  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_CriarReserva_System_Int32_System_Int32_System_DateTime_System_DateTime_System_Single_
-  commentId: M:TP_POO_24200_24204.ControladorReserva.CriarReserva(System.Int32,System.Int32,System.DateTime,System.DateTime,System.Single)
-  fullName: TP_POO_24200_24204.ControladorReserva.CriarReserva(System.Int32, System.Int32, System.DateTime, System.DateTime, System.Single)
-  nameWithType: ControladorReserva.CriarReserva(Int32, Int32, DateTime, DateTime, Single)
-- uid: TP_POO_24200_24204.ControladorReserva.CriarReserva*
-  name: CriarReserva
-  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_CriarReserva_
-  commentId: Overload:TP_POO_24200_24204.ControladorReserva.CriarReserva
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ControladorReserva.CriarReserva
-  nameWithType: ControladorReserva.CriarReserva
 - uid: TP_POO_24200_24204.ControladorUtilizador
   name: ControladorUtilizador
   href: api/TP_POO_24200_24204.ControladorUtilizador.html
   commentId: T:TP_POO_24200_24204.ControladorUtilizador
   fullName: TP_POO_24200_24204.ControladorUtilizador
   nameWithType: ControladorUtilizador
-- uid: TP_POO_24200_24204.ControladorUtilizador.#ctor
-  name: ControladorUtilizador()
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador__ctor
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.#ctor
-  fullName: TP_POO_24200_24204.ControladorUtilizador.ControladorUtilizador()
-  nameWithType: ControladorUtilizador.ControladorUtilizador()
-- uid: TP_POO_24200_24204.ControladorUtilizador.#ctor*
-  name: ControladorUtilizador
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador__ctor_
-  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.#ctor
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ControladorUtilizador.ControladorUtilizador
-  nameWithType: ControladorUtilizador.ControladorUtilizador
 - uid: TP_POO_24200_24204.ControladorUtilizador.AdicionarUtilizador(TP_POO_24200_24204.Utilizador)
   name: AdicionarUtilizador(Utilizador)
   href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AdicionarUtilizador_TP_POO_24200_24204_Utilizador_
@@ -164,32 +132,6 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorUtilizador.AdicionarUtilizador
   nameWithType: ControladorUtilizador.AdicionarUtilizador
-- uid: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson(System.Int32)
-  name: AtualizarUltimoIdNoJson(Int32)
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AtualizarUltimoIdNoJson_System_Int32_
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson(System.Int32)
-  fullName: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson(System.Int32)
-  nameWithType: ControladorUtilizador.AtualizarUltimoIdNoJson(Int32)
-- uid: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson*
-  name: AtualizarUltimoIdNoJson
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AtualizarUltimoIdNoJson_
-  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson
-  nameWithType: ControladorUtilizador.AtualizarUltimoIdNoJson
-- uid: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador(System.String,System.String)
-  name: AutenticarUtilizador(String, String)
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AutenticarUtilizador_System_String_System_String_
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador(System.String,System.String)
-  fullName: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador(System.String, System.String)
-  nameWithType: ControladorUtilizador.AutenticarUtilizador(String, String)
-- uid: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador*
-  name: AutenticarUtilizador
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AutenticarUtilizador_
-  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador
-  nameWithType: ControladorUtilizador.AutenticarUtilizador
 - uid: TP_POO_24200_24204.ControladorUtilizador.CarregarListaDeUtilizadores(System.String)
   name: CarregarListaDeUtilizadores(String)
   href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_CarregarListaDeUtilizadores_System_String_
@@ -242,41 +184,12 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorUtilizador.ImprimirListaDeUtilizadores
   nameWithType: ControladorUtilizador.ImprimirListaDeUtilizadores
-- uid: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson(System.String)
-  name: LerUltimoIdDoJson(String)
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_LerUltimoIdDoJson_System_String_
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson(System.String)
-  fullName: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson(System.String)
-  nameWithType: ControladorUtilizador.LerUltimoIdDoJson(String)
-- uid: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson*
-  name: LerUltimoIdDoJson
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_LerUltimoIdDoJson_
-  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson
-  nameWithType: ControladorUtilizador.LerUltimoIdDoJson
-- uid: TP_POO_24200_24204.ControladorUtilizador.Login
-  name: Login()
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_Login
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.Login
-  fullName: TP_POO_24200_24204.ControladorUtilizador.Login()
-  nameWithType: ControladorUtilizador.Login()
-- uid: TP_POO_24200_24204.ControladorUtilizador.Login*
-  name: Login
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_Login_
-  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.Login
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ControladorUtilizador.Login
-  nameWithType: ControladorUtilizador.Login
-- uid: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String,System.Collections.Generic.List{TP_POO_24200_24204.Utilizador})
-  name: SalvarListaFicheiro(String, List<Utilizador>)
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_SalvarListaFicheiro_System_String_System_Collections_Generic_List_TP_POO_24200_24204_Utilizador__
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String,System.Collections.Generic.List{TP_POO_24200_24204.Utilizador})
-  name.vb: SalvarListaFicheiro(String, List(Of Utilizador))
-  fullName: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String, System.Collections.Generic.List<TP_POO_24200_24204.Utilizador>)
-  fullName.vb: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String, System.Collections.Generic.List(Of TP_POO_24200_24204.Utilizador))
-  nameWithType: ControladorUtilizador.SalvarListaFicheiro(String, List<Utilizador>)
-  nameWithType.vb: ControladorUtilizador.SalvarListaFicheiro(String, List(Of Utilizador))
+- uid: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String)
+  name: SalvarListaFicheiro(String)
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_SalvarListaFicheiro_System_String_
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String)
+  fullName: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String)
+  nameWithType: ControladorUtilizador.SalvarListaFicheiro(String)
 - uid: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro*
   name: SalvarListaFicheiro
   href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_SalvarListaFicheiro_
@@ -284,31 +197,12 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro
   nameWithType: ControladorUtilizador.SalvarListaFicheiro
-- uid: TP_POO_24200_24204.ControladorUtilizador.UtilizadorCriado
-  name: UtilizadorCriado
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_UtilizadorCriado
-  commentId: E:TP_POO_24200_24204.ControladorUtilizador.UtilizadorCriado
-  fullName: TP_POO_24200_24204.ControladorUtilizador.UtilizadorCriado
-  nameWithType: ControladorUtilizador.UtilizadorCriado
 - uid: TP_POO_24200_24204.MenuResidencia
   name: MenuResidencia
   href: api/TP_POO_24200_24204.MenuResidencia.html
   commentId: T:TP_POO_24200_24204.MenuResidencia
   fullName: TP_POO_24200_24204.MenuResidencia
   nameWithType: MenuResidencia
-- uid: TP_POO_24200_24204.MenuResidencia.#ctor
-  name: MenuResidencia()
-  href: api/TP_POO_24200_24204.MenuResidencia.html#TP_POO_24200_24204_MenuResidencia__ctor
-  commentId: M:TP_POO_24200_24204.MenuResidencia.#ctor
-  fullName: TP_POO_24200_24204.MenuResidencia.MenuResidencia()
-  nameWithType: MenuResidencia.MenuResidencia()
-- uid: TP_POO_24200_24204.MenuResidencia.#ctor*
-  name: MenuResidencia
-  href: api/TP_POO_24200_24204.MenuResidencia.html#TP_POO_24200_24204_MenuResidencia__ctor_
-  commentId: Overload:TP_POO_24200_24204.MenuResidencia.#ctor
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.MenuResidencia.MenuResidencia
-  nameWithType: MenuResidencia.MenuResidencia
 - uid: TP_POO_24200_24204.MenuResidencia.ExibirMenu
   name: ExibirMenu()
   href: api/TP_POO_24200_24204.MenuResidencia.html#TP_POO_24200_24204_MenuResidencia_ExibirMenu
@@ -1324,22 +1218,3 @@ references:
   commentId: F:TP_POO_24200_24204.Utilizador.UtiId
   fullName: TP_POO_24200_24204.Utilizador.UtiId
   nameWithType: Utilizador.UtiId
-- uid: TP_POO_24200_24204.ViewReserva
-  name: ViewReserva
-  href: api/TP_POO_24200_24204.ViewReserva.html
-  commentId: T:TP_POO_24200_24204.ViewReserva
-  fullName: TP_POO_24200_24204.ViewReserva
-  nameWithType: ViewReserva
-- uid: TP_POO_24200_24204.ViewReserva.CriarReserva
-  name: CriarReserva()
-  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_CriarReserva
-  commentId: M:TP_POO_24200_24204.ViewReserva.CriarReserva
-  fullName: TP_POO_24200_24204.ViewReserva.CriarReserva()
-  nameWithType: ViewReserva.CriarReserva()
-- uid: TP_POO_24200_24204.ViewReserva.CriarReserva*
-  name: CriarReserva
-  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_CriarReserva_
-  commentId: Overload:TP_POO_24200_24204.ViewReserva.CriarReserva
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.ViewReserva.CriarReserva
-  nameWithType: ViewReserva.CriarReserva
