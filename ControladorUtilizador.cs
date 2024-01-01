@@ -13,73 +13,46 @@ namespace TP_POO_24200_24204
     /// </summary>
     public class ControladorUtilizador
     {
-        #region Lista de Utilizadores
+        private ControladorMorador controladorMorador;
 
-        private List<Utilizador> listaDeUtilizadores;
-
-        public ControladorUtilizador()
+        /// <summary>
+        /// Instancia um objeto de ControladorMorador
+        /// </summary>
+        /// <param name="controladorMorador"></param>
+        public void SetControladorMorador(ControladorMorador controladorMorador)
         {
-            listaDeUtilizadores = new List<Utilizador>();
+            this.controladorMorador = controladorMorador;
         }
 
+        #region Lista de Utilizadores
+
+
         public event Action<Utilizador> UtilizadorCriado;
+
         /// <summary>
-        /// Método estático para criar um objeto Utilizador
+        /// Método para criar um objeto Utilizador
         /// </summary>
         /// <returns></returns>
         public Utilizador CriarUtilizador()
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
-            int ultimoId = LerUltimoIdDoJson("utilizador.json");// Obter o último id de utilizador
+            int ultimoId = Utilizador.LerUltimoIdDoJson("utilizador.json");// Obter o último id de utilizador
             int utiId = ++ultimoId; // Incrementar a variável de classe com o último id do utilizador e atribuí-lo para o objeto 
-            Utilizador.SetUltimoId(utiId); // Guardar o último id de utilizador
+ 
 
-            Console.Write("Nome: ");
-            string nomeUti = Console.ReadLine();
+            string nomeUti = Servico.LerString("Nome: ");
+            string email = Servico.LerString("Email: ");
+            string password = Servico.LerString("Password: ");
+            DateTime dataNascimento = Servico.LerData("Data de Nascimento (DD-MM-YYYY): ");
+            string morada = Servico.LerString("Morada: ");
+            string codigoPostal = Servico.LerString("Código Postal: ");
+            string localidade = Servico.LerString("Localidade: ");
+            string contactoTelefone = Servico.LerString("Contacto Telefone: ");
+            string docIdentificacao = Servico.LerString("Documento de Identificação: ");
+            string tipoDocIdentificacao = Servico.LerString("Tipo de Documento de Identificação: ");
+            string iban = Servico.LerString("IBAN: ");
 
-            Console.Write("Email: ");
-            string email = Console.ReadLine();
-
-            Console.Write("Password: ");
-            string password = Console.ReadLine();
-
-            DateTime dataNascimento;
-            while (true)
-            {
-                Console.Write("Data de Nascimento (DD-MM-YYYY): ");
-                string inputDataNascimento = Console.ReadLine();
-
-                if (DateTime.TryParseExact(inputDataNascimento, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
-                {
-                    break; // Sai do loop se a data for válida
-                }
-                else
-                {
-                    Console.WriteLine("Formato de data inválido. Tente novamente no formato DD-MM-YYYY.");
-                }
-            }
-
-            Console.Write("Morada: ");
-            string morada = Console.ReadLine();
-
-            Console.Write("Código Postal: ");
-            string codigoPostal = Console.ReadLine();
-
-            Console.Write("Localidade: ");
-            string localidade = Console.ReadLine();
-
-            Console.Write("Contacto Telefone: ");
-            string contactoTelefone = Console.ReadLine();
-
-            Console.Write("Documento de Identificação: ");
-            string docIdentificacao = Console.ReadLine();
-
-            Console.Write("Tipo de Documento de Identificação: ");
-            string tipoDocIdentificacao = Console.ReadLine();
-
-            Console.Write("IBAN: ");
-            string iban = Console.ReadLine();
 
             string tipoUtilizador;
             do
@@ -103,7 +76,7 @@ namespace TP_POO_24200_24204
                 utiId, nomeUti, email, password, dataNascimento, morada, codigoPostal, localidade, contactoTelefone, docIdentificacao, tipoDocIdentificacao, iban, tipoUtilizador);
 
             AdicionarUtilizador(utilizador); // Adicionar utilizador à lista de utilizadores
-            AtualizarUltimoIdNoJson(utiId);
+            Utilizador.AtualizarUltimoIdNoJson(utiId);
 
             Console.WriteLine("Utilizador criado com sucesso!");
 
@@ -115,34 +88,30 @@ namespace TP_POO_24200_24204
 
 
         /// <summary>
-        ///     
+        /// Método para adicionar utilizador à lista de utilizadores
         /// </summary>
         /// <param name="novoUtilizador"></param>
-        public void AdicionarUtilizador(Utilizador novoUtilizador)
+        public bool AdicionarUtilizador(Utilizador novoUtilizador)
         {
             // Carregar a lista existente do arquivo
-            List<Utilizador> listaExistente = CarregarListaDeUtilizadores("utilizador.json");
+            List<Utilizador> listaExistente = Utilizador.CarregarListaDeUtilizadores("utilizador.json");
 
             // Verificar se o utilizador já existe na lista
-            if (listaExistente.Exists(u =>
-                novoUtilizador.GetDocIdentificacao() == u.GetDocIdentificacao() &&
-                novoUtilizador.GetTipoDocIdentificacao() == u.GetTipoDocIdentificacao()))
+            if (!ValidarUtilizador(novoUtilizador, listaExistente))
             {
-                Console.WriteLine("O utilizador já existe na lista.");
+                return false;
             }
             else
             {
                 listaExistente.Add(novoUtilizador);
 
                 // Salvar a lista atualizada no arquivo
-                SalvarListaFicheiro("utilizador.json", listaExistente);
-
-                Utilizador.listaDeUtilizadores = listaExistente; // Atualizar a lista estática
+                Utilizador.SalvarListaFicheiro("utilizador.json", listaExistente);
 
                 // Verificar o tipo de utilizador e criar o objeto correspondente
                 if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
                 {
-                    ControladorMorador.CriarMorador(novoUtilizador);
+                    controladorMorador.CriarMorador(novoUtilizador);
                 }
 
                 /* A SER IMPLEMENTADO
@@ -155,18 +124,33 @@ namespace TP_POO_24200_24204
                    Gestor.CriarGestor(novoUtilizador);
                }*/
 
+               return true;
+
 
             }
         }
 
+
+
+        #region Imprimir Utilizador
         /// <summary>
         /// Método para imprimir a lista de utilizadores
         /// </summary>
         public void ImprimirListaDeUtilizadores()
         {
 
-            List<Utilizador> listaDeUtilizadoresAtual = CarregarListaDeUtilizadores("utilizador.json");
+            List<Utilizador> listaDeUtilizadoresAtual = Utilizador.CarregarListaDeUtilizadores("utilizador.json");
 
+            ExibirDetalhesListaUtilizador(listaDeUtilizadoresAtual);
+
+        }
+
+        /// <summary>
+        /// Método para exibir os detalhes de uma lista de utilizadores
+        /// </summary>
+        /// <param name="listaDeUtilizadoresAtual"></param>
+        public void ExibirDetalhesListaUtilizador(List<Utilizador> listaDeUtilizadoresAtual)
+        {
             if (listaDeUtilizadoresAtual == null)
             {
                 Console.WriteLine("Não há utilizadores registados");
@@ -180,26 +164,33 @@ namespace TP_POO_24200_24204
                     Console.WriteLine($"ID: {utilizador.GetUtiId()}, Nome: {utilizador.GetNomeUti()}, Email: {utilizador.GetEmail()}, Data de Nascimento: {utilizador.GetDataNascimento():dd-MM-yyyy}, Morada: {utilizador.GetMorada()}, Código Postal: {utilizador.GetCodigoPostal()}, Localidade: {utilizador.GetLocalidade()}, Contacto Telefone: {utilizador.GetContactoTelefone()}, Documento de Identificação: {utilizador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {utilizador.GetTipoDocIdentificacao()}, IBAN: {utilizador.GetIBAN()}, Tipo de Utilizador: {utilizador.GetTipoUtilizador()}, Ativo: {utilizador.GetIsAtivo()} Data de Registo: {utilizador.GetDataRegisto():dd-MM-yyyy}");
                 }
             }
-
         }
 
+        /// <summary>
+        /// Método para exibir os detalhes de um utilizador único
+        /// </summary>
+        /// <param name="utilizador"></param>
+        public void ExibirDetalhesReserva(Utilizador utilizador)
+        {
+            Console.WriteLine($"ID: {utilizador.GetUtiId()}, Nome: {utilizador.GetNomeUti()}, Email: {utilizador.GetEmail()}, Data de Nascimento: {utilizador.GetDataNascimento():dd-MM-yyyy}, Morada: {utilizador.GetMorada()}, Código Postal: {utilizador.GetCodigoPostal()}, Localidade: {utilizador.GetLocalidade()}, Contacto Telefone: {utilizador.GetContactoTelefone()}, Documento de Identificação: {utilizador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {utilizador.GetTipoDocIdentificacao()}, IBAN: {utilizador.GetIBAN()}, Tipo de Utilizador: {utilizador.GetTipoUtilizador()}, Ativo: {utilizador.GetIsAtivo()} Data de Registo: {utilizador.GetDataRegisto():dd-MM-yyyy}");
+        }
+        #endregion
+
+        #region Autenticação
         public static Utilizador AutenticarUtilizador(string email, string senha)
         {
             // Carregar a lista de utilizadores do arquivo JSON
-            List<Utilizador> listaDeUtilizadores = CarregarListaDeUtilizadores("utilizador.json");
+            List<Utilizador> listaDeUtilizadores = Utilizador.CarregarListaDeUtilizadores("utilizador.json");
 
             // Verificar se as credenciais correspondem a algum usuário na lista
             return listaDeUtilizadores.FirstOrDefault(u => u.GetEmail() == email && u.GetPassword() == senha);
         }
 
-
         public static Utilizador Login()
         {
-            Console.Write("Email: ");
-            string email = Console.ReadLine();
 
-            Console.Write("Senha: ");
-            string senha = Console.ReadLine();
+            string email = Servico.LerString("Email: ");
+            string senha = Servico.LerString("Senha: ");
 
             Utilizador utilizador = AutenticarUtilizador(email, senha);
 
@@ -214,83 +205,24 @@ namespace TP_POO_24200_24204
                 return null;
             }
         }
+        #endregion
 
-        #region Json
-        /// <summary>
-        /// Método para criar um ficheiro JSON
-        /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        public static void CriarFicheiroJson(string caminhoArquivo)
+        #region Métodos Auxiliares
+        public bool ValidarUtilizador(Utilizador novoUtilizador, List<Utilizador> listaExistente)
         {
-            if (!File.Exists(caminhoArquivo))
+            // Verificar se o utilizador já existe na lista
+            if (listaExistente.Exists(u =>
+                           novoUtilizador.GetDocIdentificacao() == u.GetDocIdentificacao() &&
+                                          novoUtilizador.GetTipoDocIdentificacao() == u.GetTipoDocIdentificacao()))
             {
-                File.Create(caminhoArquivo).Close();
+                Console.WriteLine("O utilizador já existe na lista.");
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
-
-        /// <summary>
-        /// Método para salvar a lista de utilizadores no ficheiro JSON
-        /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        public static void SalvarListaFicheiro(string caminhoArquivo, List<Utilizador> listaUtilizadores)
-        {
-            string json = JsonConvert.SerializeObject(new { UltimoId = LerUltimoIdDoJson(caminhoArquivo), Utilizadores = listaUtilizadores }, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(caminhoArquivo, json);
-        }
-
-        /// <summary>
-        /// Método para carregar a lista de utilizadores do ficheiro JSON
-        /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        /// <returns></returns>
-        /// 
-        public static List<Utilizador> CarregarListaDeUtilizadores(string caminhoArquivo)
-        {
-            if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
-            {
-                string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
-
-                if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
-                {
-                    // Desserializar o JSON em um objeto anônimo que contém a propriedade "Utilizadores"
-                    var jsonData = JsonConvert.DeserializeAnonymousType(json, new { Utilizadores = new List<Utilizador>() });
-
-                    // Retornar a lista de utilizadores da propriedade anônima
-                    return jsonData.Utilizadores;
-                }
-            }
-
-            return new List<Utilizador>(); // Se o ficheiro não existir ou estiver vazio, retorna uma lista vazia
-        }
-
-        /// <summary>
-        /// Método que lê o último id de utilizador do ficheiro JSON
-        /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        /// <returns></returns>
-        public static int LerUltimoIdDoJson(string caminhoArquivo)
-        {
-            dynamic jsonData = JsonConvert.DeserializeObject(File.ReadAllText(caminhoArquivo));
-
-            if (jsonData != null && jsonData.UltimoId != null)
-            {
-                return (int)jsonData.UltimoId;
-            }
-
-            return 0; // Valor padrão se o arquivo ou conteúdo não existir
-        }
-
-        /// <summary>
-        /// Método que atualiza o último id de utilizador no ficheiro JSON
-        /// </summary>
-        /// <param name="novoUltimoId"></param>
-        public static void AtualizarUltimoIdNoJson(int novoUltimoId)
-        {
-            string caminhoArquivo = "utilizador.json";
-            string json = JsonConvert.SerializeObject(new { UltimoId = novoUltimoId, Utilizadores = Utilizador.listaDeUtilizadores }, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(caminhoArquivo, json);
-        }
-
         #endregion
 
         #endregion

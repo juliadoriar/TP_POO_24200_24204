@@ -107,9 +107,11 @@ namespace TP_POO_24200_24204
         public class MenuGestor : MenuUtilizadorBase
         {
             private ControladorUtilizador controladorUtilizador;
+            private ControladorMorador controladorMorador;
             public MenuGestor(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
+                controladorMorador = new ControladorMorador();
             }
 
             public override void ExibirMenu()
@@ -157,7 +159,7 @@ namespace TP_POO_24200_24204
 
                         case "5":
                             Console.WriteLine("Opção 5 - Listar Moradores");
-                            ControladorMorador.ImprimirListaDeMoradores();
+                            controladorMorador.ImprimirListaDeMoradores();
                             break;
 
                         case "6":
@@ -197,9 +199,11 @@ namespace TP_POO_24200_24204
         public class MenuFuncionario : MenuUtilizadorBase
         {
             private ControladorUtilizador controladorUtilizador;
+            private ControladorMorador controladorMorador;
             public MenuFuncionario(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
+                controladorMorador = new ControladorMorador();
             }
 
             public override void ExibirMenu()
@@ -244,7 +248,7 @@ namespace TP_POO_24200_24204
 
                         case "5":
                             Console.WriteLine("Opção 5 - Listar Moradores");
-                            ControladorMorador.ImprimirListaDeMoradores();
+                            controladorMorador.ImprimirListaDeMoradores();
                             break;
 
                         case "6":
