@@ -7,6 +7,67 @@ references:
   commentId: N:TP_POO_24200_24204
   fullName: TP_POO_24200_24204
   nameWithType: TP_POO_24200_24204
+- uid: TP_POO_24200_24204.ControladorGestor
+  name: ControladorGestor
+  href: api/TP_POO_24200_24204.ControladorGestor.html
+  commentId: T:TP_POO_24200_24204.ControladorGestor
+  fullName: TP_POO_24200_24204.ControladorGestor
+  nameWithType: ControladorGestor
+- uid: TP_POO_24200_24204.ControladorGestor.AdicionarGestor(TP_POO_24200_24204.Gestor)
+  name: AdicionarGestor(Gestor)
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_AdicionarGestor_TP_POO_24200_24204_Gestor_
+  commentId: M:TP_POO_24200_24204.ControladorGestor.AdicionarGestor(TP_POO_24200_24204.Gestor)
+  fullName: TP_POO_24200_24204.ControladorGestor.AdicionarGestor(TP_POO_24200_24204.Gestor)
+  nameWithType: ControladorGestor.AdicionarGestor(Gestor)
+- uid: TP_POO_24200_24204.ControladorGestor.AdicionarGestor*
+  name: AdicionarGestor
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_AdicionarGestor_
+  commentId: Overload:TP_POO_24200_24204.ControladorGestor.AdicionarGestor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorGestor.AdicionarGestor
+  nameWithType: ControladorGestor.AdicionarGestor
+- uid: TP_POO_24200_24204.ControladorGestor.CarregarListaDeGestores(System.String)
+  name: CarregarListaDeGestores(String)
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_CarregarListaDeGestores_System_String_
+  commentId: M:TP_POO_24200_24204.ControladorGestor.CarregarListaDeGestores(System.String)
+  fullName: TP_POO_24200_24204.ControladorGestor.CarregarListaDeGestores(System.String)
+  nameWithType: ControladorGestor.CarregarListaDeGestores(String)
+- uid: TP_POO_24200_24204.ControladorGestor.CarregarListaDeGestores*
+  name: CarregarListaDeGestores
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_CarregarListaDeGestores_
+  commentId: Overload:TP_POO_24200_24204.ControladorGestor.CarregarListaDeGestores
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorGestor.CarregarListaDeGestores
+  nameWithType: ControladorGestor.CarregarListaDeGestores
+- uid: TP_POO_24200_24204.ControladorGestor.CriarGestor(TP_POO_24200_24204.Utilizador)
+  name: CriarGestor(Utilizador)
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_CriarGestor_TP_POO_24200_24204_Utilizador_
+  commentId: M:TP_POO_24200_24204.ControladorGestor.CriarGestor(TP_POO_24200_24204.Utilizador)
+  fullName: TP_POO_24200_24204.ControladorGestor.CriarGestor(TP_POO_24200_24204.Utilizador)
+  nameWithType: ControladorGestor.CriarGestor(Utilizador)
+- uid: TP_POO_24200_24204.ControladorGestor.CriarGestor*
+  name: CriarGestor
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_CriarGestor_
+  commentId: Overload:TP_POO_24200_24204.ControladorGestor.CriarGestor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorGestor.CriarGestor
+  nameWithType: ControladorGestor.CriarGestor
+- uid: TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro(System.String,System.Collections.Generic.List{TP_POO_24200_24204.Gestor})
+  name: SalvarListaFicheiro(String, List<Gestor>)
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_SalvarListaFicheiro_System_String_System_Collections_Generic_List_TP_POO_24200_24204_Gestor__
+  commentId: M:TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro(System.String,System.Collections.Generic.List{TP_POO_24200_24204.Gestor})
+  name.vb: SalvarListaFicheiro(String, List(Of Gestor))
+  fullName: TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro(System.String, System.Collections.Generic.List<TP_POO_24200_24204.Gestor>)
+  fullName.vb: TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro(System.String, System.Collections.Generic.List(Of TP_POO_24200_24204.Gestor))
+  nameWithType: ControladorGestor.SalvarListaFicheiro(String, List<Gestor>)
+  nameWithType.vb: ControladorGestor.SalvarListaFicheiro(String, List(Of Gestor))
+- uid: TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro*
+  name: SalvarListaFicheiro
+  href: api/TP_POO_24200_24204.ControladorGestor.html#TP_POO_24200_24204_ControladorGestor_SalvarListaFicheiro_
+  commentId: Overload:TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorGestor.SalvarListaFicheiro
+  nameWithType: ControladorGestor.SalvarListaFicheiro
 - uid: TP_POO_24200_24204.ControladorMorador
   name: ControladorMorador
   href: api/TP_POO_24200_24204.ControladorMorador.html
@@ -113,12 +174,221 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorQuarto.ImprimirListaDeQuartos
   nameWithType: ControladorQuarto.ImprimirListaDeQuartos
+- uid: TP_POO_24200_24204.ControladorReserva
+  name: ControladorReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html
+  commentId: T:TP_POO_24200_24204.ControladorReserva
+  fullName: TP_POO_24200_24204.ControladorReserva
+  nameWithType: ControladorReserva
+- uid: TP_POO_24200_24204.ControladorReserva.AdicionarReserva(TP_POO_24200_24204.Reserva)
+  name: AdicionarReserva(Reserva)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_AdicionarReserva_TP_POO_24200_24204_Reserva_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.AdicionarReserva(TP_POO_24200_24204.Reserva)
+  fullName: TP_POO_24200_24204.ControladorReserva.AdicionarReserva(TP_POO_24200_24204.Reserva)
+  nameWithType: ControladorReserva.AdicionarReserva(Reserva)
+- uid: TP_POO_24200_24204.ControladorReserva.AdicionarReserva*
+  name: AdicionarReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_AdicionarReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.AdicionarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.AdicionarReserva
+  nameWithType: ControladorReserva.AdicionarReserva
+- uid: TP_POO_24200_24204.ControladorReserva.AtualizarCamposReserva(TP_POO_24200_24204.Reserva,TP_POO_24200_24204.Reserva)
+  name: AtualizarCamposReserva(Reserva, Reserva)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_AtualizarCamposReserva_TP_POO_24200_24204_Reserva_TP_POO_24200_24204_Reserva_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.AtualizarCamposReserva(TP_POO_24200_24204.Reserva,TP_POO_24200_24204.Reserva)
+  fullName: TP_POO_24200_24204.ControladorReserva.AtualizarCamposReserva(TP_POO_24200_24204.Reserva, TP_POO_24200_24204.Reserva)
+  nameWithType: ControladorReserva.AtualizarCamposReserva(Reserva, Reserva)
+- uid: TP_POO_24200_24204.ControladorReserva.AtualizarCamposReserva*
+  name: AtualizarCamposReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_AtualizarCamposReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.AtualizarCamposReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.AtualizarCamposReserva
+  nameWithType: ControladorReserva.AtualizarCamposReserva
+- uid: TP_POO_24200_24204.ControladorReserva.BuscarReserva(System.Predicate{TP_POO_24200_24204.Reserva})
+  name: BuscarReserva(Predicate<Reserva>)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_BuscarReserva_System_Predicate_TP_POO_24200_24204_Reserva__
+  commentId: M:TP_POO_24200_24204.ControladorReserva.BuscarReserva(System.Predicate{TP_POO_24200_24204.Reserva})
+  name.vb: BuscarReserva(Predicate(Of Reserva))
+  fullName: TP_POO_24200_24204.ControladorReserva.BuscarReserva(System.Predicate<TP_POO_24200_24204.Reserva>)
+  fullName.vb: TP_POO_24200_24204.ControladorReserva.BuscarReserva(System.Predicate(Of TP_POO_24200_24204.Reserva))
+  nameWithType: ControladorReserva.BuscarReserva(Predicate<Reserva>)
+  nameWithType.vb: ControladorReserva.BuscarReserva(Predicate(Of Reserva))
+- uid: TP_POO_24200_24204.ControladorReserva.BuscarReserva*
+  name: BuscarReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_BuscarReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.BuscarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.BuscarReserva
+  nameWithType: ControladorReserva.BuscarReserva
+- uid: TP_POO_24200_24204.ControladorReserva.CriarReserva(System.Int32,System.Int32,System.DateTime,System.DateTime,System.Single)
+  name: CriarReserva(Int32, Int32, DateTime, DateTime, Single)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_CriarReserva_System_Int32_System_Int32_System_DateTime_System_DateTime_System_Single_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.CriarReserva(System.Int32,System.Int32,System.DateTime,System.DateTime,System.Single)
+  fullName: TP_POO_24200_24204.ControladorReserva.CriarReserva(System.Int32, System.Int32, System.DateTime, System.DateTime, System.Single)
+  nameWithType: ControladorReserva.CriarReserva(Int32, Int32, DateTime, DateTime, Single)
+- uid: TP_POO_24200_24204.ControladorReserva.CriarReserva*
+  name: CriarReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_CriarReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.CriarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.CriarReserva
+  nameWithType: ControladorReserva.CriarReserva
+- uid: TP_POO_24200_24204.ControladorReserva.EditarReserva(TP_POO_24200_24204.Reserva)
+  name: EditarReserva(Reserva)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_EditarReserva_TP_POO_24200_24204_Reserva_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.EditarReserva(TP_POO_24200_24204.Reserva)
+  fullName: TP_POO_24200_24204.ControladorReserva.EditarReserva(TP_POO_24200_24204.Reserva)
+  nameWithType: ControladorReserva.EditarReserva(Reserva)
+- uid: TP_POO_24200_24204.ControladorReserva.EditarReserva*
+  name: EditarReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_EditarReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.EditarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.EditarReserva
+  nameWithType: ControladorReserva.EditarReserva
+- uid: TP_POO_24200_24204.ControladorReserva.ExcluirReserva(TP_POO_24200_24204.Reserva)
+  name: ExcluirReserva(Reserva)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_ExcluirReserva_TP_POO_24200_24204_Reserva_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.ExcluirReserva(TP_POO_24200_24204.Reserva)
+  fullName: TP_POO_24200_24204.ControladorReserva.ExcluirReserva(TP_POO_24200_24204.Reserva)
+  nameWithType: ControladorReserva.ExcluirReserva(Reserva)
+- uid: TP_POO_24200_24204.ControladorReserva.ExcluirReserva*
+  name: ExcluirReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_ExcluirReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.ExcluirReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.ExcluirReserva
+  nameWithType: ControladorReserva.ExcluirReserva
+- uid: TP_POO_24200_24204.ControladorReserva.ObterListaAtual
+  name: ObterListaAtual()
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_ObterListaAtual
+  commentId: M:TP_POO_24200_24204.ControladorReserva.ObterListaAtual
+  fullName: TP_POO_24200_24204.ControladorReserva.ObterListaAtual()
+  nameWithType: ControladorReserva.ObterListaAtual()
+- uid: TP_POO_24200_24204.ControladorReserva.ObterListaAtual*
+  name: ObterListaAtual
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_ObterListaAtual_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.ObterListaAtual
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.ObterListaAtual
+  nameWithType: ControladorReserva.ObterListaAtual
+- uid: TP_POO_24200_24204.ControladorReserva.SetModelReserva(TP_POO_24200_24204.Reserva)
+  name: SetModelReserva(Reserva)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_SetModelReserva_TP_POO_24200_24204_Reserva_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.SetModelReserva(TP_POO_24200_24204.Reserva)
+  fullName: TP_POO_24200_24204.ControladorReserva.SetModelReserva(TP_POO_24200_24204.Reserva)
+  nameWithType: ControladorReserva.SetModelReserva(Reserva)
+- uid: TP_POO_24200_24204.ControladorReserva.SetModelReserva*
+  name: SetModelReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_SetModelReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.SetModelReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.SetModelReserva
+  nameWithType: ControladorReserva.SetModelReserva
+- uid: TP_POO_24200_24204.ControladorReserva.SetViewReserva(TP_POO_24200_24204.ViewReserva)
+  name: SetViewReserva(ViewReserva)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_SetViewReserva_TP_POO_24200_24204_ViewReserva_
+  commentId: M:TP_POO_24200_24204.ControladorReserva.SetViewReserva(TP_POO_24200_24204.ViewReserva)
+  fullName: TP_POO_24200_24204.ControladorReserva.SetViewReserva(TP_POO_24200_24204.ViewReserva)
+  nameWithType: ControladorReserva.SetViewReserva(ViewReserva)
+- uid: TP_POO_24200_24204.ControladorReserva.SetViewReserva*
+  name: SetViewReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_SetViewReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.SetViewReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.SetViewReserva
+  nameWithType: ControladorReserva.SetViewReserva
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo
+  name: ControladorReserva.TipoCampo
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html
+  commentId: T:TP_POO_24200_24204.ControladorReserva.TipoCampo
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo
+  nameWithType: ControladorReserva.TipoCampo
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.DataEntrada
+  name: DataEntrada
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_DataEntrada
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.DataEntrada
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.DataEntrada
+  nameWithType: ControladorReserva.TipoCampo.DataEntrada
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.DataReserva
+  name: DataReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_DataReserva
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.DataReserva
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.DataReserva
+  nameWithType: ControladorReserva.TipoCampo.DataReserva
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.DataSaida
+  name: DataSaida
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_DataSaida
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.DataSaida
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.DataSaida
+  nameWithType: ControladorReserva.TipoCampo.DataSaida
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.IsAtivo
+  name: IsAtivo
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_IsAtivo
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.IsAtivo
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.IsAtivo
+  nameWithType: ControladorReserva.TipoCampo.IsAtivo
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.Nulo
+  name: Nulo
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_Nulo
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.Nulo
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.Nulo
+  nameWithType: ControladorReserva.TipoCampo.Nulo
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.QuartoId
+  name: QuartoId
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_QuartoId
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.QuartoId
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.QuartoId
+  nameWithType: ControladorReserva.TipoCampo.QuartoId
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.ReservaId
+  name: ReservaId
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_ReservaId
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.ReservaId
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.ReservaId
+  nameWithType: ControladorReserva.TipoCampo.ReservaId
+- uid: TP_POO_24200_24204.ControladorReserva.TipoCampo.UtiId
+  name: UtiId
+  href: api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html#TP_POO_24200_24204_ControladorReserva_TipoCampo_UtiId
+  commentId: F:TP_POO_24200_24204.ControladorReserva.TipoCampo.UtiId
+  fullName: TP_POO_24200_24204.ControladorReserva.TipoCampo.UtiId
+  nameWithType: ControladorReserva.TipoCampo.UtiId
+- uid: TP_POO_24200_24204.ControladorReserva.ValidarReserva(TP_POO_24200_24204.Reserva,System.Collections.Generic.List{TP_POO_24200_24204.Reserva})
+  name: ValidarReserva(Reserva, List<Reserva>)
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_ValidarReserva_TP_POO_24200_24204_Reserva_System_Collections_Generic_List_TP_POO_24200_24204_Reserva__
+  commentId: M:TP_POO_24200_24204.ControladorReserva.ValidarReserva(TP_POO_24200_24204.Reserva,System.Collections.Generic.List{TP_POO_24200_24204.Reserva})
+  name.vb: ValidarReserva(Reserva, List(Of Reserva))
+  fullName: TP_POO_24200_24204.ControladorReserva.ValidarReserva(TP_POO_24200_24204.Reserva, System.Collections.Generic.List<TP_POO_24200_24204.Reserva>)
+  fullName.vb: TP_POO_24200_24204.ControladorReserva.ValidarReserva(TP_POO_24200_24204.Reserva, System.Collections.Generic.List(Of TP_POO_24200_24204.Reserva))
+  nameWithType: ControladorReserva.ValidarReserva(Reserva, List<Reserva>)
+  nameWithType.vb: ControladorReserva.ValidarReserva(Reserva, List(Of Reserva))
+- uid: TP_POO_24200_24204.ControladorReserva.ValidarReserva*
+  name: ValidarReserva
+  href: api/TP_POO_24200_24204.ControladorReserva.html#TP_POO_24200_24204_ControladorReserva_ValidarReserva_
+  commentId: Overload:TP_POO_24200_24204.ControladorReserva.ValidarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorReserva.ValidarReserva
+  nameWithType: ControladorReserva.ValidarReserva
 - uid: TP_POO_24200_24204.ControladorUtilizador
   name: ControladorUtilizador
   href: api/TP_POO_24200_24204.ControladorUtilizador.html
   commentId: T:TP_POO_24200_24204.ControladorUtilizador
   fullName: TP_POO_24200_24204.ControladorUtilizador
   nameWithType: ControladorUtilizador
+- uid: TP_POO_24200_24204.ControladorUtilizador.#ctor
+  name: ControladorUtilizador()
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador__ctor
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.#ctor
+  fullName: TP_POO_24200_24204.ControladorUtilizador.ControladorUtilizador()
+  nameWithType: ControladorUtilizador.ControladorUtilizador()
+- uid: TP_POO_24200_24204.ControladorUtilizador.#ctor*
+  name: ControladorUtilizador
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador__ctor_
+  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.#ctor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorUtilizador.ControladorUtilizador
+  nameWithType: ControladorUtilizador.ControladorUtilizador
 - uid: TP_POO_24200_24204.ControladorUtilizador.AdicionarUtilizador(TP_POO_24200_24204.Utilizador)
   name: AdicionarUtilizador(Utilizador)
   href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AdicionarUtilizador_TP_POO_24200_24204_Utilizador_
@@ -132,6 +402,32 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorUtilizador.AdicionarUtilizador
   nameWithType: ControladorUtilizador.AdicionarUtilizador
+- uid: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson(System.Int32)
+  name: AtualizarUltimoIdNoJson(Int32)
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AtualizarUltimoIdNoJson_System_Int32_
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson(System.Int32)
+  fullName: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson(System.Int32)
+  nameWithType: ControladorUtilizador.AtualizarUltimoIdNoJson(Int32)
+- uid: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson*
+  name: AtualizarUltimoIdNoJson
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AtualizarUltimoIdNoJson_
+  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorUtilizador.AtualizarUltimoIdNoJson
+  nameWithType: ControladorUtilizador.AtualizarUltimoIdNoJson
+- uid: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador(System.String,System.String)
+  name: AutenticarUtilizador(String, String)
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AutenticarUtilizador_System_String_System_String_
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador(System.String,System.String)
+  fullName: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador(System.String, System.String)
+  nameWithType: ControladorUtilizador.AutenticarUtilizador(String, String)
+- uid: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador*
+  name: AutenticarUtilizador
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_AutenticarUtilizador_
+  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorUtilizador.AutenticarUtilizador
+  nameWithType: ControladorUtilizador.AutenticarUtilizador
 - uid: TP_POO_24200_24204.ControladorUtilizador.CarregarListaDeUtilizadores(System.String)
   name: CarregarListaDeUtilizadores(String)
   href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_CarregarListaDeUtilizadores_System_String_
@@ -184,12 +480,41 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorUtilizador.ImprimirListaDeUtilizadores
   nameWithType: ControladorUtilizador.ImprimirListaDeUtilizadores
-- uid: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String)
-  name: SalvarListaFicheiro(String)
-  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_SalvarListaFicheiro_System_String_
-  commentId: M:TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String)
-  fullName: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String)
-  nameWithType: ControladorUtilizador.SalvarListaFicheiro(String)
+- uid: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson(System.String)
+  name: LerUltimoIdDoJson(String)
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_LerUltimoIdDoJson_System_String_
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson(System.String)
+  fullName: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson(System.String)
+  nameWithType: ControladorUtilizador.LerUltimoIdDoJson(String)
+- uid: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson*
+  name: LerUltimoIdDoJson
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_LerUltimoIdDoJson_
+  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorUtilizador.LerUltimoIdDoJson
+  nameWithType: ControladorUtilizador.LerUltimoIdDoJson
+- uid: TP_POO_24200_24204.ControladorUtilizador.Login
+  name: Login()
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_Login
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.Login
+  fullName: TP_POO_24200_24204.ControladorUtilizador.Login()
+  nameWithType: ControladorUtilizador.Login()
+- uid: TP_POO_24200_24204.ControladorUtilizador.Login*
+  name: Login
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_Login_
+  commentId: Overload:TP_POO_24200_24204.ControladorUtilizador.Login
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ControladorUtilizador.Login
+  nameWithType: ControladorUtilizador.Login
+- uid: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String,System.Collections.Generic.List{TP_POO_24200_24204.Utilizador})
+  name: SalvarListaFicheiro(String, List<Utilizador>)
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_SalvarListaFicheiro_System_String_System_Collections_Generic_List_TP_POO_24200_24204_Utilizador__
+  commentId: M:TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String,System.Collections.Generic.List{TP_POO_24200_24204.Utilizador})
+  name.vb: SalvarListaFicheiro(String, List(Of Utilizador))
+  fullName: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String, System.Collections.Generic.List<TP_POO_24200_24204.Utilizador>)
+  fullName.vb: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro(System.String, System.Collections.Generic.List(Of TP_POO_24200_24204.Utilizador))
+  nameWithType: ControladorUtilizador.SalvarListaFicheiro(String, List<Utilizador>)
+  nameWithType.vb: ControladorUtilizador.SalvarListaFicheiro(String, List(Of Utilizador))
 - uid: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro*
   name: SalvarListaFicheiro
   href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_SalvarListaFicheiro_
@@ -197,12 +522,171 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.ControladorUtilizador.SalvarListaFicheiro
   nameWithType: ControladorUtilizador.SalvarListaFicheiro
+- uid: TP_POO_24200_24204.ControladorUtilizador.UtilizadorCriado
+  name: UtilizadorCriado
+  href: api/TP_POO_24200_24204.ControladorUtilizador.html#TP_POO_24200_24204_ControladorUtilizador_UtilizadorCriado
+  commentId: E:TP_POO_24200_24204.ControladorUtilizador.UtilizadorCriado
+  fullName: TP_POO_24200_24204.ControladorUtilizador.UtilizadorCriado
+  nameWithType: ControladorUtilizador.UtilizadorCriado
+- uid: TP_POO_24200_24204.Gestor
+  name: Gestor
+  href: api/TP_POO_24200_24204.Gestor.html
+  commentId: T:TP_POO_24200_24204.Gestor
+  fullName: TP_POO_24200_24204.Gestor
+  nameWithType: Gestor
+- uid: TP_POO_24200_24204.Gestor.#ctor(System.Int32,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.DateTime)
+  name: Gestor(Int32, String, String, String, DateTime, String, String, String, String, String, String, String, Boolean, DateTime)
+  href: api/TP_POO_24200_24204.Gestor.html#TP_POO_24200_24204_Gestor__ctor_System_Int32_System_String_System_String_System_String_System_DateTime_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Boolean_System_DateTime_
+  commentId: M:TP_POO_24200_24204.Gestor.#ctor(System.Int32,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.DateTime)
+  fullName: TP_POO_24200_24204.Gestor.Gestor(System.Int32, System.String, System.String, System.String, System.DateTime, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Boolean, System.DateTime)
+  nameWithType: Gestor.Gestor(Int32, String, String, String, DateTime, String, String, String, String, String, String, String, Boolean, DateTime)
+- uid: TP_POO_24200_24204.Gestor.#ctor*
+  name: Gestor
+  href: api/TP_POO_24200_24204.Gestor.html#TP_POO_24200_24204_Gestor__ctor_
+  commentId: Overload:TP_POO_24200_24204.Gestor.#ctor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.Gestor.Gestor
+  nameWithType: Gestor.Gestor
+- uid: TP_POO_24200_24204.Gestor.listaDeGestores
+  name: listaDeGestores
+  href: api/TP_POO_24200_24204.Gestor.html#TP_POO_24200_24204_Gestor_listaDeGestores
+  commentId: F:TP_POO_24200_24204.Gestor.listaDeGestores
+  fullName: TP_POO_24200_24204.Gestor.listaDeGestores
+  nameWithType: Gestor.listaDeGestores
+- uid: TP_POO_24200_24204.IMenuUtilizador
+  name: IMenuUtilizador
+  href: api/TP_POO_24200_24204.IMenuUtilizador.html
+  commentId: T:TP_POO_24200_24204.IMenuUtilizador
+  fullName: TP_POO_24200_24204.IMenuUtilizador
+  nameWithType: IMenuUtilizador
+- uid: TP_POO_24200_24204.IMenuUtilizador.ExibirMenu
+  name: ExibirMenu()
+  href: api/TP_POO_24200_24204.IMenuUtilizador.html#TP_POO_24200_24204_IMenuUtilizador_ExibirMenu
+  commentId: M:TP_POO_24200_24204.IMenuUtilizador.ExibirMenu
+  fullName: TP_POO_24200_24204.IMenuUtilizador.ExibirMenu()
+  nameWithType: IMenuUtilizador.ExibirMenu()
+- uid: TP_POO_24200_24204.IMenuUtilizador.ExibirMenu*
+  name: ExibirMenu
+  href: api/TP_POO_24200_24204.IMenuUtilizador.html#TP_POO_24200_24204_IMenuUtilizador_ExibirMenu_
+  commentId: Overload:TP_POO_24200_24204.IMenuUtilizador.ExibirMenu
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.IMenuUtilizador.ExibirMenu
+  nameWithType: IMenuUtilizador.ExibirMenu
+- uid: TP_POO_24200_24204.MenuFuncionario
+  name: MenuFuncionario
+  href: api/TP_POO_24200_24204.MenuFuncionario.html
+  commentId: T:TP_POO_24200_24204.MenuFuncionario
+  fullName: TP_POO_24200_24204.MenuFuncionario
+  nameWithType: MenuFuncionario
+- uid: TP_POO_24200_24204.MenuFuncionario.#ctor(TP_POO_24200_24204.Utilizador)
+  name: MenuFuncionario(Utilizador)
+  href: api/TP_POO_24200_24204.MenuFuncionario.html#TP_POO_24200_24204_MenuFuncionario__ctor_TP_POO_24200_24204_Utilizador_
+  commentId: M:TP_POO_24200_24204.MenuFuncionario.#ctor(TP_POO_24200_24204.Utilizador)
+  fullName: TP_POO_24200_24204.MenuFuncionario.MenuFuncionario(TP_POO_24200_24204.Utilizador)
+  nameWithType: MenuFuncionario.MenuFuncionario(Utilizador)
+- uid: TP_POO_24200_24204.MenuFuncionario.#ctor*
+  name: MenuFuncionario
+  href: api/TP_POO_24200_24204.MenuFuncionario.html#TP_POO_24200_24204_MenuFuncionario__ctor_
+  commentId: Overload:TP_POO_24200_24204.MenuFuncionario.#ctor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuFuncionario.MenuFuncionario
+  nameWithType: MenuFuncionario.MenuFuncionario
+- uid: TP_POO_24200_24204.MenuFuncionario.ExibirMenu
+  name: ExibirMenu()
+  href: api/TP_POO_24200_24204.MenuFuncionario.html#TP_POO_24200_24204_MenuFuncionario_ExibirMenu
+  commentId: M:TP_POO_24200_24204.MenuFuncionario.ExibirMenu
+  fullName: TP_POO_24200_24204.MenuFuncionario.ExibirMenu()
+  nameWithType: MenuFuncionario.ExibirMenu()
+- uid: TP_POO_24200_24204.MenuFuncionario.ExibirMenu*
+  name: ExibirMenu
+  href: api/TP_POO_24200_24204.MenuFuncionario.html#TP_POO_24200_24204_MenuFuncionario_ExibirMenu_
+  commentId: Overload:TP_POO_24200_24204.MenuFuncionario.ExibirMenu
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuFuncionario.ExibirMenu
+  nameWithType: MenuFuncionario.ExibirMenu
+- uid: TP_POO_24200_24204.MenuGestor
+  name: MenuGestor
+  href: api/TP_POO_24200_24204.MenuGestor.html
+  commentId: T:TP_POO_24200_24204.MenuGestor
+  fullName: TP_POO_24200_24204.MenuGestor
+  nameWithType: MenuGestor
+- uid: TP_POO_24200_24204.MenuGestor.#ctor(TP_POO_24200_24204.Utilizador)
+  name: MenuGestor(Utilizador)
+  href: api/TP_POO_24200_24204.MenuGestor.html#TP_POO_24200_24204_MenuGestor__ctor_TP_POO_24200_24204_Utilizador_
+  commentId: M:TP_POO_24200_24204.MenuGestor.#ctor(TP_POO_24200_24204.Utilizador)
+  fullName: TP_POO_24200_24204.MenuGestor.MenuGestor(TP_POO_24200_24204.Utilizador)
+  nameWithType: MenuGestor.MenuGestor(Utilizador)
+- uid: TP_POO_24200_24204.MenuGestor.#ctor*
+  name: MenuGestor
+  href: api/TP_POO_24200_24204.MenuGestor.html#TP_POO_24200_24204_MenuGestor__ctor_
+  commentId: Overload:TP_POO_24200_24204.MenuGestor.#ctor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuGestor.MenuGestor
+  nameWithType: MenuGestor.MenuGestor
+- uid: TP_POO_24200_24204.MenuGestor.ExibirMenu
+  name: ExibirMenu()
+  href: api/TP_POO_24200_24204.MenuGestor.html#TP_POO_24200_24204_MenuGestor_ExibirMenu
+  commentId: M:TP_POO_24200_24204.MenuGestor.ExibirMenu
+  fullName: TP_POO_24200_24204.MenuGestor.ExibirMenu()
+  nameWithType: MenuGestor.ExibirMenu()
+- uid: TP_POO_24200_24204.MenuGestor.ExibirMenu*
+  name: ExibirMenu
+  href: api/TP_POO_24200_24204.MenuGestor.html#TP_POO_24200_24204_MenuGestor_ExibirMenu_
+  commentId: Overload:TP_POO_24200_24204.MenuGestor.ExibirMenu
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuGestor.ExibirMenu
+  nameWithType: MenuGestor.ExibirMenu
+- uid: TP_POO_24200_24204.MenuMorador
+  name: MenuMorador
+  href: api/TP_POO_24200_24204.MenuMorador.html
+  commentId: T:TP_POO_24200_24204.MenuMorador
+  fullName: TP_POO_24200_24204.MenuMorador
+  nameWithType: MenuMorador
+- uid: TP_POO_24200_24204.MenuMorador.#ctor(TP_POO_24200_24204.Utilizador)
+  name: MenuMorador(Utilizador)
+  href: api/TP_POO_24200_24204.MenuMorador.html#TP_POO_24200_24204_MenuMorador__ctor_TP_POO_24200_24204_Utilizador_
+  commentId: M:TP_POO_24200_24204.MenuMorador.#ctor(TP_POO_24200_24204.Utilizador)
+  fullName: TP_POO_24200_24204.MenuMorador.MenuMorador(TP_POO_24200_24204.Utilizador)
+  nameWithType: MenuMorador.MenuMorador(Utilizador)
+- uid: TP_POO_24200_24204.MenuMorador.#ctor*
+  name: MenuMorador
+  href: api/TP_POO_24200_24204.MenuMorador.html#TP_POO_24200_24204_MenuMorador__ctor_
+  commentId: Overload:TP_POO_24200_24204.MenuMorador.#ctor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuMorador.MenuMorador
+  nameWithType: MenuMorador.MenuMorador
+- uid: TP_POO_24200_24204.MenuMorador.ExibirMenu
+  name: ExibirMenu()
+  href: api/TP_POO_24200_24204.MenuMorador.html#TP_POO_24200_24204_MenuMorador_ExibirMenu
+  commentId: M:TP_POO_24200_24204.MenuMorador.ExibirMenu
+  fullName: TP_POO_24200_24204.MenuMorador.ExibirMenu()
+  nameWithType: MenuMorador.ExibirMenu()
+- uid: TP_POO_24200_24204.MenuMorador.ExibirMenu*
+  name: ExibirMenu
+  href: api/TP_POO_24200_24204.MenuMorador.html#TP_POO_24200_24204_MenuMorador_ExibirMenu_
+  commentId: Overload:TP_POO_24200_24204.MenuMorador.ExibirMenu
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuMorador.ExibirMenu
+  nameWithType: MenuMorador.ExibirMenu
 - uid: TP_POO_24200_24204.MenuResidencia
   name: MenuResidencia
   href: api/TP_POO_24200_24204.MenuResidencia.html
   commentId: T:TP_POO_24200_24204.MenuResidencia
   fullName: TP_POO_24200_24204.MenuResidencia
   nameWithType: MenuResidencia
+- uid: TP_POO_24200_24204.MenuResidencia.#ctor
+  name: MenuResidencia()
+  href: api/TP_POO_24200_24204.MenuResidencia.html#TP_POO_24200_24204_MenuResidencia__ctor
+  commentId: M:TP_POO_24200_24204.MenuResidencia.#ctor
+  fullName: TP_POO_24200_24204.MenuResidencia.MenuResidencia()
+  nameWithType: MenuResidencia.MenuResidencia()
+- uid: TP_POO_24200_24204.MenuResidencia.#ctor*
+  name: MenuResidencia
+  href: api/TP_POO_24200_24204.MenuResidencia.html#TP_POO_24200_24204_MenuResidencia__ctor_
+  commentId: Overload:TP_POO_24200_24204.MenuResidencia.#ctor
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.MenuResidencia.MenuResidencia
+  nameWithType: MenuResidencia.MenuResidencia
 - uid: TP_POO_24200_24204.MenuResidencia.ExibirMenu
   name: ExibirMenu()
   href: api/TP_POO_24200_24204.MenuResidencia.html#TP_POO_24200_24204_MenuResidencia_ExibirMenu
@@ -496,6 +980,19 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.Reserva.Reserva
   nameWithType: Reserva.Reserva
+- uid: TP_POO_24200_24204.Reserva.AtualizarUltimoIdNoJson(System.Int32,System.String)
+  name: AtualizarUltimoIdNoJson(Int32, String)
+  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_AtualizarUltimoIdNoJson_System_Int32_System_String_
+  commentId: M:TP_POO_24200_24204.Reserva.AtualizarUltimoIdNoJson(System.Int32,System.String)
+  fullName: TP_POO_24200_24204.Reserva.AtualizarUltimoIdNoJson(System.Int32, System.String)
+  nameWithType: Reserva.AtualizarUltimoIdNoJson(Int32, String)
+- uid: TP_POO_24200_24204.Reserva.AtualizarUltimoIdNoJson*
+  name: AtualizarUltimoIdNoJson
+  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_AtualizarUltimoIdNoJson_
+  commentId: Overload:TP_POO_24200_24204.Reserva.AtualizarUltimoIdNoJson
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.Reserva.AtualizarUltimoIdNoJson
+  nameWithType: Reserva.AtualizarUltimoIdNoJson
 - uid: TP_POO_24200_24204.Reserva.CarregarListaDeReservas(System.String)
   name: CarregarListaDeReservas(String)
   href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_CarregarListaDeReservas_System_String_
@@ -574,19 +1071,6 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.Reserva.DataSaida
   nameWithType: Reserva.DataSaida
-- uid: TP_POO_24200_24204.Reserva.GetUltimoId
-  name: GetUltimoId()
-  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_GetUltimoId
-  commentId: M:TP_POO_24200_24204.Reserva.GetUltimoId
-  fullName: TP_POO_24200_24204.Reserva.GetUltimoId()
-  nameWithType: Reserva.GetUltimoId()
-- uid: TP_POO_24200_24204.Reserva.GetUltimoId*
-  name: GetUltimoId
-  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_GetUltimoId_
-  commentId: Overload:TP_POO_24200_24204.Reserva.GetUltimoId
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.Reserva.GetUltimoId
-  nameWithType: Reserva.GetUltimoId
 - uid: TP_POO_24200_24204.Reserva.IsAtivo
   name: IsAtivo
   href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_IsAtivo
@@ -600,6 +1084,19 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.Reserva.IsAtivo
   nameWithType: Reserva.IsAtivo
+- uid: TP_POO_24200_24204.Reserva.LerUltimoIdReserva(System.String)
+  name: LerUltimoIdReserva(String)
+  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_LerUltimoIdReserva_System_String_
+  commentId: M:TP_POO_24200_24204.Reserva.LerUltimoIdReserva(System.String)
+  fullName: TP_POO_24200_24204.Reserva.LerUltimoIdReserva(System.String)
+  nameWithType: Reserva.LerUltimoIdReserva(String)
+- uid: TP_POO_24200_24204.Reserva.LerUltimoIdReserva*
+  name: LerUltimoIdReserva
+  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_LerUltimoIdReserva_
+  commentId: Overload:TP_POO_24200_24204.Reserva.LerUltimoIdReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.Reserva.LerUltimoIdReserva
+  nameWithType: Reserva.LerUltimoIdReserva
 - uid: TP_POO_24200_24204.Reserva.PrecoCaucao
   name: PrecoCaucao
   href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_PrecoCaucao
@@ -655,19 +1152,6 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.Reserva.SalvarListaFicheiro
   nameWithType: Reserva.SalvarListaFicheiro
-- uid: TP_POO_24200_24204.Reserva.SetUltimoId(System.Int32)
-  name: SetUltimoId(Int32)
-  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_SetUltimoId_System_Int32_
-  commentId: M:TP_POO_24200_24204.Reserva.SetUltimoId(System.Int32)
-  fullName: TP_POO_24200_24204.Reserva.SetUltimoId(System.Int32)
-  nameWithType: Reserva.SetUltimoId(Int32)
-- uid: TP_POO_24200_24204.Reserva.SetUltimoId*
-  name: SetUltimoId
-  href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_SetUltimoId_
-  commentId: Overload:TP_POO_24200_24204.Reserva.SetUltimoId
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.Reserva.SetUltimoId
-  nameWithType: Reserva.SetUltimoId
 - uid: TP_POO_24200_24204.Reserva.UtiId
   name: UtiId
   href: api/TP_POO_24200_24204.Reserva.html#TP_POO_24200_24204_Reserva_UtiId
@@ -1218,3 +1702,142 @@ references:
   commentId: F:TP_POO_24200_24204.Utilizador.UtiId
   fullName: TP_POO_24200_24204.Utilizador.UtiId
   nameWithType: Utilizador.UtiId
+- uid: TP_POO_24200_24204.ViewReserva
+  name: ViewReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html
+  commentId: T:TP_POO_24200_24204.ViewReserva
+  fullName: TP_POO_24200_24204.ViewReserva
+  nameWithType: ViewReserva
+- uid: TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva(System.Collections.Generic.List{TP_POO_24200_24204.Reserva})
+  name: ExibirDetalhesListaReserva(List<Reserva>)
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ExibirDetalhesListaReserva_System_Collections_Generic_List_TP_POO_24200_24204_Reserva__
+  commentId: M:TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva(System.Collections.Generic.List{TP_POO_24200_24204.Reserva})
+  name.vb: ExibirDetalhesListaReserva(List(Of Reserva))
+  fullName: TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva(System.Collections.Generic.List<TP_POO_24200_24204.Reserva>)
+  fullName.vb: TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva(System.Collections.Generic.List(Of TP_POO_24200_24204.Reserva))
+  nameWithType: ViewReserva.ExibirDetalhesListaReserva(List<Reserva>)
+  nameWithType.vb: ViewReserva.ExibirDetalhesListaReserva(List(Of Reserva))
+- uid: TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva*
+  name: ExibirDetalhesListaReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ExibirDetalhesListaReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.ExibirDetalhesListaReserva
+  nameWithType: ViewReserva.ExibirDetalhesListaReserva
+- uid: TP_POO_24200_24204.ViewReserva.ExibirDetalhesReserva(TP_POO_24200_24204.Reserva)
+  name: ExibirDetalhesReserva(Reserva)
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ExibirDetalhesReserva_TP_POO_24200_24204_Reserva_
+  commentId: M:TP_POO_24200_24204.ViewReserva.ExibirDetalhesReserva(TP_POO_24200_24204.Reserva)
+  fullName: TP_POO_24200_24204.ViewReserva.ExibirDetalhesReserva(TP_POO_24200_24204.Reserva)
+  nameWithType: ViewReserva.ExibirDetalhesReserva(Reserva)
+- uid: TP_POO_24200_24204.ViewReserva.ExibirDetalhesReserva*
+  name: ExibirDetalhesReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ExibirDetalhesReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.ExibirDetalhesReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.ExibirDetalhesReserva
+  nameWithType: ViewReserva.ExibirDetalhesReserva
+- uid: TP_POO_24200_24204.ViewReserva.ImprimirListaReservaAtual
+  name: ImprimirListaReservaAtual()
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ImprimirListaReservaAtual
+  commentId: M:TP_POO_24200_24204.ViewReserva.ImprimirListaReservaAtual
+  fullName: TP_POO_24200_24204.ViewReserva.ImprimirListaReservaAtual()
+  nameWithType: ViewReserva.ImprimirListaReservaAtual()
+- uid: TP_POO_24200_24204.ViewReserva.ImprimirListaReservaAtual*
+  name: ImprimirListaReservaAtual
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ImprimirListaReservaAtual_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.ImprimirListaReservaAtual
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.ImprimirListaReservaAtual
+  nameWithType: ViewReserva.ImprimirListaReservaAtual
+- uid: TP_POO_24200_24204.ViewReserva.MenuBuscarReserva
+  name: MenuBuscarReserva()
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuBuscarReserva
+  commentId: M:TP_POO_24200_24204.ViewReserva.MenuBuscarReserva
+  fullName: TP_POO_24200_24204.ViewReserva.MenuBuscarReserva()
+  nameWithType: ViewReserva.MenuBuscarReserva()
+- uid: TP_POO_24200_24204.ViewReserva.MenuBuscarReserva*
+  name: MenuBuscarReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuBuscarReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.MenuBuscarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.MenuBuscarReserva
+  nameWithType: ViewReserva.MenuBuscarReserva
+- uid: TP_POO_24200_24204.ViewReserva.MenuCriarReserva
+  name: MenuCriarReserva()
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuCriarReserva
+  commentId: M:TP_POO_24200_24204.ViewReserva.MenuCriarReserva
+  fullName: TP_POO_24200_24204.ViewReserva.MenuCriarReserva()
+  nameWithType: ViewReserva.MenuCriarReserva()
+- uid: TP_POO_24200_24204.ViewReserva.MenuCriarReserva*
+  name: MenuCriarReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuCriarReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.MenuCriarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.MenuCriarReserva
+  nameWithType: ViewReserva.MenuCriarReserva
+- uid: TP_POO_24200_24204.ViewReserva.MenuEditarReserva
+  name: MenuEditarReserva()
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuEditarReserva
+  commentId: M:TP_POO_24200_24204.ViewReserva.MenuEditarReserva
+  fullName: TP_POO_24200_24204.ViewReserva.MenuEditarReserva()
+  nameWithType: ViewReserva.MenuEditarReserva()
+- uid: TP_POO_24200_24204.ViewReserva.MenuEditarReserva*
+  name: MenuEditarReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuEditarReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.MenuEditarReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.MenuEditarReserva
+  nameWithType: ViewReserva.MenuEditarReserva
+- uid: TP_POO_24200_24204.ViewReserva.MenuExcluirReserva
+  name: MenuExcluirReserva()
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuExcluirReserva
+  commentId: M:TP_POO_24200_24204.ViewReserva.MenuExcluirReserva
+  fullName: TP_POO_24200_24204.ViewReserva.MenuExcluirReserva()
+  nameWithType: ViewReserva.MenuExcluirReserva()
+- uid: TP_POO_24200_24204.ViewReserva.MenuExcluirReserva*
+  name: MenuExcluirReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuExcluirReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.MenuExcluirReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.MenuExcluirReserva
+  nameWithType: ViewReserva.MenuExcluirReserva
+- uid: TP_POO_24200_24204.ViewReserva.MenuSelecionarCampo
+  name: MenuSelecionarCampo()
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuSelecionarCampo
+  commentId: M:TP_POO_24200_24204.ViewReserva.MenuSelecionarCampo
+  fullName: TP_POO_24200_24204.ViewReserva.MenuSelecionarCampo()
+  nameWithType: ViewReserva.MenuSelecionarCampo()
+- uid: TP_POO_24200_24204.ViewReserva.MenuSelecionarCampo*
+  name: MenuSelecionarCampo
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_MenuSelecionarCampo_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.MenuSelecionarCampo
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.MenuSelecionarCampo
+  nameWithType: ViewReserva.MenuSelecionarCampo
+- uid: TP_POO_24200_24204.ViewReserva.ObterNovoValorReserva(TP_POO_24200_24204.Reserva,TP_POO_24200_24204.ControladorReserva.TipoCampo)
+  name: ObterNovoValorReserva(Reserva, ControladorReserva.TipoCampo)
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ObterNovoValorReserva_TP_POO_24200_24204_Reserva_TP_POO_24200_24204_ControladorReserva_TipoCampo_
+  commentId: M:TP_POO_24200_24204.ViewReserva.ObterNovoValorReserva(TP_POO_24200_24204.Reserva,TP_POO_24200_24204.ControladorReserva.TipoCampo)
+  fullName: TP_POO_24200_24204.ViewReserva.ObterNovoValorReserva(TP_POO_24200_24204.Reserva, TP_POO_24200_24204.ControladorReserva.TipoCampo)
+  nameWithType: ViewReserva.ObterNovoValorReserva(Reserva, ControladorReserva.TipoCampo)
+- uid: TP_POO_24200_24204.ViewReserva.ObterNovoValorReserva*
+  name: ObterNovoValorReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_ObterNovoValorReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.ObterNovoValorReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.ObterNovoValorReserva
+  nameWithType: ViewReserva.ObterNovoValorReserva
+- uid: TP_POO_24200_24204.ViewReserva.SetControladorReserva(TP_POO_24200_24204.ControladorReserva)
+  name: SetControladorReserva(ControladorReserva)
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_SetControladorReserva_TP_POO_24200_24204_ControladorReserva_
+  commentId: M:TP_POO_24200_24204.ViewReserva.SetControladorReserva(TP_POO_24200_24204.ControladorReserva)
+  fullName: TP_POO_24200_24204.ViewReserva.SetControladorReserva(TP_POO_24200_24204.ControladorReserva)
+  nameWithType: ViewReserva.SetControladorReserva(ControladorReserva)
+- uid: TP_POO_24200_24204.ViewReserva.SetControladorReserva*
+  name: SetControladorReserva
+  href: api/TP_POO_24200_24204.ViewReserva.html#TP_POO_24200_24204_ViewReserva_SetControladorReserva_
+  commentId: Overload:TP_POO_24200_24204.ViewReserva.SetControladorReserva
+  isSpec: "True"
+  fullName: TP_POO_24200_24204.ViewReserva.SetControladorReserva
+  nameWithType: ViewReserva.SetControladorReserva

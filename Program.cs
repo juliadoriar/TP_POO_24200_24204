@@ -19,8 +19,10 @@ namespace TP_POO_24200_24204
             viewReservas.SetControladorReserva(controladorReserva);
             controladorReserva.SetViewReserva(viewReservas);
 
-            Utilizador.CriarFicheiroJson("utilizador.json");
-            Utilizador.CriarFicheiroJson("morador.json");
+            ControladorUtilizador.CriarFicheiroJson("utilizador.json");
+            ControladorUtilizador.CriarFicheiroJson("morador.json");
+            ControladorUtilizador.CriarFicheiroJson("gestor.json");
+            ControladorUtilizador.CriarFicheiroJson("funcionario.json");
             Reserva.CriarFicheiroJson("reserva.json");
             ControladorQuarto.CriarListaDeQuartos();
 

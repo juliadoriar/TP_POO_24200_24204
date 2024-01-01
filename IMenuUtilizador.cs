@@ -37,9 +37,11 @@ namespace TP_POO_24200_24204
     public class MenuMorador : MenuUtilizadorBase
     {
         private ControladorUtilizador controladorUtilizador;
+        private ViewReserva viewReserva;
         public MenuMorador(Utilizador utilizador) : base(utilizador)
         {
             controladorUtilizador = new ControladorUtilizador();
+            viewReserva = new ViewReserva();
         }
 
         public override void ExibirMenu()
@@ -62,25 +64,30 @@ namespace TP_POO_24200_24204
                 {
                     case "1":
                         Console.WriteLine("Opção 1 - Realizar Reserva");
-                        //chamar método criar reserva
+                        viewReserva.MenuCriarReserva();
                         break;
 
                     case "2":
                         Console.WriteLine("Opção 2 - Alterar Reserva");
-                        //chamar método para alterar reserva
+                        viewReserva.MenuEditarReserva();
                         break;
 
                     case "3":
                         Console.WriteLine("Opção 3 - Cancelar Reserva");
-                        //chamar método para cancelar reserva;
+                        viewReserva.MenuExcluirReserva();
                         break;
 
                     case "4":
-                        Console.WriteLine("Opção 4 - Alterar Cadastro");
-                        //chamar método para alterar cadastro de utilizador;
+                        Console.WriteLine("Opção 4 - Buscar Reserva");
+                        viewReserva.MenuBuscarReserva();
                         break;
 
                     case "5":
+                        Console.WriteLine("Opção 5 - Alterar Cadastro");
+                        //chamar método para alterar cadastro de utilizador;
+                        break;
+
+                    case "6":
                         Console.WriteLine("Saindo...");
                         continuar = false;
                         break;
@@ -108,9 +115,12 @@ namespace TP_POO_24200_24204
         {
             private ControladorUtilizador controladorUtilizador;
             private ControladorMorador controladorMorador;
+            private ViewReserva viewReserva;
+       
             public MenuGestor(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
+                viewReserva = new ViewReserva();
                 controladorMorador = new ControladorMorador();
             }
 
@@ -126,11 +136,12 @@ namespace TP_POO_24200_24204
                     Console.WriteLine("1. Realizar Reserva");
                     Console.WriteLine("2. Alterar Reserva");
                     Console.WriteLine("3. Cancelar Reserva");
-                    Console.WriteLine("4. Alterar Cadastro");
-                    Console.WriteLine("5. Listar Moradores");
-                    Console.WriteLine("6. Listar Utilizadores");
-                    Console.WriteLine("7. Listar Quartos");
-                    Console.WriteLine("8. Sair");
+                    Console.WriteLine("4. Buscar Reserva");
+                    Console.WriteLine("5. Alterar Cadastro");
+                    Console.WriteLine("6. Listar Moradores");
+                    Console.WriteLine("7. Listar Utilizadores");
+                    Console.WriteLine("8. Listar Quartos");
+                    Console.WriteLine("9. Sair");
 
                     Console.Write("Escolha uma opção: ");
                     string opcao = Console.ReadLine();
@@ -139,40 +150,45 @@ namespace TP_POO_24200_24204
                     {
                         case "1":
                             Console.WriteLine("Opção 1 - Realizar Reserva");
-                            //chamar método criar reserva
+                            viewReserva.MenuCriarReserva();
                             break;
 
                         case "2":
                             Console.WriteLine("Opção 2 - Alterar Reserva");
-                            //chamar método para alterar reserva
+                            viewReserva.MenuEditarReserva();
                             break;
 
                         case "3":
                             Console.WriteLine("Opção 3 - Cancelar Reserva");
-                            //chamar método para cancelar reserva;
+                            viewReserva.MenuExcluirReserva();
                             break;
 
                         case "4":
-                            Console.WriteLine("Opção 4 - Alterar Cadastro");
-                            //Chamar método para alterar cadastro de utilizador;
+                            Console.WriteLine("Opção 4 - Buscar Reserva");
+                            viewReserva.MenuBuscarReserva();
                             break;
 
                         case "5":
+                            Console.WriteLine("Opção 4 - Alterar Cadastro");
+                            //chamar método para alterar cadastro de utilizador;
+                            break;
+
+                        case "6":
                             Console.WriteLine("Opção 5 - Listar Moradores");
                             controladorMorador.ImprimirListaDeMoradores();
                             break;
 
-                        case "6":
+                        case "7":
                             Console.WriteLine("Opção 6 - Listar Utilizadores");
                             controladorUtilizador.ImprimirListaDeUtilizadores();
                             break;
 
-                        case "7":
+                        case "8":
                             Console.WriteLine("Opção 8 - Listar Quartos");
                             ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
                             break;
 
-                        case "8":
+                        case "9":
                             Console.WriteLine("Saindo...");
                             continuar = false;
                             break;
