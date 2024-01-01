@@ -31,7 +31,7 @@ namespace TP_POO_24200_24204
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
-            int ultimoId = LerUltimoIdDoJson("utilizador.json");//Utilizador.GetUltimoId(); // Obter o último id de utilizador
+            int ultimoId = LerUltimoIdDoJson("utilizador.json");// Obter o último id de utilizador
             int utiId = ++ultimoId; // Incrementar a variável de classe com o último id do utilizador e atribuí-lo para o objeto 
             Utilizador.SetUltimoId(utiId); // Guardar o último id de utilizador
 
@@ -81,7 +81,6 @@ namespace TP_POO_24200_24204
             Console.Write("IBAN: ");
             string iban = Console.ReadLine();
 
-            Console.Write("Tipo de Utilizador (Morador, Funcionario, Gestor): ");
             string tipoUtilizador;
             do
             {
@@ -139,8 +138,6 @@ namespace TP_POO_24200_24204
                 SalvarListaFicheiro("utilizador.json", listaExistente);
 
                 Utilizador.listaDeUtilizadores = listaExistente; // Atualizar a lista estática
-
-                Console.WriteLine("Utilizador adicionado com sucesso.");
 
                 // Verificar o tipo de utilizador e criar o objeto correspondente
                 if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
@@ -213,13 +210,9 @@ namespace TP_POO_24200_24204
             }
             else
             {
-                Console.WriteLine("Credenciais inválidas. Tente novamente.");
                 return null;
             }
         }
-
-
-
 
         #region Json
         /// <summary>

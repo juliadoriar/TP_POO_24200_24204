@@ -26,9 +26,21 @@ namespace TP_POO_24200_24204
             switch (opcao)
             {
                 case "1":
-                    ControladorUtilizador.Login();
                     Utilizador utilizadorLogado = ControladorUtilizador.Login();
-                    ExibirMenuAposLogin(utilizadorLogado); // Exibe o menu apropriado com base no tipo de utilizador reconhecido no login
+
+                    if (utilizadorLogado != null)
+                    {
+                        ExibirMenuAposLogin(utilizadorLogado); // Exibe o menu com base no tipo de utilizador reconhecido no login
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Credenciais inválidas. Tente novamente.");
+                        Console.WriteLine("\nPressione Enter para voltar ao menu inicial...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        ExibirMenuInicial();
+                    }
                     break;
                 case "2":
                     controladorUtilizador.CriarUtilizador();
@@ -50,16 +62,16 @@ namespace TP_POO_24200_24204
             switch (utilizador.GetTipoUtilizador().ToLower())
             {
                 case "morador":
-                    //new MenuMorador().ExibirMenu();
+                    new MenuMorador(utilizador).ExibirMenu();
                     break;
                 case "gestor":
-                    //new MenuGestor().ExibirMenu();
+                    new MenuGestor(utilizador).ExibirMenu();
                     break;
                 case "funcionario":
-                    //new MenuFuncionario().ExibirMenu();
+                    new MenuFuncionario(utilizador).ExibirMenu();
                     break;
                 default:
-                    Console.WriteLine("Tipo de utilizador não reconhecido.");
+                    Console.WriteLine("Tipo de utilizador não reconhecido."); //opção para identificar algum utilizador que por algum erro tenha sido salvo com um tipo não reconhecido
                     break;
             }
         }
