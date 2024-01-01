@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/Arthur Fellipe/Desktop/2 ANO - LESI/Programacao Orientada a Objetos - POO/TP_POO_24200_24204",
+  "source_base_path": "C:/Temp/POO/TP_POO_24200_24204",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -17,14 +17,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TP_POO_24200_24204.ControladorGestor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TP_POO_24200_24204.ControladorGestor.html",
+          "hash": "+YPug8jk9fYIKKJidM2mHoLivngVoTGn6wWyIPLFVy4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TP_POO_24200_24204.ControladorMorador.yml",
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorMorador.html",
-          "hash": "Euaz1RE8qlBJR10ISlZh4BylyTcrO+xC0JH7oLZ/gMI="
+          "hash": "8Wz+s9lmZr3h3MrYWmeeNq/PwftKDXM+9zGTh4xy9NY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -33,10 +45,22 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorQuarto.html",
-          "hash": "rFynTZGWmxCNLsoDV7LWRkhipB237H8nzwj6Bt6rsyE="
+          "hash": "R3eJhfwqpYwtpav4bOd9jmmvtyGac0No8upxXYuJNlk="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TP_POO_24200_24204.ControladorReserva.TipoCampo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html",
+          "hash": "fUQEoFXGJJDxupF095erSBV87UkQo0md31zikb29kps="
+        }
+      },
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -45,10 +69,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorReserva.html",
-          "hash": "quMtPur4jMI6a3YUlAAJT12QGPymDa0Qrb3bJFjhGlY="
+          "hash": "MjE/QUdfbSHG2UB8+t+5nBb8yf2Vhan2V3z0zEQJ2aY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -57,10 +81,22 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorUtilizador.html",
-          "hash": "kHMEsVtEZaDO23Jua61jiLQzaIHEmGotwfCIkYBvNb8="
+          "hash": "eTRRqm+IyYgfv4vn9ahSeJVMU7e0RRTZiyhT33U4KOw="
         }
       },
       "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TP_POO_24200_24204.Gestor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TP_POO_24200_24204.Gestor.html",
+          "hash": "rtrkoXdoMq6Vzg/TCHPtyaylQAU09xWIUYmG89nTRfs="
+        }
+      },
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -69,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.IMenuUtilizador.html",
-          "hash": "4QYAZuoXHDz/7B+PPcEsVoyXttSjm2staXxXBPPFeFg="
+          "hash": "cPk56remv35ZMOwt14h/z7iizjWL9J9an+kUvZ/SiU4="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -81,10 +117,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuFuncionario.html",
-          "hash": "ro9BUjkwYDBedxktPenGfI0AdF6Ownrgvyvq5P4Go/k="
+          "hash": "UjdCQK5CpSpzG61JVmoPtPN4RbfEBf7TA/DVMhp3w0U="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -93,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuGestor.html",
-          "hash": "I2/e/taWq8/LLLaYofTLtpTc462lV8H3Pk+NfZKFVro="
+          "hash": "sNYw/2C31S83L5E2TMjYc6Zn6aGcAwN+tfKsDoy02CU="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -105,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuMorador.html",
-          "hash": "9YYjD2PsLYMM6HYL3RvrjlnjiXoWL/xYsk+a1/TaK7s="
+          "hash": "LewO0Y8o6vkI/tQ0TJXgbLtlv4bZunKT9X47ouU999A="
         }
       },
       "is_incremental": true,
@@ -117,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuResidencia.html",
-          "hash": "vfIavJF+4vMaw+UaIQKSBL9N26Gp1mFC/PM4K3MNVv0="
+          "hash": "aCdJfBjTc5xgCtjqGK2ioa2ymkDcTab330HHZHV+I9E="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -129,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuUtilizadorBase.html",
-          "hash": "zz4R1mDR7z+ha52TJEAdTitttYPldTSX/ckYrXW4Zz8="
+          "hash": "wO2Sg1/YsbugLyiI9bRyIFuIu8QRuf/k/9JzceSr4fQ="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -141,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Morador.html",
-          "hash": "MXSzk5C5iqK57srMfSbOUaeKmGj0vNaMj/5ZUwk02hg="
+          "hash": "yPixZrd4PBIT6VI/w6HgiTRkLcFZ7IaeeTR5nn8Xlqk="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -153,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Quarto.html",
-          "hash": "nTNz+25GdllCfWjzAgEWfS+xCXb4xuNYUANviuoeBGQ="
+          "hash": "WSulE3X8MSKxhE+rrdjbc4S2hxO1PgyvXfMn49BjSh0="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -165,10 +201,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Reserva.html",
-          "hash": "1kVFyVMCv+jOZft7p1cbGN2Ju744pWL7XZMKo+gYRL4="
+          "hash": "Yu6PypalTpLXSzSGrnr+TQW9M78N3s89Wwaxv5+wM+8="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -177,10 +213,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Utilizador.html",
-          "hash": "O4EIjqBvheiBlFZ6MQzt6E7duBh5jfvMP9ReF8vO3oc="
+          "hash": "Qbsxz8ACLE9AWEL/0XzNJC6e98ulh3h+QGqAEG10lr8="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -189,10 +225,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ViewReserva.html",
-          "hash": "8sLhFvT7kF/zNQaDV3i2Hfks9ynV2izILxKUohQULuA="
+          "hash": "IPKDKMr+FRPzIFbLocar3jCeSVzqpAm94dHXcvvjr/0="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -201,10 +237,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.html",
-          "hash": "lSzUARwgubQJLTSFvhmKZdFAiD2l0q8rHgnsNjDF9E4="
+          "hash": "wwi9r+xaHV6FzygHSE5yBdul1QXd/9KpCVzD6dDlFCQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -216,7 +252,7 @@
           "hash": "M+3vyUv0DDw5ow0fDxzyEHhPCrVqn8eK/uxhkb4iWAM="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -225,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "xXV+WpQc+ze/MW/xc24FuhvPgjaelhEQbTWp9/6T2mY="
+          "hash": "XltGtQwkvpCeMRdW5iAKXF4yfxclAESEDxeMeKj2XJI="
         }
       },
       "is_incremental": false,
@@ -298,8 +334,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 16,
-          "skipped_file_count": 0
+          "total_file_count": 19,
+          "skipped_file_count": 18
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

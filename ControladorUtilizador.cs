@@ -145,15 +145,14 @@ namespace TP_POO_24200_24204
                     ControladorMorador.CriarMorador(novoUtilizador);
                 }
 
-                /* A SER IMPLEMENTADO
-               else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
-               {
-                   Funcionario.CriarFuncionario(novoUtilizador);
-               }
+               //else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
+               //{
+               //    Funcionario.CriarFuncionario(novoUtilizador);
+               //}
                else if (novoUtilizador.GetTipoUtilizador() == "Gestor")
                {
-                   Gestor.CriarGestor(novoUtilizador);
-               }*/
+                   ControladorGestor.CriarGestor(novoUtilizador);
+               }
 
 
             }

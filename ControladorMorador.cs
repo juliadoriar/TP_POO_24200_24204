@@ -83,7 +83,9 @@ namespace TP_POO_24200_24204
             }
 
         }
-        #region Json
+        #endregion
+
+        #region JsonMorador
         /// <summary>
         /// Método para salvar a lista de moradores no ficheiro JSON
         /// </summary>
@@ -113,7 +115,7 @@ namespace TP_POO_24200_24204
             return new List<Morador>(); // Se o ficheiro não existir, retorna uma lista vazia
         }
         #endregion
-        #endregion
+        
 
     }
 }

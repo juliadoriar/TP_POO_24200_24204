@@ -21,19 +21,21 @@ namespace TP_POO_24200_24204
 
             ControladorUtilizador.CriarFicheiroJson("utilizador.json");
             ControladorUtilizador.CriarFicheiroJson("morador.json");
+            ControladorUtilizador.CriarFicheiroJson("gestor.json");
+            ControladorUtilizador.CriarFicheiroJson("funcionario.json");
             Reserva.CriarFicheiroJson("reserva.json");
             ControladorQuarto.CriarListaDeQuartos();
 
 
             //viewReservas.MenuCriarReserva();
-            viewReservas.ImprimirListaReservaAtual();
-            viewReservas.MenuBuscarReserva();
+            //viewReservas.ImprimirListaReservaAtual();
+            //viewReservas.MenuBuscarReserva();
             //viewReservas.MenuEditarReserva();
             //viewReservas.MenuExcluirReserva();
             //MenuResidencia.ExibirMenu();
-            viewReservas.ImprimirListaReservaAtual();
+            //viewReservas.ImprimirListaReservaAtual();
 
-            //menuInicial.ExibirMenuInicial();
+            menuInicial.ExibirMenuInicial();
         }
     } 
 }
