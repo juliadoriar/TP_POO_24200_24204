@@ -62,6 +62,7 @@ namespace TP_POO_24200_24204
             SalvarListaFicheiro("reserva.json", listaDeReservas);
         }
 
+        #region JSON
         /// <summary>
         /// Método para criar um ficheiro JSON
         /// </summary>
@@ -133,6 +134,9 @@ namespace TP_POO_24200_24204
             string json = JsonConvert.SerializeObject(new { UltimoIdReserva = novoUltimoId, Reservas = listaExistente }, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(caminhoArquivo, json);
         }
+        #endregion
+
+
 
         #endregion
     }

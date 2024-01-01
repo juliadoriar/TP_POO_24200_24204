@@ -14,7 +14,10 @@ namespace TP_POO_24200_24204
         {
             ControladorUtilizador controlador = new ControladorUtilizador();
             MenuInicial menuInicial = new MenuInicial(controlador);
-            ViewReserva viewReserva = new ViewReserva();
+            ControladorReserva controladorReserva = new ControladorReserva();
+            ViewReserva viewReservas = new ViewReserva();
+            viewReservas.SetControladorReserva(controladorReserva);
+            controladorReserva.SetViewReserva(viewReservas);
 
             ControladorUtilizador.CriarFicheiroJson("utilizador.json");
             ControladorUtilizador.CriarFicheiroJson("morador.json");
@@ -22,9 +25,14 @@ namespace TP_POO_24200_24204
             ControladorQuarto.CriarListaDeQuartos();
 
 
-            viewReserva.CriarReserva();
-            viewReserva.ImprimirListaDeReservas();
+            //viewReservas.CriarReserva();
+            viewReservas.ImprimirListaReservaAtual();
+            //viewReservas.MenuBuscarReserva();
+            //controladorReserva.EditarReserva();
+            viewReservas.MenuEditarReserva();
             //MenuResidencia.ExibirMenu();
+            viewReservas.ImprimirListaReservaAtual();
+
             menuInicial.ExibirMenuInicial();
         }
     } 
