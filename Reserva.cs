@@ -79,7 +79,7 @@ namespace TP_POO_24200_24204
         {
             string json = JsonConvert.SerializeObject(new { UltimoIdReserva = LerUltimoIdReserva(caminhoArquivo), Reservas = listaDeReservas }, Newtonsoft.Json.Formatting.Indented); // Serializar lista de utilizadores
 
-            File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
+            File.WriteAllText(caminhoArquivo, json); // Escreve no ficheiro
         }
 
         /// <summary>
@@ -89,16 +89,16 @@ namespace TP_POO_24200_24204
         /// <returns></returns>
         public static List<Reserva> CarregarListaDeReservas(string caminhoArquivo)
         {
-            if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
+            if (File.Exists(caminhoArquivo)) // Verifica se o ficheiro existe
             {
-                string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
+                string json = File.ReadAllText(caminhoArquivo); // Lê o ficheiro
 
-                if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
+                if (!string.IsNullOrEmpty(json)) // Verifica se o JSON não está vazio
                 {
-                    // Desserializar o JSON em um objeto anônimo que contém a propriedade "Reservas"
+                    // Desserializa o JSON em um objeto anônimo que contém a propriedade "Reservas"
                     var jsonData = JsonConvert.DeserializeAnonymousType(json, new { Reservas = new List<Reserva>() });
 
-                    // Retornar a lista de reservas da propriedade anônima
+                    // Retorna a lista de reservas da propriedade anônima
                     return jsonData.Reservas;
                 }
             }
@@ -106,7 +106,7 @@ namespace TP_POO_24200_24204
             return new List<Reserva>(); // Se o ficheiro não existir, retorna uma lista vazia
         }
 
-        /// <summary>
+      /// <summary>
         /// Método que lê o último id de utilizador do ficheiro JSON
         /// </summary>
         /// <param name="caminhoArquivo"></param>
@@ -120,7 +120,7 @@ namespace TP_POO_24200_24204
                 return (int)jsonData.UltimoIdReserva;
             }
 
-            return 0; // Valor padrão se o arquivo ou conteúdo não existir
+            return 0; // Valor padrão se o ficheiro ou conteúdo não existir
         }
 
         /// <summary>
@@ -135,9 +135,6 @@ namespace TP_POO_24200_24204
             File.WriteAllText(caminhoArquivo, json);
         }
         #endregion
-
-
-
         #endregion
     }
 

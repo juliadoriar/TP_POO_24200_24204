@@ -25,15 +25,15 @@ namespace TP_POO_24200_24204
             ControladorQuarto.CriarListaDeQuartos();
 
 
-            //viewReservas.CriarReserva();
+            //viewReservas.MenuCriarReserva();
             viewReservas.ImprimirListaReservaAtual();
-            //viewReservas.MenuBuscarReserva();
-            //controladorReserva.EditarReserva();
-            viewReservas.MenuEditarReserva();
+            viewReservas.MenuBuscarReserva();
+            //viewReservas.MenuEditarReserva();
+            //viewReservas.MenuExcluirReserva();
             //MenuResidencia.ExibirMenu();
             viewReservas.ImprimirListaReservaAtual();
 
-            menuInicial.ExibirMenuInicial();
+            //menuInicial.ExibirMenuInicial();
         }
     } 
 }
