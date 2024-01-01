@@ -14,11 +14,11 @@ namespace TP_POO_24200_24204
     {
         #region Lista de Moradores
         /// <summary>
-        /// Método estático para criar um objeto morador
+        /// Método para criar um objeto morador
         /// </summary>
         /// <param name="utilizador"></param>
         /// <returns></returns>
-        public static Morador CriarMorador(Utilizador utilizador)
+        public Morador CriarMorador(Utilizador utilizador)
         {
             Morador morador = new Morador(
                         utilizador.GetUtiId(),
@@ -44,30 +44,39 @@ namespace TP_POO_24200_24204
         ///  Método para adicionar morador à lista de moradores
         /// </summary>
         /// <param name="novoMorador"></param>
-        public static void AdicionarMorador(Morador novoMorador)
+        public bool AdicionarMorador(Morador novoMorador)
         {
+            // Carregar a lista existente do arquivo
+            List<Morador> listaExistente = Morador.CarregarListaDeMoradores("morador.json");
+
             // Verificar se o morador já existe na lista através do documento de identificação
-            if (Morador.listaDeMoradores.Exists(morador => //Função lambda
-                    novoMorador.GetDocIdentificacao() == morador.GetDocIdentificacao() &&
-                    novoMorador.GetTipoDocIdentificacao() == morador.GetTipoDocIdentificacao()))
+            if (!ValidarMorador(novoMorador, listaExistente))
             {
-                Console.WriteLine("O morador já existe na lista.");
+                return false;
             }
             else
             {
-                Morador.listaDeMoradores.Add(novoMorador); // Adicionar morador à lista de moradores
-                SalvarListaFicheiro("morador.json"); // Salvar lista de moradores no ficheiro
+                listaExistente.Add(novoMorador); // Adicionar morador à lista de moradores
+                Morador.SalvarListaFicheiro("morador.json", listaExistente); // Salvar lista de moradores no ficheiro
+                return true;
             }
 
         }
 
+        #region Imprimir Morador
         /// <summary>
         /// Método para imprimir a lista de moradores
         /// </summary>
-        public static void ImprimirListaDeMoradores()
+        public void ImprimirListaDeMoradores()
         {
-            List<Morador> listaDeMoradoresAtual = CarregarListaDeMoradores("morador.json"); // Carregar lista de moradores do ficheiro
+            List<Morador> listaDeMoradoresAtual = Morador.CarregarListaDeMoradores("morador.json"); // Carregar lista de moradores do ficheiro
 
+            ExibirDetalhesListaMorador(listaDeMoradoresAtual);
+
+        }
+
+        public void ExibirDetalhesListaMorador(List<Morador> listaDeMoradoresAtual)
+        {
             if (listaDeMoradoresAtual == null)
             {
                 Console.WriteLine("Não há moradores registados");
@@ -81,36 +90,33 @@ namespace TP_POO_24200_24204
                     Console.WriteLine($"ID: {morador.GetUtiId()}, Nome: {morador.GetNomeUti()}, Email: {morador.GetEmail()}, Data de Nascimento: {morador.GetDataNascimento():dd-MM-yyyy}, Morada: {morador.GetMorada()}, Código Postal: {morador.GetCodigoPostal()}, Localidade: {morador.GetLocalidade()}, Contacto Telefone: {morador.GetContactoTelefone()}, Documento de Identificação: {morador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {morador.GetTipoDocIdentificacao()}, IBAN: {morador.GetIBAN()}, Tipo de Utilizador: {morador.GetTipoUtilizador()}, Ativo: {morador.GetIsAtivo()} Data de Registo: {morador.GetDataRegisto():dd-MM-yyyy}, Adimplente: {morador.GetIsAdimplente()}");
                 }
             }
-
-        }
-        #region Json
-        /// <summary>
-        /// Método para salvar a lista de moradores no ficheiro JSON
-        /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        public static void SalvarListaFicheiro(string caminhoArquivo)
-        {
-            string json = JsonConvert.SerializeObject(Morador.listaDeMoradores, Newtonsoft.Json.Formatting.Indented); // Serializar lista de moradores
-            File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
         }
 
         /// <summary>
-        /// Método para carregar a lista de moradores do ficheiro JSON
+        /// Método para exibir os detalhes de um único morador
         /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        /// <returns></returns>
-        public static List<Morador> CarregarListaDeMoradores(string caminhoArquivo)
+        /// <param name="utilizador"></param>
+        public void ExibirDetalhesMorador(Morador morador)
         {
-            List<Morador> listaDeMoradoresAtual = new List<Morador>();
+            Console.WriteLine($"ID: {morador.GetUtiId()}, Nome: {morador.GetNomeUti()}, Email: {morador.GetEmail()}, Data de Nascimento: {morador.GetDataNascimento():dd-MM-yyyy}, Morada: {morador.GetMorada()}, Código Postal: {morador.GetCodigoPostal()}, Localidade: {morador.GetLocalidade()}, Contacto Telefone: {morador.GetContactoTelefone()}, Documento de Identificação: {morador.GetDocIdentificacao()}, Tipo de Documento de Identificação: {morador.GetTipoDocIdentificacao()}, IBAN: {morador.GetIBAN()}, Tipo de Utilizador: {morador.GetTipoUtilizador()}, Ativo: {morador.GetIsAtivo()} Data de Registo: {morador.GetDataRegisto():dd-MM-yyyy}, Adimplente: {morador.GetIsAdimplente()}");
+        }
+        #endregion
 
-            if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
+        #region Métodos Auxiliares
+        public bool ValidarMorador(Morador novoMorador, List<Morador> listaExistente)
+        {
+
+            if (listaExistente.Exists(morador => //Função lambda
+                   novoMorador.GetDocIdentificacao() == morador.GetDocIdentificacao() &&
+                   novoMorador.GetTipoDocIdentificacao() == morador.GetTipoDocIdentificacao()))
             {
-                string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
-                listaDeMoradoresAtual = JsonConvert.DeserializeObject<List<Morador>>(json); // Desserializar o ficheiro
-                return listaDeMoradoresAtual; // Retornar a lista de moradores
+                Console.WriteLine("O morador já existe na lista.");
+                return false;
             }
-            
-            return new List<Morador>(); // Se o ficheiro não existir, retorna uma lista vazia
+            else
+            {
+                return true;
+            }
         }
         #endregion
         #endregion

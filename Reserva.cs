@@ -75,6 +75,11 @@ namespace TP_POO_24200_24204
             }
         }
 
+        /// <summary>
+        /// Método para salvar a lista de reservas no ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <param name="listaDeReservas"></param>
         public static void SalvarListaFicheiro(string caminhoArquivo, List<Reserva> listaDeReservas)
         {
             string json = JsonConvert.SerializeObject(new { UltimoIdReserva = LerUltimoIdReserva(caminhoArquivo), Reservas = listaDeReservas }, Newtonsoft.Json.Formatting.Indented); // Serializar lista de utilizadores
@@ -107,7 +112,7 @@ namespace TP_POO_24200_24204
         }
 
       /// <summary>
-        /// Método que lê o último id de utilizador do ficheiro JSON
+        /// Método que lê o último id de reserva do ficheiro JSON
         /// </summary>
         /// <param name="caminhoArquivo"></param>
         /// <returns></returns>
@@ -124,7 +129,7 @@ namespace TP_POO_24200_24204
         }
 
         /// <summary>
-        /// Método que atualiza o último id de utilizador no ficheiro JSON
+        /// Método que atualiza o último id de reserva no ficheiro JSON
         /// </summary>
         /// <param name="novoUltimoId"></param>
         public static void AtualizarUltimoIdNoJson(int novoUltimoId, string caminhoArquivo)
