@@ -1,0 +1,275 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TP_POO_24200_24204
+{
+    /// <summary>
+    /// Interface que apresenta o método ExibirMenu()
+    /// </summary>
+    public interface IMenuUtilizador
+    {
+        void ExibirMenu();
+    }
+
+    /// <summary>
+    /// Classe que representa o menu de interação com operações relacionadas a cada tipo de utilizador
+    /// </summary>
+    public abstract class MenuUtilizadorBase : IMenuUtilizador
+    {
+        protected Utilizador UtilizadorAtual;
+
+        public MenuUtilizadorBase(Utilizador utilizador)
+        {
+            UtilizadorAtual = utilizador;
+        }
+
+        public abstract void ExibirMenu();
+
+
+    }
+
+    /// <summary>
+    /// Menu específico para moradores
+    /// </summary>
+    public class MenuMorador : MenuUtilizadorBase
+    {
+        private ControladorUtilizador controladorUtilizador;
+        public MenuMorador(Utilizador utilizador) : base(utilizador)
+        {
+            controladorUtilizador = new ControladorUtilizador();
+        }
+
+        public override void ExibirMenu()
+        {
+            bool continuar = true; // Variável para controlar a continuidade do loop
+
+            while (continuar)// Loop para exibir o menu
+            {
+                Console.WriteLine("Menu Morador:");
+                Console.WriteLine("1. Realizar Reserva");
+                Console.WriteLine("2. Alterar Reserva");
+                Console.WriteLine("3. Cancelar Reserva");
+                Console.WriteLine("4. Alterar Cadastro");
+                Console.WriteLine("5. Sair");
+
+                Console.Write("Escolha uma opção: ");
+                string opcao = Console.ReadLine();
+
+                switch (opcao)
+                {
+                    case "1":
+                        Console.WriteLine("Opção 1 - Realizar Reserva");
+                        //chamar método criar reserva
+                        break;
+
+                    case "2":
+                        Console.WriteLine("Opção 2 - Alterar Reserva");
+                        //chamar método para alterar reserva
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Opção 3 - Cancelar Reserva");
+                        //chamar método para cancelar reserva;
+                        break;
+
+                    case "4":
+                        Console.WriteLine("Opção 4 - Alterar Cadastro");
+                        //chamar método para alterar cadastro de utilizador;
+                        break;
+
+                    case "5":
+                        Console.WriteLine("Saindo...");
+                        continuar = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
+                }
+
+                if (continuar != false) // Aguardar o usuário pressionar Enter para limpar o ecrã e continuar
+                {
+                    Console.WriteLine("\nPressione Enter para voltar ao menu...");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+
+            }
+        }
+
+    }
+        /// <summary>
+        /// Menu específico para gestores
+        /// </summary>
+        public class MenuGestor : MenuUtilizadorBase
+        {
+            private ControladorUtilizador controladorUtilizador;
+            public MenuGestor(Utilizador utilizador) : base(utilizador)
+            {
+                controladorUtilizador = new ControladorUtilizador();
+            }
+
+            public override void ExibirMenu()
+            {
+
+                bool continuar = true; // Variável para controlar a continuidade do loop
+
+                while (continuar)  // Loop para exibir o menu
+                {
+
+                    Console.WriteLine("Menu Gestor:");
+                    Console.WriteLine("1. Realizar Reserva");
+                    Console.WriteLine("2. Alterar Reserva");
+                    Console.WriteLine("3. Cancelar Reserva");
+                    Console.WriteLine("4. Alterar Cadastro");
+                    Console.WriteLine("5. Listar Moradores");
+                    Console.WriteLine("6. Listar Utilizadores");
+                    Console.WriteLine("7. Listar Quartos");
+                    Console.WriteLine("8. Sair");
+
+                    Console.Write("Escolha uma opção: ");
+                    string opcao = Console.ReadLine();
+
+                    switch (opcao)
+                    {
+                        case "1":
+                            Console.WriteLine("Opção 1 - Realizar Reserva");
+                            //chamar método criar reserva
+                            break;
+
+                        case "2":
+                            Console.WriteLine("Opção 2 - Alterar Reserva");
+                            //chamar método para alterar reserva
+                            break;
+
+                        case "3":
+                            Console.WriteLine("Opção 3 - Cancelar Reserva");
+                            //chamar método para cancelar reserva;
+                            break;
+
+                        case "4":
+                            Console.WriteLine("Opção 4 - Alterar Cadastro");
+                            //Chamar método para alterar cadastro de utilizador;
+                            break;
+
+                        case "5":
+                            Console.WriteLine("Opção 5 - Listar Moradores");
+                            ControladorMorador.ImprimirListaDeMoradores();
+                            break;
+
+                        case "6":
+                            Console.WriteLine("Opção 6 - Listar Utilizadores");
+                            controladorUtilizador.ImprimirListaDeUtilizadores();
+                            break;
+
+                        case "7":
+                            Console.WriteLine("Opção 8 - Listar Quartos");
+                            ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
+                            break;
+
+                        case "8":
+                            Console.WriteLine("Saindo...");
+                            continuar = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("Opção inválida. Tente novamente.");
+                            break;
+                    }
+
+                    if (continuar != false) // Aguardar o usuário pressionar Enter para limpar o ecrã e continuar
+                    {
+                        Console.WriteLine("\nPressione Enter para voltar ao menu...");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Menu específico para funcionários
+        /// </summary>    
+        public class MenuFuncionario : MenuUtilizadorBase
+        {
+            private ControladorUtilizador controladorUtilizador;
+            public MenuFuncionario(Utilizador utilizador) : base(utilizador)
+            {
+                controladorUtilizador = new ControladorUtilizador();
+            }
+
+            public override void ExibirMenu()
+            {
+                bool continuar = true; // Variável para controlar a continuidade do loop
+
+                while (continuar)  // Loop para exibir o menu
+                {
+                    Console.WriteLine("Menu Funcionário:");
+                    Console.WriteLine("1. Realizar Reserva");
+                    Console.WriteLine("2. Alterar Reserva");
+                    Console.WriteLine("3. Cancelar Reserva");
+                    Console.WriteLine("4. Alterar Cadastro");
+                    Console.WriteLine("5. Listar Moradores");
+                    Console.WriteLine("6. Listar Quartos");
+                    Console.WriteLine("7. Sair");
+
+                    Console.Write("Escolha uma opção: ");
+                    string opcao = Console.ReadLine();
+
+                    switch (opcao)
+                    {
+                        case "1":
+                            Console.WriteLine("Opção 1 - Realizar Reserva");
+                            //chamar método criar reserva
+                            break;
+
+                        case "2":
+                            Console.WriteLine("Opção 2 - Alterar Reserva");
+                            //chamar método para alterar reserva
+                            break;
+
+                        case "3":
+                            Console.WriteLine("Opção 3 - Cancelar Reserva");
+                            //chamar método para cancelar reserva;
+                            break;
+
+                        case "4":
+                            Console.WriteLine("Opção 4 - Alterar Cadastro");
+                            //Chamar método para alterar cadastro de utilizador;
+                            break;
+
+                        case "5":
+                            Console.WriteLine("Opção 5 - Listar Moradores");
+                            ControladorMorador.ImprimirListaDeMoradores();
+                            break;
+
+                        case "6":
+                            Console.WriteLine("Opção 8 - Listar Quartos");
+                            ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
+                            break;
+
+                        case "7":
+                            Console.WriteLine("Saindo...");
+                            continuar = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("Opção inválida. Tente novamente.");
+                            break;
+                    }
+
+                    if (continuar != false) // Aguardar o usuário pressionar Enter para limpar o ecrã e continuar
+                    {
+                        Console.WriteLine("\nPressione Enter para voltar ao menu...");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+
+                }
+            }
+        }
+    }

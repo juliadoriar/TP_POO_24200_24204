@@ -62,16 +62,16 @@ namespace TP_POO_24200_24204
             switch (utilizador.GetTipoUtilizador().ToLower())
             {
                 case "morador":
-                    //new MenuMorador().ExibirMenu();
+                    new MenuMorador(utilizador).ExibirMenu();
                     break;
                 case "gestor":
-                    //new MenuGestor().ExibirMenu();
+                    new MenuGestor(utilizador).ExibirMenu();
                     break;
                 case "funcionario":
-                    //new MenuFuncionario().ExibirMenu();
+                    new MenuFuncionario(utilizador).ExibirMenu();
                     break;
                 default:
-                    Console.WriteLine("Tipo de utilizador não reconhecido.");
+                    Console.WriteLine("Tipo de utilizador não reconhecido."); //opção para identificar algum utilizador que por algum erro tenha sido salvo com um tipo não reconhecido
                     break;
             }
         }

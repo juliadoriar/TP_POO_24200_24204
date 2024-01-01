@@ -31,7 +31,7 @@ namespace TP_POO_24200_24204
         {
             Console.WriteLine("Por favor, forneça as informações do utilizador:");
 
-            int ultimoId = LerUltimoIdDoJson("utilizador.json");//Utilizador.GetUltimoId(); // Obter o último id de utilizador
+            int ultimoId = LerUltimoIdDoJson("utilizador.json");// Obter o último id de utilizador
             int utiId = ++ultimoId; // Incrementar a variável de classe com o último id do utilizador e atribuí-lo para o objeto 
             Utilizador.SetUltimoId(utiId); // Guardar o último id de utilizador
 
@@ -214,9 +214,6 @@ namespace TP_POO_24200_24204
                 return null;
             }
         }
-
-
-
 
         #region Json
         /// <summary>
