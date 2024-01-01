@@ -700,44 +700,6 @@ references:
   isSpec: "True"
   fullName: TP_POO_24200_24204.MenuResidencia.ExibirMenu
   nameWithType: MenuResidencia.ExibirMenu
-- uid: TP_POO_24200_24204.MenuUtilizadorBase
-  name: MenuUtilizadorBase
-  href: api/TP_POO_24200_24204.MenuUtilizadorBase.html
-  commentId: T:TP_POO_24200_24204.MenuUtilizadorBase
-  fullName: TP_POO_24200_24204.MenuUtilizadorBase
-  nameWithType: MenuUtilizadorBase
-- uid: TP_POO_24200_24204.MenuUtilizadorBase.#ctor(TP_POO_24200_24204.Utilizador)
-  name: MenuUtilizadorBase(Utilizador)
-  href: api/TP_POO_24200_24204.MenuUtilizadorBase.html#TP_POO_24200_24204_MenuUtilizadorBase__ctor_TP_POO_24200_24204_Utilizador_
-  commentId: M:TP_POO_24200_24204.MenuUtilizadorBase.#ctor(TP_POO_24200_24204.Utilizador)
-  fullName: TP_POO_24200_24204.MenuUtilizadorBase.MenuUtilizadorBase(TP_POO_24200_24204.Utilizador)
-  nameWithType: MenuUtilizadorBase.MenuUtilizadorBase(Utilizador)
-- uid: TP_POO_24200_24204.MenuUtilizadorBase.#ctor*
-  name: MenuUtilizadorBase
-  href: api/TP_POO_24200_24204.MenuUtilizadorBase.html#TP_POO_24200_24204_MenuUtilizadorBase__ctor_
-  commentId: Overload:TP_POO_24200_24204.MenuUtilizadorBase.#ctor
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.MenuUtilizadorBase.MenuUtilizadorBase
-  nameWithType: MenuUtilizadorBase.MenuUtilizadorBase
-- uid: TP_POO_24200_24204.MenuUtilizadorBase.ExibirMenu
-  name: ExibirMenu()
-  href: api/TP_POO_24200_24204.MenuUtilizadorBase.html#TP_POO_24200_24204_MenuUtilizadorBase_ExibirMenu
-  commentId: M:TP_POO_24200_24204.MenuUtilizadorBase.ExibirMenu
-  fullName: TP_POO_24200_24204.MenuUtilizadorBase.ExibirMenu()
-  nameWithType: MenuUtilizadorBase.ExibirMenu()
-- uid: TP_POO_24200_24204.MenuUtilizadorBase.ExibirMenu*
-  name: ExibirMenu
-  href: api/TP_POO_24200_24204.MenuUtilizadorBase.html#TP_POO_24200_24204_MenuUtilizadorBase_ExibirMenu_
-  commentId: Overload:TP_POO_24200_24204.MenuUtilizadorBase.ExibirMenu
-  isSpec: "True"
-  fullName: TP_POO_24200_24204.MenuUtilizadorBase.ExibirMenu
-  nameWithType: MenuUtilizadorBase.ExibirMenu
-- uid: TP_POO_24200_24204.MenuUtilizadorBase.UtilizadorAtual
-  name: UtilizadorAtual
-  href: api/TP_POO_24200_24204.MenuUtilizadorBase.html#TP_POO_24200_24204_MenuUtilizadorBase_UtilizadorAtual
-  commentId: F:TP_POO_24200_24204.MenuUtilizadorBase.UtilizadorAtual
-  fullName: TP_POO_24200_24204.MenuUtilizadorBase.UtilizadorAtual
-  nameWithType: MenuUtilizadorBase.UtilizadorAtual
 - uid: TP_POO_24200_24204.Morador
   name: Morador
   href: api/TP_POO_24200_24204.Morador.html

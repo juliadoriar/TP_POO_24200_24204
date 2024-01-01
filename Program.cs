@@ -26,7 +26,7 @@ namespace TP_POO_24200_24204
             Reserva.CriarFicheiroJson("reserva.json");
             ControladorQuarto.CriarListaDeQuartos();
 
-
+            //ControladorMorador.ImprimirListaDeMoradores();
             //viewReservas.MenuCriarReserva();
             //viewReservas.ImprimirListaReservaAtual();
             //viewReservas.MenuBuscarReserva();

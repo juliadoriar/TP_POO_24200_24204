@@ -13,7 +13,6 @@ namespace TP_POO_24200_24204
     /// </summary>
     public class Utilizador
     {
-        public static List<Utilizador> listaDeUtilizadores = new List<Utilizador>(); // Variável que guarda a lista de utilizadores
 
         [JsonProperty("UtiId")]
         protected int UtiId;  // Propriedade que guarda o id do utilizador
@@ -45,8 +44,6 @@ namespace TP_POO_24200_24204
         protected bool IsAtivo; // Propriedade que indica se o utilizador está ativo ou não
         [JsonProperty("DataRegisto")]
         protected DateTime DataRegisto; // Propriedade que guarda a data de registo do utilizador
-
-        protected static int ultimoId = 0; // Variável que guarda o último id de utilizador
 
         #region Construtor
         /// <summary>
@@ -255,17 +252,94 @@ namespace TP_POO_24200_24204
         {
             DataRegisto = dataRegisto;
         }
-
-        public static int GetUltimoId()
-        {
-            return ultimoId;
-        }
-        public static void SetUltimoId(int ultimoId)
-        {
-            Utilizador.ultimoId = ultimoId;
-        }
         #endregion
 
+
+        public void CriarListaUtilizador()
+        {
+            List<Utilizador> listaDeUtilizadores = new List<Utilizador>();
+            SalvarListaFicheiro("utilizador.json", listaDeUtilizadores);
+        }
+
+        #region Json
+        /// <summary>
+        /// Método para criar um ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        public static void CriarFicheiroJson(string caminhoArquivo)
+        {
+            if (!File.Exists(caminhoArquivo))
+            {
+                File.Create(caminhoArquivo).Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para salvar a lista de utilizadores no ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <param name="listaUtilizadores"></param>
+        public static void SalvarListaFicheiro(string caminhoArquivo, List<Utilizador> listaUtilizadores)
+        {
+            string json = JsonConvert.SerializeObject(new { UltimoId = LerUltimoIdDoJson(caminhoArquivo), Utilizadores = listaUtilizadores }, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(caminhoArquivo, json);
+        }
+
+        /// <summary>
+        /// Método para carregar a lista de utilizadores do ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <returns></returns>
+        /// 
+        public static List<Utilizador> CarregarListaDeUtilizadores(string caminhoArquivo)
+        {
+            if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
+            {
+                string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
+
+                if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
+                {
+                    // Desserializar o JSON em um objeto anônimo que contém a propriedade "Utilizadores"
+                    var jsonData = JsonConvert.DeserializeAnonymousType(json, new { Utilizadores = new List<Utilizador>() });
+
+                    // Retornar a lista de utilizadores da propriedade anônima
+                    return jsonData.Utilizadores;
+                }
+            }
+
+            return new List<Utilizador>(); // Se o ficheiro não existir ou estiver vazio, retorna uma lista vazia
+        }
+
+        /// <summary>
+        /// Método que lê o último id de utilizador do ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <returns></returns>
+        public static int LerUltimoIdDoJson(string caminhoArquivo)
+        {
+            dynamic jsonData = JsonConvert.DeserializeObject(File.ReadAllText(caminhoArquivo));
+
+            if (jsonData != null && jsonData.UltimoId != null)
+            {
+                return (int)jsonData.UltimoId;
+            }
+
+            return 0; // Valor padrão se o arquivo ou conteúdo não existir
+        }
+
+        /// <summary>
+        /// Método que atualiza o último id de utilizador no ficheiro JSON
+        /// </summary>
+        /// <param name="novoUltimoId"></param>
+        public static void AtualizarUltimoIdNoJson(int novoUltimoId)
+        {
+            string caminhoArquivo = "utilizador.json";
+            List<Utilizador> listaExistente = CarregarListaDeUtilizadores(caminhoArquivo);
+            string json = JsonConvert.SerializeObject(new { UltimoId = novoUltimoId, Utilizadores = listaExistente }, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(caminhoArquivo, json);
+        }
+
+        #endregion
     }
 
 

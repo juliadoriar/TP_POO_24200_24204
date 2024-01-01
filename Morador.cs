@@ -13,7 +13,6 @@ namespace TP_POO_24200_24204
     /// </summary>
     public class Morador : Utilizador
     {   
-        public static List<Morador> listaDeMoradores = new List<Morador>(); // Variável que guarda a lista de moradores
         
         [JsonProperty("isAdimplente")]
         protected bool IsAdimplente; // Propriedade que indica se o morador está adimplente ou não
@@ -71,6 +70,39 @@ namespace TP_POO_24200_24204
         public void SetAdimplente(bool isAdimplente)
         {
             IsAdimplente = isAdimplente;
+        }
+        #endregion
+
+        #region Json
+        /// <summary>
+        /// Método para salvar a lista de moradores no ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <param name="listaMoradores"></param>
+        public static void SalvarListaFicheiro(string caminhoArquivo, List<Morador> listaMoradores)
+        {
+            string json = JsonConvert.SerializeObject(listaMoradores, Newtonsoft.Json.Formatting.Indented); // Serializar lista de moradores
+            File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
+        }    
+
+        /// <summary>
+        /// Método para carregar a lista de moradores do ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        /// <returns></returns>
+        public static List<Morador> CarregarListaDeMoradores(string caminhoArquivo)
+        {
+            if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
+            {
+                string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
+
+                if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
+                {
+                    return JsonConvert.DeserializeObject<List<Morador>>(json);
+                }
+            }
+
+            return new List<Morador>(); // Se o ficheiro não existir ou estiver vazio, retorna uma lista vazia
         }
         #endregion
     }

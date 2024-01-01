@@ -13,10 +13,12 @@ namespace TP_POO_24200_24204
     {
 
         private ControladorUtilizador controladorUtilizador;
+        private ControladorMorador controladorMorador;
 
         public MenuResidencia()
         {
             controladorUtilizador = new ControladorUtilizador();
+            controladorMorador = new ControladorMorador();
         }
 
         /// <summary>
@@ -61,7 +63,7 @@ namespace TP_POO_24200_24204
 
                     case "4":
                         Console.WriteLine("Opção 4 - Listar Moradores");
-                        ControladorMorador.ImprimirListaDeMoradores();
+                        controladorMorador.ImprimirListaDeMoradores();
                         break;
 
                     case "5":
