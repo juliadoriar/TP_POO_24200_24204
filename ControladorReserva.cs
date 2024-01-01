@@ -10,20 +10,31 @@ namespace TP_POO_24200_24204
 {
     public class ControladorReserva
     {
+        #region Instâncias de ControladorReserva
         private Reserva modelReserva;
         private ViewReserva viewReserva;
 
+        /// <summary>
+        /// Instancia um objeto de ViewReserva
+        /// </summary>
+        /// <param name="viewReserva"></param>
         public void SetViewReserva(ViewReserva viewReserva)
         {
             this.viewReserva = viewReserva;
         }
 
+        /// <summary>
+        /// Instancia um objeto de Reserva
+        /// </summary>
+        /// <param name="modelReserva"></param>
         public void SetModelReserva (Reserva modelReserva)
         {
             this.modelReserva = modelReserva;
         }
+        #endregion
 
-
+        #region CRUD Reserva
+        #region Criar Reserva
         /// <summary>
         /// Método que cria uma reserva
         /// </summary>
@@ -35,9 +46,13 @@ namespace TP_POO_24200_24204
         /// <returns></returns>
         public Reserva CriarReserva(int quartoId, int utiId, DateTime dataEntrada, DateTime dataSaida, float precoCaucao)
         {
-            int ultimoId = Reserva.LerUltimoIdReserva("reserva.json"); // Obter o último id da reserva
-            int reservaId = ++ultimoId; // Incrementar a variável de classe com o último id da reserva e atribuí-lo para o objeto 
+            // Obtém o último ID de reserva armazenado no arquivo JSON
+            int ultimoId = Reserva.LerUltimoIdReserva("reserva.json");
 
+            // Incrementa o último ID para obter um novo ID único para a nova reserva
+            int reservaId = ++ultimoId;
+
+            // Cria uma nova instância de Reserva com os parâmetros fornecidos
             Reserva novaReserva = new Reserva(
                 reservaId,
                 quartoId,
@@ -46,14 +61,20 @@ namespace TP_POO_24200_24204
                 dataSaida,
                 precoCaucao);
 
+            // Adiciona a nova reserva à lista existente e verifica se a adição foi bem-sucedida
             if (AdicionarReserva(novaReserva))
             {
+                // Atualiza o último ID no arquivo JSON com o novo ID da reserva criada
                 Reserva.AtualizarUltimoIdNoJson(reservaId, "reserva.json");
+
+                // Retorna a nova reserva criada
                 return novaReserva;
             }
 
-            return null; // ou algum indicador de que a reserva não foi adicionada com sucesso
+            // Retorna null em caso de falha na adição da reserva
+            return null;
         }
+
 
         /// <summary>
         /// Método que adiciona uma reserva à lista de reservas
@@ -62,7 +83,7 @@ namespace TP_POO_24200_24204
         /// <returns>True se a reserva foi adicionada com sucesso, False caso contrário.</returns>
         public bool AdicionarReserva(Reserva novaReserva)
         {
-            // Carregar a lista existente do arquivo
+            // Carrega a lista existente do ficheiro
             List<Reserva> listaExistente = ObterListaAtual();
 
             // Validação da reserva
@@ -74,59 +95,20 @@ namespace TP_POO_24200_24204
             {
                 listaExistente.Add(novaReserva);
 
-                // Salvar a lista atualizada no arquivo
+                // Salva a lista atualizada no ficheiro
                 Reserva.SalvarListaFicheiro("reserva.json", listaExistente);
                 return true;                
             }
 
         }
+        #endregion
 
-        // Validação da reserva
-        public bool ValidarReserva(Reserva novaReserva, List<Reserva> listaExistente)
-        {
-
-            if (novaReserva.DataEntrada < DateTime.Today)
-            {
-                Console.WriteLine("A data de entrada não pode ser anterior à data atual.");
-                return false;
-            }
-            else if (novaReserva.DataSaida <= novaReserva.DataEntrada)
-            {
-                Console.WriteLine("A data de saída não pode ser anterior ou igual à data de entrada.");
-                return false;
-            }
-            // Verificar se o quarto está ocupado naquelas datas
-            else if (listaExistente.Exists(r =>
-                novaReserva.QuartoId == r.QuartoId
-                && ((novaReserva.DataEntrada >= r.DataEntrada && novaReserva.DataEntrada < r.DataSaida) ||
-                (novaReserva.DataSaida > r.DataEntrada && novaReserva.DataSaida <= r.DataSaida) ||
-                (novaReserva.DataEntrada <= r.DataEntrada && novaReserva.DataSaida >= r.DataSaida))
-                && r.IsAtivo == true))
-            {
-                Console.WriteLine("O quarto já está ocupado nessas datas.");
-                return false;
-            }
-            // Verificar se o utilizador já tem uma reserva nas mesmas datas
-            else if (listaExistente.Exists(r =>
-                novaReserva.UtiId == r.UtiId
-                && ((novaReserva.DataEntrada >= r.DataEntrada && novaReserva.DataEntrada < r.DataSaida) ||
-                (novaReserva.DataSaida > r.DataEntrada && novaReserva.DataSaida <= r.DataSaida) ||
-                (novaReserva.DataEntrada <= r.DataEntrada && novaReserva.DataSaida >= r.DataSaida))
-                && r.IsAtivo == true))
-
-            {
-                Console.WriteLine("O utilizador já tem outra reserva nessas datas.");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-
-
-        // Método para buscar reservas com base em um predicado
+        #region Buscar Reserva
+        /// <summary>
+        /// Método para buscar reservas com base em um predicado
+        /// </summary>
+        /// <param name="predicado"></param>
+        /// <returns></returns>
         public List<Reserva> BuscarReserva(Predicate<Reserva> predicado)
         {
             List<Reserva> listaExistente = ObterListaAtual();
@@ -143,7 +125,13 @@ namespace TP_POO_24200_24204
                 return reservasEncontradas;
             }
         }
+        #endregion
 
+        #region Editar Reserva
+        /// <summary>
+        /// Método para editar uma reserva
+        /// </summary>
+        /// <param name="reserva"></param>
         public void EditarReserva(Reserva reserva)
         {
             // Obtem a lista atual de reservas
@@ -179,6 +167,11 @@ namespace TP_POO_24200_24204
             }
         }
 
+        /// <summary>
+        /// Método para atualizar os campos de uma reserva
+        /// </summary>
+        /// <param name="existente"></param>
+        /// <param name="atualizada"></param>
         public void AtualizarCamposReserva(Reserva existente, Reserva atualizada)
         {
             existente.QuartoId = atualizada.QuartoId;
@@ -187,77 +180,92 @@ namespace TP_POO_24200_24204
             existente.DataSaida = atualizada.DataSaida;
             existente.IsAtivo = atualizada.IsAtivo;
         }
+        #endregion
 
+        #region Excluir Reserva
+        /// <summary>
+        /// Método para excluir reserva da lista
+        /// </summary>
+        /// <param name="reserva"></param>
+        public void ExcluirReserva(Reserva reserva)
+        {
+            // Obtem a lista atual de reservas
+            List<Reserva> listaExistente = ObterListaAtual();
 
-        /*// Método para editar uma reserva
-        public void EditarReserva()
+            // Verifica se a reserva existe na lista
+            if (!listaExistente.Any(r => r.ReservaId == reserva.ReservaId))
             {
-                Predicate<Reserva> predicado = viewReserva.MenuBuscarReserva();
-                List<Reserva> reservasEncontradas = BuscarReserva(predicado);
+                Console.WriteLine($"Reserva com ID {reserva.ReservaId} não encontrada. A exclusão não foi realizada.");
+                return;
+            }
+            else
+            {
+                // Se a reserva for válida, exclui a reserva da lista existente
+                listaExistente.RemoveAll(r => r.ReservaId == reserva.ReservaId);
 
-                if (reservasEncontradas != null && reservasEncontradas.Count > 0)
-                {
-                    Console.Write("Escolha o ID da reserva que deseja atualizar: ");
-                    if (int.TryParse(Console.ReadLine(), out int idEscolhido))
-                    {
-                        Reserva reservaEscolhida = reservasEncontradas.FirstOrDefault(r => r.ReservaId == idEscolhido);
 
-                        if (reservaEscolhida != null)
-                        {
-                            // Obtem a lista atual de reservas
-                            List<Reserva> listaExistente = ObterListaAtual();
+                // Salva as alterações no ficheiro
+                Reserva.SalvarListaFicheiro("reserva.json", listaExistente);
+                Console.WriteLine("Exclusão realizada com sucesso.");
+            }
 
-                            // Cria uma cópia da lista existente sem a reserva escolhida para fins de validação
-                            List<Reserva> listaValidacao = listaExistente.Where(r => r.ReservaId != idEscolhido).ToList();
+        }
+        #endregion
 
-                            Console.WriteLine("Detalhes da reserva selecionada:");
-                            Console.WriteLine($"ID: {reservaEscolhida.ReservaId}, ID do Quarto: {reservaEscolhida.QuartoId}, ID do Utilizador: {reservaEscolhida.UtiId}, Data de Entrada: {reservaEscolhida.DataEntrada:dd-MM-yyyy}, Data de Saída: {reservaEscolhida.DataSaida:dd-MM-yyyy}, Preço da Caução: {reservaEscolhida.PrecoCaucao}, Ativo: {reservaEscolhida.IsAtivo}, Data da Reserva: {reservaEscolhida.DataReserva:dd-MM-yyyy}");
+        #endregion
 
-                            TipoCampo tipoCampo = viewReserva.MenuSelecionarCampo();
+        #region Métodos Auxiliares
+        /// <summary>
+        /// Método para validar criação ou alteração de uma reserva
+        /// </summary>
+        /// <param name="novaReserva"></param>
+        /// <param name="listaExistente"></param>
+        /// <returns></returns>
+        public bool ValidarReserva(Reserva novaReserva, List<Reserva> listaExistente)
+        {
 
-                            // Obtém o novo valor e atualiza a reserva escolhida
-                            Reserva reservaAtualizada = viewReserva.ObterNovoValorReserva(reservaEscolhida, tipoCampo);
+            if (novaReserva.DataEntrada < DateTime.Today)
+            {
+                Console.WriteLine("A data de entrada não pode ser anterior à data atual.");
+                return false;
+            }
+            else if (novaReserva.DataSaida <= novaReserva.DataEntrada)
+            {
+                Console.WriteLine("A data de saída não pode ser anterior ou igual à data de entrada.");
+                return false;
+            }
+            // Verifica se o quarto está ocupado naquelas datas
+            else if (listaExistente.Exists(r =>
+                novaReserva.QuartoId == r.QuartoId
+                && ((novaReserva.DataEntrada >= r.DataEntrada && novaReserva.DataEntrada < r.DataSaida) ||
+                (novaReserva.DataSaida > r.DataEntrada && novaReserva.DataSaida <= r.DataSaida) ||
+                (novaReserva.DataEntrada <= r.DataEntrada && novaReserva.DataSaida >= r.DataSaida))
+                && r.IsAtivo == true))
+            {
+                Console.WriteLine("O quarto já está ocupado nessas datas.");
+                return false;
+            }
+            // Verifica se o utilizador já tem uma reserva nas mesmas datas
+            else if (listaExistente.Exists(r =>
+                novaReserva.UtiId == r.UtiId
+                && ((novaReserva.DataEntrada >= r.DataEntrada && novaReserva.DataEntrada < r.DataSaida) ||
+                (novaReserva.DataSaida > r.DataEntrada && novaReserva.DataSaida <= r.DataSaida) ||
+                (novaReserva.DataEntrada <= r.DataEntrada && novaReserva.DataSaida >= r.DataSaida))
+                && r.IsAtivo == true))
 
-                            // Valida reserva
-                            if (ValidarReserva(reservaAtualizada, listaValidacao))
-                            {
-                                // Se a reserva for válida, atualiza os campos na lista existente
-                                Reserva reservaExistente = listaExistente.FirstOrDefault(r => r.ReservaId == idEscolhido);
-                                if (reservaExistente != null)
-                                {
-                                    // Atualiza os campos na reserva existente com os valores da reserva atualizada
-                                    reservaExistente.QuartoId = reservaAtualizada.QuartoId;
-                                    reservaExistente.UtiId = reservaAtualizada.UtiId;
-                                    reservaExistente.DataEntrada = reservaAtualizada.DataEntrada;
-                                    reservaExistente.DataSaida = reservaAtualizada.DataSaida;
-                                    reservaExistente.IsAtivo = reservaAtualizada.IsAtivo;
-                                }
+            {
+                Console.WriteLine("O utilizador já tem outra reserva nessas datas.");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-                                // Salva as alterações no arquivo
-                                Reserva.SalvarListaFicheiro("reserva.json", listaExistente);
-                                Console.WriteLine("Atualização realizada com sucesso.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("A reserva não é válida. A atualização não foi realizada.");
-                            }                     
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Reserva com ID {idEscolhido} não encontrada. A atualização não foi realizada.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Entrada inválida. A atualização não foi realizada.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Reserva não encontrada. A atualização não foi realizada.");
-                }
-            }*/
-
+        /// <summary>
+        /// Define os campos que podem ser editados
+        /// </summary>
         public enum TipoCampo
         {
             ReservaId,
@@ -270,9 +278,14 @@ namespace TP_POO_24200_24204
             Nulo
         }
 
+        /// <summary>
+        /// Método para obter a lista atual de reservas
+        /// </summary>
+        /// <returns></returns>
         public List<Reserva> ObterListaAtual()
         {
             return Reserva.CarregarListaDeReservas("reserva.json");
         }
+        #endregion
     }
 }

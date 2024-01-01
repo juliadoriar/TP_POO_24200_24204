@@ -11,37 +11,56 @@ namespace TP_POO_24200_24204
 {
     public class ViewReserva
     {
+        #region Instâncias de ViewReserva
         private ControladorReserva controladorReserva;
 
+        /// <summary>
+        /// Instancia um objeto de ControladorReserva
+        /// </summary>
+        /// <param name="controladorReserva"></param>
         public void SetControladorReserva(ControladorReserva controladorReserva)
         {
             this.controladorReserva = controladorReserva;
         }
+        #endregion
 
         #region CRUD Reserva
         #region Criar Reserva
-        public void CriarReserva()
+        /// <summary>
+        /// Cria uma reserva
+        /// </summary>
+        public void MenuCriarReserva()
         {
+            // Título e cabeçalho da operação
             Console.WriteLine("Criar Reserva");
             Console.WriteLine("-------------");
             Console.WriteLine();
 
-            int quartoId = LerInteiro("Insira o ID do quarto: ");
-            int utiId = LerInteiro("Insira o ID do utilizador: ");
-            DateTime dataEntrada = LerData("Insira a data de entrada (dd-MM-yyyy): ");
-            DateTime dataSaida = LerData("Insira a data de saída (dd-MM-yyyy): ");
-            float precoCaucao = LerFloat("Insira o preço da caução: ");
+            // Entrada de dados para criar uma nova reserva
+            int quartoId = Servico.LerInteiro("Insira o ID do quarto: ");
+            int utiId = Servico.LerInteiro("Insira o ID do utilizador: ");
+            DateTime dataEntrada = Servico.LerData("Insira a data de entrada (dd-MM-yyyy): ");
+            DateTime dataSaida = Servico.LerData("Insira a data de saída (dd-MM-yyyy): ");
+            float precoCaucao = Servico.LerFloat("Insira o preço da caução: ");
 
+            // Chama o controlador para criar a reserva
             controladorReserva.CriarReserva(quartoId, utiId, dataEntrada, dataSaida, precoCaucao);
         }
         #endregion
 
         #region Buscar Reserva
+        /// <summary>
+        /// Busca uma reserva
+        /// </summary>
+        /// <returns></returns>
         public Predicate<Reserva> MenuBuscarReserva()
         {
+            // Inicializa o predicado como nulo
             Predicate<Reserva> predicado = null;
+            // Obtém a lista de reservas atual do controlador
             List<Reserva> listaDeReservasAtual = controladorReserva.ObterListaAtual();
 
+            // Loop para escolher o critério de busca
             while (true)
             {
                 Console.WriteLine("Escolha o critério de busca:");
@@ -52,55 +71,52 @@ namespace TP_POO_24200_24204
                 Console.WriteLine("5. Por Data de Saída");
                 Console.WriteLine("6. Por Data da Reserva");
 
-                if (int.TryParse(Console.ReadLine(), out int opcao))
+                // Entrada de opção do usuário
+                int opcao = Servico.LerInteiro("");
+
+                int valorInteiro;
+                DateTime valorData;
+
+                // Switch para definir o predicado com base na opção escolhida
+                switch (opcao)
                 {
-                    int valorInteiro;
-                    DateTime valorData;
-
-                    switch (opcao)
-                    {
-                        case 1:
-                            valorInteiro = LerInteiro("Digite o ID da Reserva:");
-                            predicado = r => r.ReservaId == valorInteiro;
-                            break;
-                        case 2:
-                            valorInteiro = LerInteiro("Digite o ID do Quarto:");
-                            predicado = r => r.QuartoId == valorInteiro;
-                            break;
-                        case 3:
-                            valorInteiro = LerInteiro("Digite o ID do Utilizador:");
-                            predicado = r => r.UtiId == valorInteiro;
-                            break;
-                        case 4:
-                            valorData = LerData("Digite a Data de Entrada (dd-MM-yyyy):");
-                            predicado = r => r.DataEntrada == valorData;
-                            break;
-                        case 5:
-                            valorData = LerData("Digite a Data de Saída (dd-MM-yyyy):");
-                            predicado = r => r.DataSaida == valorData;
-                            break;
-                        case 6:
-                            valorData = LerData("Digite a Data da Reserva (dd-MM-yyyy):");
-                            predicado = r => r.DataReserva == valorData;
-                            break;
-                        default:
-                            Console.WriteLine("Opção inválida.");
-                            break;
-                    }
-
-                    if (opcao >= 1 && opcao <= 6)
-                    {
-                        // Se uma opção válida foi escolhida, sai do loop
+                    case 1:
+                        valorInteiro = Servico.LerInteiro("Digite o ID da Reserva:");
+                        predicado = r => r.ReservaId == valorInteiro;
                         break;
-                    }
-
+                    case 2:
+                        valorInteiro = Servico.LerInteiro("Digite o ID do Quarto:");
+                        predicado = r => r.QuartoId == valorInteiro;
+                        break;
+                    case 3:
+                        valorInteiro = Servico.LerInteiro("Digite o ID do Utilizador:");
+                        predicado = r => r.UtiId == valorInteiro;
+                        break;
+                    case 4:
+                        valorData = Servico.LerData("Digite a Data de Entrada (dd-MM-yyyy):");
+                        predicado = r => r.DataEntrada == valorData;
+                        break;
+                    case 5:
+                        valorData = Servico.LerData("Digite a Data de Saída (dd-MM-yyyy):");
+                        predicado = r => r.DataSaida == valorData;
+                        break;
+                    case 6:
+                        valorData = Servico.LerData("Digite a Data da Reserva (dd-MM-yyyy):");
+                        predicado = r => r.DataReserva == valorData;
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
                 }
-                else
+
+                // Se uma opção válida foi escolhida, sai do loop
+                if (opcao >= 1 && opcao <= 6)
                 {
-                    Console.WriteLine("Entrada inválida.");
+                    break;
                 }
             }
 
+            // Se um predicado foi definido, realiza a busca e exibe os resultados
             if (predicado != null)
             {
                 List<Reserva> listaDeReservasSelecionadas = controladorReserva.BuscarReserva(predicado);
@@ -111,41 +127,50 @@ namespace TP_POO_24200_24204
         }
         #endregion
 
+
         #region Editar Reserva
+        /// <summary>
+        /// Edita uma reserva
+        /// </summary>
         public void MenuEditarReserva()
         {
+            // Obtém o predicado para buscar as reservas
             Predicate<Reserva> predicado = MenuBuscarReserva();
+
+            // Busca as reservas com base no predicado
             List<Reserva> reservasEncontradas = controladorReserva.BuscarReserva(predicado);
 
             if (reservasEncontradas != null && reservasEncontradas.Count > 0)
             {
+                // Solicita ao usuário que escolha o ID da reserva a ser atualizada
+                int idEscolhido = Servico.LerInteiro("Escolha o ID da reserva que deseja atualizar: ");
 
-                int idEscolhido = LerInteiro("Escolha o ID da reserva que deseja atualizar: ");
-
-
+                // Busca a reserva escolhida
                 Reserva reservaEscolhida = reservasEncontradas.FirstOrDefault(r => r.ReservaId == idEscolhido);
 
-                // Exibir detalhes da reserva
+                // Exibe detalhes da reserva escolhida
                 ExibirDetalhesReserva(reservaEscolhida);
 
                 if (reservaEscolhida != null)
                 {
+                    // Chama o controlador para editar a reserva
                     controladorReserva.EditarReserva(reservaEscolhida);
                 }
                 else
                 {
                     Console.WriteLine($"Reserva com ID {idEscolhido} não encontrada. A atualização não foi realizada.");
                 }
-                
-
             }
             else
             {
                 Console.WriteLine("Reserva não encontrada. A atualização não foi realizada.");
             }
         }
-    
-        // Menu para escolher o TipoCampo a ser atualizado
+
+        /// <summary>
+        /// Menu para escolher o TipoCampo a ser atualizado
+        /// </summary>
+        /// <returns></returns>
         public TipoCampo MenuSelecionarCampo()
         {
             TipoCampo tipoCampo = TipoCampo.Nulo; // Valor padrão
@@ -159,8 +184,9 @@ namespace TP_POO_24200_24204
                 Console.WriteLine("4. Data de Saída");
                 Console.WriteLine("5. Ativo");
 
-                if (int.TryParse(Console.ReadLine(), out int opcaoCampo))
-                {
+                // Entrada de opção do usuário
+                int opcaoCampo = Servico.LerInteiro("");
+
                     switch (opcaoCampo)
                     {
                         case 1:
@@ -188,39 +214,44 @@ namespace TP_POO_24200_24204
                     {
                         break;
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Entrada inválida. Por favor, escolha uma opção válida.");
-                }
             }
 
             return tipoCampo;
         }
 
+        /// <summary>
+        /// Obtém o novo valor para o campo escolhido
+        /// </summary>
+        /// <param name="reservaEscolhida"></param>
+        /// <param name="tipoCampo"></param>
+        /// <returns></returns>
         public Reserva ObterNovoValorReserva(Reserva reservaEscolhida, TipoCampo tipoCampo)
         {
-
             switch (tipoCampo)
             {
                 case TipoCampo.QuartoId:
-                    reservaEscolhida.QuartoId = LerInteiro($"Digite o novo valor para o campo {tipoCampo}: ");
+                    // Solicita ao usuário o novo valor para o campo QuartoId
+                    reservaEscolhida.QuartoId = Servico.LerInteiro($"Digite o novo valor para o campo {tipoCampo}: ");
                     break;
 
                 case TipoCampo.UtiId:
-                    reservaEscolhida.UtiId = LerInteiro($"Digite o novo valor para o campo {tipoCampo}: ");
+                    // Solicita ao usuário o novo valor para o campo UtiId
+                    reservaEscolhida.UtiId = Servico.LerInteiro($"Digite o novo valor para o campo {tipoCampo}: ");
                     break;
 
                 case TipoCampo.DataEntrada:
-                    reservaEscolhida.DataEntrada = LerData($"Digite o novo valor para o campo {tipoCampo} (dd-MM-yyyy): ");
+                    // Solicita ao usuário a nova data para o campo DataEntrada
+                    reservaEscolhida.DataEntrada = Servico.LerData($"Digite o novo valor para o campo {tipoCampo} (dd-MM-yyyy): ");
                     break;
 
                 case TipoCampo.DataSaida:
-                    reservaEscolhida.DataSaida = LerData($"Digite o novo valor para o campo {tipoCampo} (dd-MM-yyyy): ");
+                    // Solicita ao usuário a nova data para o campo DataSaida
+                    reservaEscolhida.DataSaida = Servico.LerData($"Digite o novo valor para o campo {tipoCampo} (dd-MM-yyyy): ");
                     break;
 
                 case TipoCampo.IsAtivo:
-                    reservaEscolhida.IsAtivo = LerBooleano($"Digite o novo valor para o campo {tipoCampo} (true/false): ");
+                    // Solicita ao usuário o novo valor booleano para o campo IsAtivo
+                    reservaEscolhida.IsAtivo = Servico.LerBooleano($"Digite o novo valor para o campo {tipoCampo} (true/false): ");
                     break;
 
                 default:
@@ -232,7 +263,8 @@ namespace TP_POO_24200_24204
         }
         #endregion
 
-        #region Impressão de reservas
+
+        #region Imprimir Reserva
         /// <summary>
         /// Método para imprimir a lista de reservas
         /// </summary>
@@ -244,6 +276,10 @@ namespace TP_POO_24200_24204
             ExibirDetalhesListaReserva(listaDeReservasAtual);
         }
 
+        /// <summary>
+        /// Método para exibir os detalhes de uma lista de reservas
+        /// </summary>
+        /// <param name="listaDeReservasAtual"></param>
         public void ExibirDetalhesListaReserva(List<Reserva> listaDeReservasAtual)
         {
             if (listaDeReservasAtual == null)
@@ -261,6 +297,10 @@ namespace TP_POO_24200_24204
             }
         }
 
+        /// <summary>
+        /// Método para exibir os detalhes de uma reserva única
+        /// </summary>
+        /// <param name="reserva"></param>
         public void ExibirDetalhesReserva(Reserva reserva)
         {
             Console.WriteLine($"ID: {reserva.ReservaId}, ID do Quarto: {reserva.QuartoId}, ID do Utilizador: {reserva.UtiId}, Data de Entrada: {reserva.DataEntrada:dd-MM-yyyy}, Data de Saída: {reserva.DataSaida:dd-MM-yyyy}, Preço da Caução: {reserva.PrecoCaucao}, Ativo: {reserva.IsAtivo}, Data da Reserva: {reserva.DataReserva:dd-MM-yyyy}");
@@ -268,73 +308,48 @@ namespace TP_POO_24200_24204
         #endregion
 
         #region Excluir Reserva
-        // A implementar
+        /// <summary>
+        /// Método para excluir uma reserva
+        /// </summary>
+        public void MenuExcluirReserva()
+        {
+            // Obtém um predicado para buscar as reservas com base nos critérios escolhidos pelo usuário
+            Predicate<Reserva> predicado = MenuBuscarReserva();
+
+            // Busca as reservas com base no predicado
+            List<Reserva> reservasEncontradas = controladorReserva.BuscarReserva(predicado);
+
+            if (reservasEncontradas != null && reservasEncontradas.Count > 0)
+            {
+                // Solicita ao usuário que escolha o ID da reserva a ser excluída
+                int idEscolhido = Servico.LerInteiro("Escolha o ID da reserva que deseja excluir: ");
+
+                // Busca a reserva escolhida
+                Reserva reservaEscolhida = reservasEncontradas.FirstOrDefault(r => r.ReservaId == idEscolhido);
+
+                // Exibe detalhes da reserva escolhida
+                ExibirDetalhesReserva(reservaEscolhida);
+
+                if (reservaEscolhida != null)
+                {
+                    // Chama o controlador para excluir a reserva
+                    controladorReserva.ExcluirReserva(reservaEscolhida);
+                }
+                else
+                {
+                    // Se a reserva escolhida não foi encontrada, exibe uma mensagem indicando que a exclusão não foi realizada
+                    Console.WriteLine($"Reserva com ID {idEscolhido} não encontrada. A exclusão não foi realizada.");
+                }
+            }
+            else
+            {
+                // Se nenhuma reserva foi encontrada com base nos critérios escolhidos, exibe uma mensagem indicando que a exclusão não foi realizada
+                Console.WriteLine("Reserva não encontrada. A exclusão não foi realizada.");
+            }
+        }
+
         #endregion
 
-        #endregion
-
-        #region Leitura de dados
-        public string LerString(string mensagem)
-        {
-            Console.Write(mensagem);
-            return Console.ReadLine();
-        }
-
-        public int LerInteiro(string mensagem)
-        {
-            int valor;
-            Console.Write(mensagem);
-
-            while (!int.TryParse(Console.ReadLine(), out valor))
-            {
-                Console.WriteLine("Entrada inválida. Digite um número inteiro.");
-                Console.Write(mensagem);
-            }
-
-            return valor;
-        }
-
-        public DateTime LerData(string mensagem)
-        {
-            DateTime data;
-            Console.Write(mensagem);
-
-            while (!DateTime.TryParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out data))
-            {
-                Console.WriteLine("Entrada inválida. Digite uma data no formato dd-MM-yyyy.");
-                Console.Write(mensagem);
-            }
-
-            return data;
-        }
-
-        public float LerFloat(string mensagem)
-        {
-            float valor;
-            Console.Write(mensagem);
-
-            while (!float.TryParse(Console.ReadLine(), out valor))
-            {
-                Console.WriteLine("Entrada inválida. Digite um número real.");
-                Console.Write(mensagem);
-            }
-
-            return valor;
-        }
-
-        public bool LerBooleano(string mensagem)
-        {
-            bool valor;
-            Console.Write(mensagem);
-
-            while (!bool.TryParse(Console.ReadLine(), out valor))
-            {
-                Console.WriteLine("Entrada inválida. Digite um valor booleano (true/false).");
-                Console.Write(mensagem);
-            }
-
-            return valor;
-        }
         #endregion
     }
 
