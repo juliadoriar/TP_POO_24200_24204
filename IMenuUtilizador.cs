@@ -37,11 +37,18 @@ namespace TP_POO_24200_24204
     public class MenuMorador : MenuUtilizadorBase
     {
         private ControladorUtilizador controladorUtilizador;
+        private ControladorMorador controladorMorador;
         private ViewReserva viewReserva;
+        private ControladorReserva controladorReserva;
         public MenuMorador(Utilizador utilizador) : base(utilizador)
         {
             controladorUtilizador = new ControladorUtilizador();
+            controladorMorador = new ControladorMorador();
+            controladorUtilizador.SetControladorMorador(controladorMorador);
             viewReserva = new ViewReserva();
+            controladorReserva = new ControladorReserva();
+            viewReserva.SetControladorReserva(controladorReserva);
+
         }
 
         public override void ExibirMenu()
@@ -127,17 +134,23 @@ namespace TP_POO_24200_24204
             private ViewReserva viewReserva;
             private ControladorGestor controladorGestor;
             private ControladorFuncionario controladorFuncionario;
+            private ControladorReserva controladorReserva;
        
             public MenuGestor(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
                 viewReserva = new ViewReserva();
+                controladorReserva = new ControladorReserva();
+                viewReserva.SetControladorReserva(controladorReserva);
                 controladorMorador = new ControladorMorador();
                 controladorGestor = new ControladorGestor();
                 controladorFuncionario = new ControladorFuncionario();
+                controladorUtilizador.SetControladorMorador(controladorMorador);
+                controladorUtilizador.SetControladorGestor(controladorGestor);
+                controladorUtilizador.SetControladorFuncionario(controladorFuncionario);
             }
 
-            public override void ExibirMenu()
+        public override void ExibirMenu()
             {
 
                 bool continuar = true; // Variável para controlar a continuidade do loop
@@ -197,36 +210,36 @@ namespace TP_POO_24200_24204
                             break;
 
                         case "7":
-                            Console.WriteLine("Opção 6 - Listar Moradores");
+                            Console.WriteLine("Opção 7 - Listar Moradores");
                             controladorMorador.ImprimirListaDeMoradores();
                             break;
 
                         case "8":
-                            Console.WriteLine("Opção 7 - Listar Utilizadores");
+                            Console.WriteLine("Opção 8 - Listar Utilizadores");
                             controladorUtilizador.ImprimirListaDeUtilizadores();
                             break;
 
                         case "9":
-                            Console.WriteLine("Opção 8 - Listar Quartos");
+                            Console.WriteLine("Opção 9 - Listar Quartos");
                             ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
                             break;
 
                         case "10":
-                            Console.WriteLine("Opção 9 - Listar Gestores");
+                            Console.WriteLine("Opção 10 - Listar Gestores");
                             controladorGestor.ImprimirListaDeGestores();
                             break;
 
-                        case "11":Console.WriteLine("Opção 10 - Listar Funcionários");
+                        case "11":Console.WriteLine("Opção 11 - Listar Funcionários");
                             controladorFuncionario.ImprimirListaDeFuncionarios();
                             break;
 
                         case "12":
-                            Console.WriteLine("Opção 11 - Listar Reservas");
+                            Console.WriteLine("Opção 12 - Listar Reservas");
                             viewReserva.ImprimirListaReservaAtual();
                             break;
 
                         case "13":
-                            Console.WriteLine("Opção 9 - Voltar ao Menu Inicial");
+                            Console.WriteLine("Opção 13 - Voltar ao Menu Inicial");
                             Console.Clear();
                             MenuInicial menuInicial = new MenuInicial(controladorUtilizador);
                             menuInicial.ExibirMenuInicial();
@@ -262,12 +275,23 @@ namespace TP_POO_24200_24204
             private ControladorUtilizador controladorUtilizador;
             private ViewReserva viewReserva;
             private ControladorMorador controladorMorador;
+            private ControladorReserva controladorReserva;
+            private ControladorGestor controladorGestor;
+            private ControladorFuncionario controladorFuncionario;
             public MenuFuncionario(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
                 viewReserva = new ViewReserva();
                 controladorMorador = new ControladorMorador();
-        }
+                controladorGestor = new ControladorGestor();
+                controladorFuncionario = new ControladorFuncionario();
+                controladorUtilizador.SetControladorMorador(controladorMorador);
+                controladorUtilizador.SetControladorGestor(controladorGestor);
+                controladorUtilizador.SetControladorFuncionario(controladorFuncionario);
+                controladorReserva = new ControladorReserva();
+                viewReserva.SetControladorReserva(controladorReserva);
+                
+            }
 
             public override void ExibirMenu()
             {
@@ -320,32 +344,32 @@ namespace TP_POO_24200_24204
                             break;
 
                         case "6":
-                            Console.WriteLine("Opção 4 - Alterar Cadastro");
+                            Console.WriteLine("Opção 6 - Alterar Cadastro");
                             controladorUtilizador.MenuEditarUtilizador();
                             break;
 
                         case "7":
-                            Console.WriteLine("Opção 5 - Excluir Cadastro");
+                            Console.WriteLine("Opção 7 - Excluir Cadastro");
                             controladorUtilizador.MenuExcluirUtilizador();
                             break;
 
                         case "8":
-                            Console.WriteLine("Opção 5 - Listar Moradores");
+                            Console.WriteLine("Opção 8 - Listar Moradores");
                             controladorMorador.ImprimirListaDeMoradores();
                             break;
 
                         case "9":
-                            Console.WriteLine("Opção 6 - Alterar Adimplência de um Morador");
+                            Console.WriteLine("Opção 9 - Alterar Adimplência de um Morador");
                             controladorMorador.EditarAdimplenciaMorador();
                             break;
 
                         case "10":
-                            Console.WriteLine("Opção 7 - Listar Quartos");
+                            Console.WriteLine("Opção 10 - Listar Quartos");
                             ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
                             break;
 
                         case "11":
-                            Console.WriteLine("Opção 8 - Voltar ao Menu Inicial");
+                            Console.WriteLine("Opção 11 - Voltar ao Menu Inicial");
                             Console.Clear();
                             MenuInicial menuInicial = new MenuInicial(controladorUtilizador);
                             menuInicial.ExibirMenuInicial();
