@@ -276,6 +276,10 @@ namespace TP_POO_24200_24204
         #endregion
 
         #region Excluir Morador
+        /// <summary>
+        /// Método para excluir um morador da lista
+        /// </summary>
+        /// <param name="morador"></param>
         public void ExcluirMorador(Morador morador)
         {
             // Obtem a lista atual de moradores
@@ -298,7 +302,6 @@ namespace TP_POO_24200_24204
                 Console.WriteLine("Exclusão realizada com sucesso.");
             }
         }
-
         #endregion
 
         #region Imprimir Morador
@@ -312,7 +315,11 @@ namespace TP_POO_24200_24204
             ExibirDetalhesListaMorador(listaDeMoradoresAtual);
 
         }
-
+        
+        /// <summary>
+        /// Método para exibir os detalhes de uma lista de moradores
+        /// </summary>
+        /// <param name="listaDeMoradoresAtual"></param>
         public void ExibirDetalhesListaMorador(List<Morador> listaDeMoradoresAtual)
         {
             if (listaDeMoradoresAtual == null)
