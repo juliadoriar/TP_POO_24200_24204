@@ -86,7 +86,7 @@ namespace TP_POO_24200_24204
 
                     case "5":
                         Console.WriteLine("Opção 5 - Alterar Cadastro");
-                        //chamar método para alterar cadastro de utilizador;
+                        controladorUtilizador.MenuEditarUtilizador();
                         break;
 
                     case "6":
@@ -179,17 +179,17 @@ namespace TP_POO_24200_24204
                             break;
 
                         case "5":
-                            Console.WriteLine("Opção 4 - Alterar Cadastro");
-                            //chamar método para alterar cadastro de utilizador;
+                            Console.WriteLine("Opção 5 - Alterar Cadastro");
+                            controladorUtilizador.MenuEditarUtilizador();
                             break;
 
                         case "6":
-                            Console.WriteLine("Opção 5 - Listar Moradores");
+                            Console.WriteLine("Opção 6 - Listar Moradores");
                             controladorMorador.ImprimirListaDeMoradores();
                             break;
 
                         case "7":
-                            Console.WriteLine("Opção 6 - Listar Utilizadores");
+                            Console.WriteLine("Opção 7 - Listar Utilizadores");
                             controladorUtilizador.ImprimirListaDeUtilizadores();
                             break;
 
@@ -254,9 +254,10 @@ namespace TP_POO_24200_24204
                     Console.WriteLine("3. Cancelar Reserva");
                     Console.WriteLine("4. Alterar Cadastro");
                     Console.WriteLine("5. Listar Moradores");
-                    Console.WriteLine("6. Listar Quartos");
-                    Console.WriteLine("7. Voltar ao Menu Inicial");
-                    Console.WriteLine("8. Sair");
+                    Console.WriteLine("6. Alterar Adimplência de um Morador");
+                    Console.WriteLine("7. Listar Quartos");
+                    Console.WriteLine("8. Voltar ao Menu Inicial");
+                    Console.WriteLine("9. Sair");
 
                     Console.Write("Escolha uma opção: ");
                     string opcao = Console.ReadLine();
@@ -280,7 +281,7 @@ namespace TP_POO_24200_24204
 
                         case "4":
                             Console.WriteLine("Opção 4 - Alterar Cadastro");
-                            //Chamar método para alterar cadastro de utilizador;
+                            controladorUtilizador.MenuEditarUtilizador();
                             break;
 
                         case "5":
@@ -289,19 +290,24 @@ namespace TP_POO_24200_24204
                             break;
 
                         case "6":
-                            Console.WriteLine("Opção 8 - Listar Quartos");
-                            ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
+                            Console.WriteLine("Opção 6 - Alterar Adimplência de um Morador");
+                            controladorMorador.EditarAdimplenciaMorador();
                             break;
 
                         case "7":
-                            Console.WriteLine("Opção 7 - Voltar ao Menu Inicial");
+                            Console.WriteLine("Opção 7 - Listar Quartos");
+                            ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
+                            break;
+
+                        case "8":
+                            Console.WriteLine("Opção 8 - Voltar ao Menu Inicial");
                             Console.Clear();
                             MenuInicial menuInicial = new MenuInicial(controladorUtilizador);
                             menuInicial.ExibirMenuInicial();
                             continuar = false;
                             break;
 
-                        case "8":
+                        case "9":
                             Console.WriteLine("Saindo...");
                             continuar = false;
                             break;

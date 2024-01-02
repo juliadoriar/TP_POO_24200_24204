@@ -26,7 +26,6 @@ namespace TP_POO_24200_24204
                 utilizador.GetIsAtivo(),
                 utilizador.GetDataRegisto());
 
-            AdicionarFuncionario(funcionario);
             return funcionario;
         }
 

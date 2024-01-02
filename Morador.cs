@@ -67,7 +67,7 @@ namespace TP_POO_24200_24204
         {
             return IsAdimplente;
         }       
-        public void SetAdimplente(bool isAdimplente)
+        public void SetIsAdimplente(bool isAdimplente)
         {
             IsAdimplente = isAdimplente;
         }

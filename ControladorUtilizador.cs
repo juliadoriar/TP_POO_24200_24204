@@ -130,16 +130,20 @@ namespace TP_POO_24200_24204
                // Verificar o tipo de utilizador e criar o objeto correspondente
                if (novoUtilizador.GetTipoUtilizador() == "Morador" || novoUtilizador.GetTipoUtilizador() == "morador")
                {
-                   controladorMorador.CriarMorador(novoUtilizador);
-               }
+                   Morador morador = controladorMorador.CriarMorador(novoUtilizador);
+                   controladorMorador.AdicionarMorador(morador); // Adicionar morador à lista de moradores
 
-               else if (novoUtilizador.GetTipoUtilizador() == "Funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionario" || novoUtilizador.GetTipoUtilizador() == "Funcionario")
+                }
+
+                else if (novoUtilizador.GetTipoUtilizador() == "Funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionario" || novoUtilizador.GetTipoUtilizador() == "Funcionario")
                {
-                   controladorFuncionario.CriarFuncionario(novoUtilizador);
-               }
+                   Funcionario funcionario = controladorFuncionario.CriarFuncionario(novoUtilizador);
+                   controladorFuncionario.AdicionarFuncionario(funcionario);
+                }
                else if (novoUtilizador.GetTipoUtilizador() == "Gestor" || novoUtilizador.GetTipoUtilizador() == "gestor")
                {
-                   controladorGestor.CriarGestor(novoUtilizador);
+                   Gestor gestor = controladorGestor.CriarGestor(novoUtilizador);
+                   controladorGestor.AdicionarGestor(gestor);
                }
 
                return true;
@@ -150,6 +154,10 @@ namespace TP_POO_24200_24204
         #endregion
 
         #region Buscar Utilizador
+        /// <summary>
+        /// Menu para buscar um utilizador
+        /// </summary>
+        /// <returns></returns>
         public Predicate<Utilizador> MenuBuscarUtilizador()
         {
             // Inicializa o predicado como nulo
@@ -168,9 +176,8 @@ namespace TP_POO_24200_24204
                 Console.WriteLine("5. Por Localidade do Utilizador");
                 Console.WriteLine("6. Por Documento de Identificação do Utilizador");
                 Console.WriteLine("7. Por Tipo de Utilizador");
-                Console.WriteLine("8. Por Ativo do Utilizador");
+                Console.WriteLine("8. Por Atividade do Utilizador");
                 Console.WriteLine("9. Por Data de Registo do Utilizador");
-                Console.WriteLine("0. Cancelar");
 
                 // Entrada de opção do usuário
                 int opcao = Servico.LerInteiro("");
@@ -221,7 +228,7 @@ namespace TP_POO_24200_24204
                         predicado = u => u.GetTipoUtilizador() == valorString;
                         break;
                     case 8:
-                        valorBool = Servico.LerBooleano("Digite o Ativo do Utilizador:");
+                        valorBool = Servico.LerBooleano("Digite o critério de atividade (true/false):");
                         predicado = u => u.GetIsAtivo() == valorBool;
                         break;
                     case 9:
@@ -250,6 +257,11 @@ namespace TP_POO_24200_24204
             return predicado;
         }
 
+        /// <summary>
+        /// Método para buscar utilizadores
+        /// </summary>
+        /// <param name="predicado"></param>
+        /// <returns></returns>
         public List<Utilizador> BuscarUtilizador(Predicate<Utilizador> predicado)
         {
             List<Utilizador> listaExistente = Utilizador.CarregarListaDeUtilizadores("utilizador.json");
@@ -505,6 +517,22 @@ namespace TP_POO_24200_24204
 
                 // Salva as alterações no arquivo
                 Utilizador.SalvarListaFicheiro("utilizador.json", listaExistente);
+
+                // Verificar o tipo de utilizador e editar o objeto correspondente
+                if (utilizadorExistente.GetTipoUtilizador() == "Morador" || utilizadorExistente.GetTipoUtilizador() == "morador")
+                {
+                    Morador morador = controladorMorador.CriarMorador(utilizadorExistente);
+                    controladorMorador.EditarMorador(morador);
+                }
+                else if (utilizadorExistente.GetTipoUtilizador() == "Funcionário" || utilizadorExistente.GetTipoUtilizador() == "funcionário" || utilizadorExistente.GetTipoUtilizador() == "funcionario" || utilizadorExistente.GetTipoUtilizador() == "Funcionario")
+                {
+                    //controladorFuncionario.EditarFuncionario(utilizadorExistente);
+                }
+                else if (utilizadorExistente.GetTipoUtilizador() == "Gestor" || utilizadorExistente.GetTipoUtilizador() == "gestor")
+                {
+                    //controladorGestor.EditarGestor(utilizadorExistente);
+                }
+
                 Console.WriteLine("Atualização realizada com sucesso.");
             }
             else
@@ -557,7 +585,6 @@ namespace TP_POO_24200_24204
                 // Busca o utilizador escolhido
                 Utilizador utilizadorEscolhido = utilizadoresEncontrados.FirstOrDefault(u => u.GetUtiId() == idEscolhido);
 
-
                 if (utilizadorEscolhido != null)
                 {
                     // Exibe detalhes do utilizador escolhido
@@ -601,10 +628,25 @@ namespace TP_POO_24200_24204
 
                 // Salva as alterações no ficheiro
                 Utilizador.SalvarListaFicheiro("utilizador.json", listaExistente);
+
+                // Verificar o tipo de utilizador e criar o objeto correspondente
+                if (utilizador.GetTipoUtilizador() == "Morador" || utilizador.GetTipoUtilizador() == "morador")
+                {
+                    Morador morador = controladorMorador.CriarMorador(utilizador);
+                    controladorMorador.EditarMorador(morador);
+                }
+                else if (utilizador.GetTipoUtilizador() == "Funcionário" || utilizador.GetTipoUtilizador() == "funcionário" || utilizador.GetTipoUtilizador() == "funcionario" || utilizador.GetTipoUtilizador() == "Funcionario")
+                {
+                    //controladorFuncionario.EditarFuncionario(utilizadorExistente);
+                }
+                else if (utilizador.GetTipoUtilizador() == "Gestor" || utilizador.GetTipoUtilizador() == "gestor")
+                {
+                    //controladorGestor.EditarGestor(utilizadorExistente);
+                }
+
                 Console.WriteLine("Exclusão realizada com sucesso.");
             }
         }
-
         #endregion
 
 
