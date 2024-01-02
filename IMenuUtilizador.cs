@@ -125,12 +125,16 @@ namespace TP_POO_24200_24204
             private ControladorUtilizador controladorUtilizador;
             private ControladorMorador controladorMorador;
             private ViewReserva viewReserva;
+            private ControladorGestor controladorGestor;
+            private ControladorFuncionario controladorFuncionario;
        
             public MenuGestor(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
                 viewReserva = new ViewReserva();
                 controladorMorador = new ControladorMorador();
+                controladorGestor = new ControladorGestor();
+                controladorFuncionario = new ControladorFuncionario();
             }
 
             public override void ExibirMenu()
@@ -147,11 +151,15 @@ namespace TP_POO_24200_24204
                     Console.WriteLine("3. Cancelar Reserva");
                     Console.WriteLine("4. Buscar Reserva");
                     Console.WriteLine("5. Alterar Cadastro");
-                    Console.WriteLine("6. Listar Moradores");
-                    Console.WriteLine("7. Listar Utilizadores");
-                    Console.WriteLine("8. Listar Quartos");
-                    Console.WriteLine("9. Voltar ao Menu Inicial");
-                    Console.WriteLine("10. Sair");
+                    Console.WriteLine("6. Excluir Cadastro");
+                    Console.WriteLine("7. Listar Moradores");
+                    Console.WriteLine("8. Listar Utilizadores");
+                    Console.WriteLine("9. Listar Quartos");
+                    Console.WriteLine("10. Listar Gestores");
+                    Console.WriteLine("11. Listar Funcionários");
+                    Console.WriteLine("12. Listar Reservas");
+                    Console.WriteLine("13. Voltar ao Menu Inicial");
+                    Console.WriteLine("14. Sair");
 
                     Console.Write("Escolha uma opção: ");
                     string opcao = Console.ReadLine();
@@ -184,21 +192,40 @@ namespace TP_POO_24200_24204
                             break;
 
                         case "6":
+                            Console.WriteLine("Opção 6 - Excluir Cadastro");
+                            controladorUtilizador.MenuExcluirUtilizador();
+                            break;
+
+                        case "7":
                             Console.WriteLine("Opção 6 - Listar Moradores");
                             controladorMorador.ImprimirListaDeMoradores();
                             break;
 
-                        case "7":
+                        case "8":
                             Console.WriteLine("Opção 7 - Listar Utilizadores");
                             controladorUtilizador.ImprimirListaDeUtilizadores();
                             break;
 
-                        case "8":
+                        case "9":
                             Console.WriteLine("Opção 8 - Listar Quartos");
                             ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
                             break;
 
-                        case "9":
+                        case "10":
+                            Console.WriteLine("Opção 9 - Listar Gestores");
+                            controladorGestor.ImprimirListaDeGestores();
+                            break;
+
+                        case "11":Console.WriteLine("Opção 10 - Listar Funcionários");
+                            controladorFuncionario.ImprimirListaDeFuncionarios();
+                            break;
+
+                        case "12":
+                            Console.WriteLine("Opção 11 - Listar Reservas");
+                            viewReserva.ImprimirListaReservaAtual();
+                            break;
+
+                        case "13":
                             Console.WriteLine("Opção 9 - Voltar ao Menu Inicial");
                             Console.Clear();
                             MenuInicial menuInicial = new MenuInicial(controladorUtilizador);
@@ -206,7 +233,7 @@ namespace TP_POO_24200_24204
                             continuar = false;
                             break;
 
-                        case "10":
+                        case "14":
                                 Console.WriteLine("Saindo...");
                                 continuar = false;
                                 break;
@@ -252,12 +279,15 @@ namespace TP_POO_24200_24204
                     Console.WriteLine("1. Realizar Reserva");
                     Console.WriteLine("2. Alterar Reserva");
                     Console.WriteLine("3. Cancelar Reserva");
-                    Console.WriteLine("4. Alterar Cadastro");
-                    Console.WriteLine("5. Listar Moradores");
-                    Console.WriteLine("6. Alterar Adimplência de um Morador");
-                    Console.WriteLine("7. Listar Quartos");
-                    Console.WriteLine("8. Voltar ao Menu Inicial");
-                    Console.WriteLine("9. Sair");
+                    Console.WriteLine("4. Buscar Reserva");
+                    Console.WriteLine("5. Listar Reservas");                
+                    Console.WriteLine("6. Alterar Cadastro");
+                    Console.WriteLine("7. Excluir Cadastro");
+                    Console.WriteLine("8. Listar Moradores");
+                    Console.WriteLine("9. Alterar Adimplência de um Morador");
+                    Console.WriteLine("10. Listar Quartos");
+                    Console.WriteLine("11. Voltar ao Menu Inicial");
+                    Console.WriteLine("12. Sair");
 
                     Console.Write("Escolha uma opção: ");
                     string opcao = Console.ReadLine();
@@ -280,26 +310,41 @@ namespace TP_POO_24200_24204
                             break;
 
                         case "4":
+                            Console.WriteLine("Opção 4 - Buscar Reserva");
+                            viewReserva.MenuBuscarReserva();
+                            break;
+
+                        case "5":
+                            Console.WriteLine("Opção 5 - Listar Reservas");
+                            viewReserva.ImprimirListaReservaAtual();
+                            break;
+
+                        case "6":
                             Console.WriteLine("Opção 4 - Alterar Cadastro");
                             controladorUtilizador.MenuEditarUtilizador();
                             break;
 
-                        case "5":
+                        case "7":
+                            Console.WriteLine("Opção 5 - Excluir Cadastro");
+                            controladorUtilizador.MenuExcluirUtilizador();
+                            break;
+
+                        case "8":
                             Console.WriteLine("Opção 5 - Listar Moradores");
                             controladorMorador.ImprimirListaDeMoradores();
                             break;
 
-                        case "6":
+                        case "9":
                             Console.WriteLine("Opção 6 - Alterar Adimplência de um Morador");
                             controladorMorador.EditarAdimplenciaMorador();
                             break;
 
-                        case "7":
+                        case "10":
                             Console.WriteLine("Opção 7 - Listar Quartos");
                             ControladorQuarto.ImprimirListaDeQuartos(Quarto.listaDeQuartos);
                             break;
 
-                        case "8":
+                        case "11":
                             Console.WriteLine("Opção 8 - Voltar ao Menu Inicial");
                             Console.Clear();
                             MenuInicial menuInicial = new MenuInicial(controladorUtilizador);
@@ -307,7 +352,7 @@ namespace TP_POO_24200_24204
                             continuar = false;
                             break;
 
-                        case "9":
+                        case "12":
                             Console.WriteLine("Saindo...");
                             continuar = false;
                             break;
