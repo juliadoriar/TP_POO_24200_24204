@@ -9,10 +9,19 @@ namespace TP_POO_24200_24204
     internal class MenuInicial
     {
         private ControladorUtilizador controladorUtilizador;
+        private ControladorMorador controladorMorador;
+        private ControladorGestor controladorGestor;
+        private ControladorFuncionario controladorFuncionario;
 
         public MenuInicial(ControladorUtilizador controladorUtilizador)
         {
             this.controladorUtilizador = controladorUtilizador;
+            controladorMorador = new ControladorMorador();
+            controladorGestor = new ControladorGestor();
+            controladorFuncionario = new ControladorFuncionario();
+            controladorUtilizador.SetControladorMorador(controladorMorador);
+            controladorUtilizador.SetControladorGestor(controladorGestor);
+            controladorUtilizador.SetControladorFuncionario(controladorFuncionario);
         }
         public void ExibirMenuInicial()
         {
