@@ -9,7 +9,7 @@ namespace TP_POO_24200_24204
 {
     public class ControladorGestor
     {
-        public static Gestor CriarGestor(Utilizador utilizador)
+        public Gestor CriarGestor(Utilizador utilizador)
         {
             Gestor gestor = new Gestor(
                 utilizador.GetUtiId(),
@@ -31,53 +31,81 @@ namespace TP_POO_24200_24204
             return gestor;
         }
 
-        public static void AdicionarGestor(Gestor novoGestor)
+        public bool AdicionarGestor(Gestor novoGestor)
         {
-            if (Gestor.listaDeGestores.Exists(Gestor => //Função lambda
-                    novoGestor.GetDocIdentificacao() == Gestor.GetDocIdentificacao() &&
-                    novoGestor.GetTipoDocIdentificacao() == Gestor.GetTipoDocIdentificacao()))
+            List<Gestor> listaExistente = Gestor.CarregarListaDeGestores("gestor.json");
+            
+            // Verificar se o gestor já existe na lista através do documento de identificação
+            if (!ValidarGestor(novoGestor, listaExistente))
             {
-                Console.WriteLine("O gestor já existe na lista.");
+                return false;
             }
             else
             {
-                Gestor.listaDeGestores.Add(novoGestor); 
-                SalvarListaFicheiro("gestor.json", Gestor.listaDeGestores);
+                listaExistente.Add(novoGestor); // Adicionar gestor à lista de gestores
+                Gestor.SalvarListaFicheiro("gestor.json", listaExistente); // Salvar lista de gestores no ficheiro
+                return true;
             }
+
         }
 
-    #region Json
-    /// <summary>
-    /// Método para salvar a lista de moradores no ficheiro JSON
-    /// </summary>
-    /// <param name="caminhoArquivo"></param>
-    /// <param name="listaGestores"></param>
-    public static void SalvarListaFicheiro(string caminhoArquivo, List<Gestor> listaGestores)
-    {
-        string json = JsonConvert.SerializeObject(listaGestores, Newtonsoft.Json.Formatting.Indented); // Serializar lista de gestores
-        File.WriteAllText(caminhoArquivo, json); // Escrever no ficheiro
-    }
-
-    /// <summary>
-    /// Método para carregar a lista de moradores do ficheiro JSON
-    /// </summary>
-    /// <param name="caminhoArquivo"></param>
-    /// <returns></returns>
-    public static List<Gestor> CarregarListaDeGestores(string caminhoArquivo)
-    {
-        if (File.Exists(caminhoArquivo)) // Verificar se o ficheiro existe
+        #region Imprimir Gestor
+        /// <summary>
+        /// Método para imprimir a lista de gestores
+        /// </summary>
+        public void ImprimirListaDeGestores()
         {
-            string json = File.ReadAllText(caminhoArquivo); // Ler o ficheiro
+            List<Gestor> listaDeGestoresAtual = Gestor.CarregarListaDeGestores("gestor.json"); // Carregar lista de Gestores do ficheiro
 
-            if (!string.IsNullOrEmpty(json)) // Verificar se o JSON não está vazio
+            ExibirDetalhesListaGestor(listaDeGestoresAtual);
+
+        }
+
+        public void ExibirDetalhesListaGestor(List<Gestor> listaDeGestoresAtual)
+        {
+            if (listaDeGestoresAtual == null)
             {
-                return JsonConvert.DeserializeObject<List<Gestor>>(json);
+                Console.WriteLine("Não há Gestores registados");
+            }
+            else
+            {
+                Console.WriteLine("Lista de Gestores");
+                Console.WriteLine("--------------------------------------------");
+                foreach (Gestor gestor in listaDeGestoresAtual)
+                {
+                    Console.WriteLine($"ID: {gestor.GetUtiId()}, Nome: {gestor.GetNomeUti()}, Email: {gestor.GetEmail()}, Data de Nascimento: {gestor.GetDataNascimento():dd-MM-yyyy}, Morada: {gestor.GetMorada()}, Código Postal: {gestor.GetCodigoPostal()}, Localidade: {gestor.GetLocalidade()}, Contacto Telefone: {gestor.GetContactoTelefone()}, Documento de Identificação: {gestor.GetDocIdentificacao()}, Tipo de Documento de Identificação: {gestor.GetTipoDocIdentificacao()}, IBAN: {gestor.GetIBAN()}, Tipo de Utilizador: {gestor.GetTipoUtilizador()}, Ativo: {gestor.GetIsAtivo()} Data de Registo: {gestor.GetDataRegisto():dd-MM-yyyy}");
+                }
             }
         }
 
-        return new List<Gestor>(); // Se o ficheiro não existir ou estiver vazio, retorna uma lista vazia
-    }
+        /// <summary>
+        /// Método para exibir os detalhes de um único gestor
+        /// </summary>
+        /// <param name="utilizador"></param>
+        public void ExibirDetalhesGestor(Gestor gestor)
+        {
+            Console.WriteLine($"ID: {gestor.GetUtiId()}, Nome: {gestor.GetNomeUti()}, Email: {gestor.GetEmail()}, Data de Nascimento: {gestor.GetDataNascimento():dd-MM-yyyy}, Morada: {gestor.GetMorada()}, Código Postal: {gestor.GetCodigoPostal()}, Localidade: {gestor.GetLocalidade()}, Contacto Telefone: {gestor.GetContactoTelefone()}, Documento de Identificação: {gestor.GetDocIdentificacao()}, Tipo de Documento de Identificação: {gestor.GetTipoDocIdentificacao()}, IBAN: {gestor.GetIBAN()}, Tipo de Utilizador: {gestor.GetTipoUtilizador()}, Ativo: {gestor.GetIsAtivo()} Data de Registo: {gestor.GetDataRegisto():dd-MM-yyyy}");
+        }
         #endregion
+
+        #region Métodos Auxiliares
+        public bool ValidarGestor(Gestor novoGestor, List<Gestor> listaExistente)
+        {
+
+            if (listaExistente.Exists(gestor => //Função lambda
+                   novoGestor.GetDocIdentificacao() == gestor.GetDocIdentificacao() &&
+                   novoGestor.GetTipoDocIdentificacao() == gestor.GetTipoDocIdentificacao()))
+            {
+                Console.WriteLine("O gestor já existe na lista.");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
+
     }
 
 }

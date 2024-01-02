@@ -17,11 +17,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TP_POO_24200_24204.ControladorFuncionario.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TP_POO_24200_24204.ControladorFuncionario.html",
+          "hash": "uDFnZ4xXEHHTBWiozoMHA24ZzTmGlgQIZxeebBrsb5M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TP_POO_24200_24204.ControladorGestor.yml",
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorGestor.html",
-          "hash": "+YPug8jk9fYIKKJidM2mHoLivngVoTGn6wWyIPLFVy4="
+          "hash": "ZBBPadVgv6/Z7iFb8oHJVE/dWXBXTvc7eSJGis1g4tY="
         }
       },
       "is_incremental": true,
@@ -33,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorMorador.html",
-          "hash": "8Wz+s9lmZr3h3MrYWmeeNq/PwftKDXM+9zGTh4xy9NY="
+          "hash": "JdMYQJb/HmHK+BnPq3EpzmfQ7cry0jpL+kNFGTmmdxk="
         }
       },
       "is_incremental": true,
@@ -45,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorQuarto.html",
-          "hash": "R3eJhfwqpYwtpav4bOd9jmmvtyGac0No8upxXYuJNlk="
+          "hash": "6SWFluY10bQ3vpoCqNXb6FQrwBY3GitOtJMmOWkDTZA="
         }
       },
       "is_incremental": true,
@@ -57,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorReserva.TipoCampo.html",
-          "hash": "fUQEoFXGJJDxupF095erSBV87UkQo0md31zikb29kps="
+          "hash": "41I+Brm64BqYMT80mL62Nmu12yacg67nDzy1N8S1y74="
         }
       },
       "is_incremental": true,
@@ -69,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorReserva.html",
-          "hash": "MjE/QUdfbSHG2UB8+t+5nBb8yf2Vhan2V3z0zEQJ2aY="
+          "hash": "/9oiCDnrbawyVPhCVJOs74vtF5zniDDF8eqI3kE0RNc="
         }
       },
       "is_incremental": true,
@@ -81,10 +93,22 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ControladorUtilizador.html",
-          "hash": "eTRRqm+IyYgfv4vn9ahSeJVMU7e0RRTZiyhT33U4KOw="
+          "hash": "bAX6kvpKnBU1Zu5n7QhvSqq3mJTP/Kf/Khjdtx9fKX8="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TP_POO_24200_24204.Funcionario.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TP_POO_24200_24204.Funcionario.html",
+          "hash": "DvJ1AQKre8qcoCp9v3WcMg2ZO5PMEKMjjqgSqOV/2BU="
+        }
+      },
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -93,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Gestor.html",
-          "hash": "rtrkoXdoMq6Vzg/TCHPtyaylQAU09xWIUYmG89nTRfs="
+          "hash": "3MT+tbHiphbF/4RNddIs4LHvNsKQ9qTaT17dRG2m7/U="
         }
       },
       "is_incremental": true,
@@ -105,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.IMenuUtilizador.html",
-          "hash": "cPk56remv35ZMOwt14h/z7iizjWL9J9an+kUvZ/SiU4="
+          "hash": "stFoGM0YS+fzkkzrK/yGKHNDvS3yNEZDChBl6YfI8Yo="
         }
       },
       "is_incremental": true,
@@ -117,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuFuncionario.html",
-          "hash": "UjdCQK5CpSpzG61JVmoPtPN4RbfEBf7TA/DVMhp3w0U="
+          "hash": "stFVuvbFX6f+sN4TtQx8X33h56WFREgpcLhbWcGvdiQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -129,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuGestor.html",
-          "hash": "sNYw/2C31S83L5E2TMjYc6Zn6aGcAwN+tfKsDoy02CU="
+          "hash": "TE0JuW9Qe1lEykn0PvBrqXLU8d1wkRZScn39oxEd2Yo="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -141,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuMorador.html",
-          "hash": "LewO0Y8o6vkI/tQ0TJXgbLtlv4bZunKT9X47ouU999A="
+          "hash": "vnCipsV3pOuCOvBskfOTAzOuCnBbThqomznF14DEX+A="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuResidencia.html",
-          "hash": "aCdJfBjTc5xgCtjqGK2ioa2ymkDcTab330HHZHV+I9E="
+          "hash": "XU/fnArVhfXbqjfjgt+Mpp9jsi89W9zCDtZ9xxJgsDY="
         }
       },
       "is_incremental": true,
@@ -165,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.MenuUtilizadorBase.html",
-          "hash": "wO2Sg1/YsbugLyiI9bRyIFuIu8QRuf/k/9JzceSr4fQ="
+          "hash": "t4zEr2kQWVOsUKluul0h4ZG4zxH5el///XCsEiWPk54="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -177,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Morador.html",
-          "hash": "yPixZrd4PBIT6VI/w6HgiTRkLcFZ7IaeeTR5nn8Xlqk="
+          "hash": "AjK0/Oz+EpBjEIradcQPvEfp5hfBcdUYcpgZt73gQoU="
         }
       },
       "is_incremental": true,
@@ -189,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Quarto.html",
-          "hash": "WSulE3X8MSKxhE+rrdjbc4S2hxO1PgyvXfMn49BjSh0="
+          "hash": "o9s6vr0IX4VhduHYPmpwSfsAD+VOzXbQWfKpD5Asfz0="
         }
       },
       "is_incremental": true,
@@ -201,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Reserva.html",
-          "hash": "Yu6PypalTpLXSzSGrnr+TQW9M78N3s89Wwaxv5+wM+8="
+          "hash": "bwIaPrU1Ty3WJI4JdQ8kpuLLoSAc4YHGTBNebCBrBiA="
         }
       },
       "is_incremental": true,
@@ -213,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.Utilizador.html",
-          "hash": "Qbsxz8ACLE9AWEL/0XzNJC6e98ulh3h+QGqAEG10lr8="
+          "hash": "FR6CEfhtL6l68eu6ZZs821GLbajksW66kqSI7KHvtBM="
         }
       },
       "is_incremental": true,
@@ -225,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.ViewReserva.html",
-          "hash": "IPKDKMr+FRPzIFbLocar3jCeSVzqpAm94dHXcvvjr/0="
+          "hash": "kqc9GqBSGjzlqXQ6DZDUW98RDa3ZXhi0yirMP5QgLmI="
         }
       },
       "is_incremental": true,
@@ -237,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TP_POO_24200_24204.html",
-          "hash": "wwi9r+xaHV6FzygHSE5yBdul1QXd/9KpCVzD6dDlFCQ="
+          "hash": "A0K3QSmubugPFNQGhnQwoCn5Kvaco7rOKbK5VoWXPIE="
         }
       },
       "is_incremental": false,
@@ -261,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "XltGtQwkvpCeMRdW5iAKXF4yfxclAESEDxeMeKj2XJI="
+          "hash": "cxh/GUFX6E3fGDrgTPIfkW1xySQWoZnLAjdx7y4Nxuk="
         }
       },
       "is_incremental": false,
@@ -334,8 +358,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 19,
-          "skipped_file_count": 18
+          "total_file_count": 21,
+          "skipped_file_count": 19
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
