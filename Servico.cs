@@ -9,6 +9,17 @@ namespace TP_POO_24200_24204
 {
     internal class Servico
     {
+        /// <summary>
+        /// Método para criar um ficheiro JSON
+        /// </summary>
+        /// <param name="caminhoArquivo"></param>
+        public static void CriarFicheiroJson(string caminhoArquivo)
+        {
+            if (!File.Exists(caminhoArquivo))
+            {
+                File.Create(caminhoArquivo).Close();
+            }
+        }
         #region Leitura de dados
         /// <summary>
         /// Método para ler uma string

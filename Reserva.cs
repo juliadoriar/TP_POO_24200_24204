@@ -63,17 +63,6 @@ namespace TP_POO_24200_24204
         }
 
         #region JSON
-        /// <summary>
-        /// Método para criar um ficheiro JSON
-        /// </summary>
-        /// <param name="caminhoArquivo"></param>
-        public static void CriarFicheiroJson(string caminhoArquivo)
-        {
-            if (!File.Exists(caminhoArquivo))
-            {
-                File.Create(caminhoArquivo).Close();
-            }
-        }
 
         /// <summary>
         /// Método para salvar a lista de reservas no ficheiro JSON

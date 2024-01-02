@@ -148,11 +148,11 @@ namespace TP_POO_24200_24204
                 // Busca a reserva escolhida
                 Reserva reservaEscolhida = reservasEncontradas.FirstOrDefault(r => r.ReservaId == idEscolhido);
 
-                // Exibe detalhes da reserva escolhida
-                ExibirDetalhesReserva(reservaEscolhida);
-
                 if (reservaEscolhida != null)
                 {
+                    // Exibe detalhes da reserva escolhida
+                    ExibirDetalhesReserva(reservaEscolhida);
+
                     // Chama o controlador para editar a reserva
                     controladorReserva.EditarReserva(reservaEscolhida);
                 }
@@ -220,7 +220,7 @@ namespace TP_POO_24200_24204
         }
 
         /// <summary>
-        /// Obtém o novo valor para o campo escolhido
+        /// Obtem o novo valor para o campo escolhido
         /// </summary>
         /// <param name="reservaEscolhida"></param>
         /// <param name="tipoCampo"></param>
@@ -309,7 +309,7 @@ namespace TP_POO_24200_24204
 
         #region Excluir Reserva
         /// <summary>
-        /// Método para excluir uma reserva
+        /// Menu para excluir uma reserva
         /// </summary>
         public void MenuExcluirReserva()
         {
@@ -327,11 +327,11 @@ namespace TP_POO_24200_24204
                 // Busca a reserva escolhida
                 Reserva reservaEscolhida = reservasEncontradas.FirstOrDefault(r => r.ReservaId == idEscolhido);
 
-                // Exibe detalhes da reserva escolhida
-                ExibirDetalhesReserva(reservaEscolhida);
-
                 if (reservaEscolhida != null)
                 {
+                    // Exibe detalhes da reserva escolhida
+                    ExibirDetalhesReserva(reservaEscolhida);
+
                     // Chama o controlador para excluir a reserva
                     controladorReserva.ExcluirReserva(reservaEscolhida);
                 }
