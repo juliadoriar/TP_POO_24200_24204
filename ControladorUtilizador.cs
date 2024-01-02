@@ -48,9 +48,6 @@ namespace TP_POO_24200_24204
 
         #region Lista de Utilizadores
 
-
-
-        public event Action<Utilizador> UtilizadorCriado;
         #region CRUD Utilizador
         #region Criar Utilizador
 
@@ -134,7 +131,6 @@ namespace TP_POO_24200_24204
                    controladorMorador.AdicionarMorador(morador); // Adicionar morador à lista de moradores
 
                 }
-
                 else if (novoUtilizador.GetTipoUtilizador() == "Funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionario" || novoUtilizador.GetTipoUtilizador() == "Funcionario")
                {
                    Funcionario funcionario = controladorFuncionario.CriarFuncionario(novoUtilizador);
@@ -147,8 +143,6 @@ namespace TP_POO_24200_24204
                }
 
                return true;
-
-
             }
         }
         #endregion
@@ -485,7 +479,6 @@ namespace TP_POO_24200_24204
             return utilizadorEscolhido;
         }
 
-
         /// <summary>
         /// Método para editar um utilizador
         /// </summary>
@@ -526,11 +519,13 @@ namespace TP_POO_24200_24204
                 }
                 else if (utilizadorExistente.GetTipoUtilizador() == "Funcionário" || utilizadorExistente.GetTipoUtilizador() == "funcionário" || utilizadorExistente.GetTipoUtilizador() == "funcionario" || utilizadorExistente.GetTipoUtilizador() == "Funcionario")
                 {
-                    //controladorFuncionario.EditarFuncionario(utilizadorExistente);
+                    Funcionario funcionario = controladorFuncionario.CriarFuncionario(utilizadorExistente);
+                    controladorFuncionario.EditarFuncionario(funcionario);
                 }
                 else if (utilizadorExistente.GetTipoUtilizador() == "Gestor" || utilizadorExistente.GetTipoUtilizador() == "gestor")
                 {
-                    //controladorGestor.EditarGestor(utilizadorExistente);
+                    Gestor gestor = controladorGestor.CriarGestor(utilizadorExistente);
+                    controladorGestor.EditarGestor(gestor);
                 }
 
                 Console.WriteLine("Atualização realizada com sucesso.");
@@ -633,22 +628,23 @@ namespace TP_POO_24200_24204
                 if (utilizador.GetTipoUtilizador() == "Morador" || utilizador.GetTipoUtilizador() == "morador")
                 {
                     Morador morador = controladorMorador.CriarMorador(utilizador);
-                    controladorMorador.EditarMorador(morador);
+                    controladorMorador.ExcluirMorador(morador);
                 }
                 else if (utilizador.GetTipoUtilizador() == "Funcionário" || utilizador.GetTipoUtilizador() == "funcionário" || utilizador.GetTipoUtilizador() == "funcionario" || utilizador.GetTipoUtilizador() == "Funcionario")
                 {
-                    //controladorFuncionario.EditarFuncionario(utilizadorExistente);
+                    Funcionario funcionario = controladorFuncionario.CriarFuncionario(utilizador);
+                    controladorFuncionario.ExcluirFuncionario(funcionario);
                 }
                 else if (utilizador.GetTipoUtilizador() == "Gestor" || utilizador.GetTipoUtilizador() == "gestor")
                 {
-                    //controladorGestor.EditarGestor(utilizadorExistente);
+                    Gestor gestor = controladorGestor.CriarGestor(utilizador);
+                    controladorGestor.ExcluirGestor(gestor);
                 }
 
                 Console.WriteLine("Exclusão realizada com sucesso.");
             }
         }
         #endregion
-
 
         #region Imprimir Utilizador
         /// <summary>
@@ -697,6 +693,12 @@ namespace TP_POO_24200_24204
         #endregion
 
         #region Autenticação
+        /// <summary>
+        /// Método para autenticar um utilizador
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
         public static Utilizador AutenticarUtilizador(string email, string senha)
         {
             // Carregar a lista de utilizadores do arquivo JSON
@@ -706,6 +708,10 @@ namespace TP_POO_24200_24204
             return listaDeUtilizadores.FirstOrDefault(u => u.GetEmail() == email && u.GetPassword() == senha);
         }
 
+        /// <summary>
+        /// Método para realizar o login de um utilizador
+        /// </summary>
+        /// <returns></returns>
         public static Utilizador Login()
         {
 
