@@ -14,6 +14,9 @@ namespace TP_POO_24200_24204
     public class ControladorUtilizador
     {
         private ControladorMorador controladorMorador;
+        private ControladorGestor controladorGestor;
+        private ControladorFuncionario controladorFuncionario;
+        
 
         /// <summary>
         /// Instancia um objeto de ControladorMorador
@@ -24,7 +27,32 @@ namespace TP_POO_24200_24204
             this.controladorMorador = controladorMorador;
         }
 
+        /// <summary>
+        /// Instancia um objeto de ControladorFuncionario
+        /// </summary>
+        /// <param name="controladorGestor"></param>
+        public void SetControladorGestor(ControladorGestor controladorGestor)
+        {
+            controladorGestor = new ControladorGestor();
+        }
+
+        /// <summary>
+        /// Instancia um objeto de ControladorFuncionario
+        /// </summary>
+        /// <param name="controladorFuncionario"></param>
+        public void SetControladorFuncionario(ControladorFuncionario controladorFuncionario)
+        {
+            controladorFuncionario = new ControladorFuncionario();
+        }
+
+        public ControladorUtilizador()
+        {
+            controladorGestor = new ControladorGestor();
+            controladorMorador = new ControladorMorador();
+            controladorFuncionario = new ControladorFuncionario();
+        }
         #region Lista de Utilizadores
+
 
 
         public event Action<Utilizador> UtilizadorCriado;
@@ -114,13 +142,13 @@ namespace TP_POO_24200_24204
                     controladorMorador.CriarMorador(novoUtilizador);
                 }
 
-               //else if (novoUtilizador.GetTipoUtilizador() == "Funcionário")
-               //{
-               //    Funcionario.CriarFuncionario(novoUtilizador);
-               //}
-               else if (novoUtilizador.GetTipoUtilizador() == "Gestor")
+               else if (novoUtilizador.GetTipoUtilizador() == "Funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionário" || novoUtilizador.GetTipoUtilizador() == "funcionario" || novoUtilizador.GetTipoUtilizador() == "Funcionario")
                {
-                   ControladorGestor.CriarGestor(novoUtilizador);
+                   controladorFuncionario.CriarFuncionario(novoUtilizador);
+               }
+               else if (novoUtilizador.GetTipoUtilizador() == "Gestor" || novoUtilizador.GetTipoUtilizador() == "gestor")
+               {
+                   controladorGestor.CriarGestor(novoUtilizador);
                }
 
                return true;
