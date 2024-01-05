@@ -48,7 +48,7 @@ namespace TP_POO_24200_24204
             viewReserva = new ViewReserva();
             controladorReserva = new ControladorReserva();
             viewReserva.SetControladorReserva(controladorReserva);
-
+            controladorReserva.SetViewReserva(viewReserva);
         }
 
         public override void ExibirMenu()
@@ -135,6 +135,7 @@ namespace TP_POO_24200_24204
             private ControladorGestor controladorGestor;
             private ControladorFuncionario controladorFuncionario;
             private ControladorReserva controladorReserva;
+        private Reserva reserva;
        
             public MenuGestor(Utilizador utilizador) : base(utilizador)
             {
@@ -142,6 +143,8 @@ namespace TP_POO_24200_24204
                 viewReserva = new ViewReserva();
                 controladorReserva = new ControladorReserva();
                 viewReserva.SetControladorReserva(controladorReserva);
+                controladorReserva.SetViewReserva(viewReserva);
+                controladorReserva.SetModelReserva(reserva);
                 controladorMorador = new ControladorMorador();
                 controladorGestor = new ControladorGestor();
                 controladorFuncionario = new ControladorFuncionario();
@@ -278,6 +281,7 @@ namespace TP_POO_24200_24204
             private ControladorReserva controladorReserva;
             private ControladorGestor controladorGestor;
             private ControladorFuncionario controladorFuncionario;
+            private Reserva reserva;
             public MenuFuncionario(Utilizador utilizador) : base(utilizador)
             {
                 controladorUtilizador = new ControladorUtilizador();
@@ -290,7 +294,8 @@ namespace TP_POO_24200_24204
                 controladorUtilizador.SetControladorFuncionario(controladorFuncionario);
                 controladorReserva = new ControladorReserva();
                 viewReserva.SetControladorReserva(controladorReserva);
-                
+                controladorReserva.SetViewReserva(viewReserva);
+                controladorReserva.SetModelReserva(reserva);                
             }
 
             public override void ExibirMenu()
